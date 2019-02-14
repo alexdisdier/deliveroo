@@ -50,15 +50,19 @@ class App extends Component {
   }
 
   render() {
-    const { restaurant, menu } = this.state;
     return (
       <div className="App">
         <Header />
-        <Banner restaurant={restaurant} />
+        <Banner restaurant={this.state.restaurant} />
 
-        {this.renderSection()}
+        <div className="container">
+          <main>
+            <div className="sections">{this.renderSection()}</div>
 
-        <Basket />
+            <Basket />
+          </main>
+        </div>
+
         <Footer />
       </div>
     );

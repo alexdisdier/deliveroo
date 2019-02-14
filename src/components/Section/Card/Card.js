@@ -1,15 +1,27 @@
 import React from "react";
+import LinesEllipsis from "react-lines-ellipsis";
 
 import "./Card.css";
+
 const card = props => {
   return (
     <div className="card">
       <div className="card-content">
-        <h3>{props.title}</h3>
-        <p>{props.description}</p>
-        <span>{props.price}</span>
+        <h6>{props.title}</h6>
+        <LinesEllipsis
+          className="card-description"
+          text={props.description}
+          maxLine="2"
+          ellipsis="..."
+          trimRight
+          basedOn="letters"
+        />
+        <span className="card-price">{props.price}</span>
       </div>
-      <img src={props.picture} alt={props.title} />
+      <div
+        className="card-img"
+        style={{ backgroundImage: `url(${props.picture})` }}
+      />
     </div>
   );
 };

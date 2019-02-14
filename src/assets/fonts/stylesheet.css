@@ -1,0 +1,37 @@
+/* source: https://transfonter.org/ */
+
+@font-face {
+  font-family: 'Stratos Deliveroo Web';
+  src: url('StratosDeliverooWeb-SemiBold.eot');
+  src: url('StratosDeliverooWeb-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('StratosDeliverooWeb-SemiBold.woff2') format('woff2'),
+    url('StratosDeliverooWeb-SemiBold.woff') format('woff'),
+    url('StratosDeliverooWeb-SemiBold.ttf') format('truetype'),
+    url('StratosDeliverooWeb-SemiBold.svg#StratosDeliverooWeb-SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('IBMPlexSans.eot');
+  src: url('IBMPlexSans.eot?#iefix') format('embedded-opentype'),
+    url('IBMPlexSans.woff2') format('woff2'),
+    url('IBMPlexSans.woff') format('woff'),
+    url('IBMPlexSans.ttf') format('truetype'),
+    url('IBMPlexSans.svg#IBMPlexSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('IBMPlexSans-Bold.eot');
+  src: url('IBMPlexSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('IBMPlexSans-Bold.woff2') format('woff2'),
+    url('IBMPlexSans-Bold.woff') format('woff'),
+    url('IBMPlexSans-Bold.ttf') format('truetype'),
+    url('IBMPlexSans-Bold.svg#IBMPlexSans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}

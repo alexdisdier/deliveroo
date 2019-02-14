@@ -1,0 +1,485 @@
+@font-face {
+  font-family: 'Stratos Deliveroo Web';
+  src: url('../fonts/StratosDeliverooWeb-SemiBold.eot');
+  src: url('../fonts/StratosDeliverooWeb-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/StratosDeliverooWeb-SemiBold.woff2') format('woff2'),
+    url('../fonts/StratosDeliverooWeb-SemiBold.woff') format('woff'),
+    url('../fonts/StratosDeliverooWeb-SemiBold.ttf') format('truetype'),
+    url('../fonts/StratosDeliverooWeb-SemiBold.svg#StratosDeliverooWeb-SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans.eot');
+  src: url('../fonts/IBMPlexSans.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans.woff2') format('woff2'),
+    url('../fonts/IBMPlexSans.woff') format('woff'),
+    url('../fonts/IBMPlexSans.ttf') format('truetype'),
+    url('../fonts/IBMPlexSans.svg#IBMPlexSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans-Bold.eot');
+  src: url('../fonts/IBMPlexSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-Bold.woff2') format('woff2'),
+    url('../fonts/IBMPlexSans-Bold.woff') format('woff'),
+    url('../fonts/IBMPlexSans-Bold.ttf') format('truetype'),
+    url('../fonts/IBMPlexSans-Bold.svg#IBMPlexSans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* overflow hidden must be applied to parents so their children take it into account */
+
+html {
+  --color-green-deliveroo: #00aaa7;
+  --color-white: #fff;
+  --color-black: #222;
+  --color-text-main: #222;
+  --font-family-titles: 'Stratos Deliveroo Web';
+  --font-family-main: 'IBM Plex Sans';
+  --font-weight-title: 600;
+  --font-style-normal: normal;
+  --font-size-title: 40px;
+}
+
+body {
+  font-size: 16px;
+  font-family: var(--font-family-titles);
+  font-weight: var(--font-weight-title);
+  font-style: var(--font-style-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container-fluid {
+  max-width: 1024px;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.hidden-xs {
+  display: none;
+}
+
+
+a:hover,
+a {
+  text-decoration: none;
+}
+
+h2 {
+  padding-bottom: 30px;
+}
+
+header {
+  background-color: var(--color-green-deliveroo);
+  background-image: radial-gradient(ellipse at 70% top, #9cd0ce 0, transparent 40%);
+  color: var(--color-white);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: var(--color-white);
+  color: var(--color-green-deliveroo);
+  padding: 12px 24px;
+}
+
+nav svg {
+  width: 105px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-family: var(--font-family-main);
+}
+
+nav button {
+  background: transparent;
+  border: 1px solid #e8ebeb;
+  border-radius: 3px;
+  padding: 8px 16px;
+  color: var(--color-green-deliveroo);
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background-color: #F9FAFA;
+}
+
+nav i {
+  padding-right: 4px;
+}
+
+header .banner {
+  height: 500px;
+  width: 100%;
+  background-image: url('../img/new-brand-burger-mobile.png');
+  background-repeat: no-repeat;
+  background-size: auto 250px;
+  background-position: calc(50% - 100px) 10px;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.header .banner h1 {
+  position: relative;
+  color: var(--color-text-main);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  margin-right: 40px;
+}
+
+.banner-content h1 {
+  font-size: 26px;
+}
+
+.diagonal {
+  position: relative;
+  top: 200px;
+  width: 120%;
+  height: 70%;
+  background-color: #00CCBC;
+  transform: rotateZ(-6deg) translateX(-10%) translateY(20%);
+}
+
+.banner input {
+  width: 100%;
+  border: none;
+  padding-left: 10px;
+}
+
+.banner button {
+  background-color: #440063;
+  color: #fff;
+  border: none;
+  padding: 16px;
+}
+
+section {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.bg-img {
+  color: #ffff;
+  height: 150px;
+}
+
+section p {
+  margin-bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 6px;
+  font-family: var(--font-family-main);
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--color-black);
+}
+
+.first-section .col-xs-12 {
+  margin-bottom: 30px;
+}
+
+section span {
+  color: var(--color-green-deliveroo);
+  font-family: var(--font-family-main);
+  font-weight: 100;
+}
+
+.arrow-right {
+  transition: 0.3s;
+}
+
+section a:hover {
+  color: var(--color-green-deliveroo);
+  opacity: 0.8;
+}
+
+section a:hover .arrow-right {
+  color: var(--color-green-deliveroo);
+  opacity: 0.8;
+  padding-left: 10px;
+}
+
+section .col-sm-12 {
+  margin-bottom: 32px;
+}
+
+.second-section {
+  background-color: #FFEAE4;
+}
+
+.second-section h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.second-section a {
+  color: inherit;
+}
+
+.second-section a:hover {
+  color: inherit;
+}
+
+.second-section .bg-header-img {
+  transition: 0.4s;
+}
+
+.second-section a:hover .bg-header-img {
+  opacity: 0.7;
+}
+
+.bg-header-img {
+  height: 334px;
+}
+
+.third-section ul li {
+  margin-right: 16px;
+  margin-top: 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: rgb(249, 250, 250);
+}
+
+.third-section ul a {
+  font-family: 'Stratos Deliveroo Web';
+  font-weight: 600;
+  font-size: 28px;
+  color: inherit;
+}
+
+.biseau-high {
+  position: absolute;
+  height: 257px;
+  width: 100px;
+  right: -74px;
+  background-color: #ffff;
+  transform: rotateZ(8deg);
+}
+
+.biseau-low {
+  position: absolute;
+  height: 300px;
+  width: 66px;
+  right: -35px;
+  background-color: #ffff;
+  transform: rotateZ(8deg);
+  top: -15px;
+  z-index: 2;
+}
+
+.fourth-section {
+  background-color: #F9FAFA;
+}
+
+.fourth-section .col-6:not(.image) {
+  padding-top: 16px;
+}
+
+.fourth-section .row {
+  background-color: #fff;
+  margin-bottom: 16px !important;
+  overflow: hidden;
+}
+
+.fourth-section .image {
+  height: 240px;
+}
+
+.fourth-section .row,
+.fifth-section .row {
+  margin: 0;
+}
+
+.fourth-section p {
+  margin-bottom: 20px;
+}
+
+.fourth-section-column-content:last-child {
+  z-index: 3;
+  position: relative;
+}
+
+.fourth-section a,
+.fifth-section a {
+  padding: 12px 24px;
+  background-color: var(--color-green-deliveroo);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.fourth-section a:hover,
+.fifth-section a:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.fifth-section .column-content {
+  padding: 20px;
+}
+
+
+.fifth-section h3,
+.fifth-section p {
+  color: #ffffff;
+}
+
+.fifth-section .row .first-column {
+  background-color: #ff483b;
+}
+
+.fifth-section .row .second-column {
+  background-color: #ff8100;
+}
+
+.fifth-section .row .last-column {
+  background-color: #bac3c3
+}
+
+.fifth-section .col-sm-12 {
+  padding: 0;
+  height: 565px;
+}
+
+.fifth-section .image {
+  height: 280px;
+}
+
+footer {
+  background-color: #2E3333;
+}
+
+footer .container-fluid {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer .row {
+  margin: 0;
+}
+
+footer .col-3 {
+  border-radius: 3px;
+  padding: 8px 24px;
+  margin-right: 8px;
+  background-color: #434747;
+}
+
+footer .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+footer h6 {
+  font-family: "Stratos Deliveroo Web";
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+footer ul li a {
+  font-family: "IBM Plex Sans";
+  color: #fff;
+  font-weight: 100;
+  transition: 0.3s;
+}
+
+footer ul li a:hover {
+  text-decoration: none;
+  color: var(--color-green-deliveroo);
+}
+
+.social-copyright li {
+  padding-right: 24px;
+}
+
+.social-copyright i {
+  font-size: 24px;
+}
+
+.social-copyright {
+  color: #fff;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* ===== Media Query ==== */
+
+@media (min-width: 768px) {
+  .hidden-xs {
+    display: block;
+  }
+
+  nav {
+    background-color: transparent;
+  }
+
+  header .banner {
+    height: 500px;
+    width: 100%;
+    background-image: url('../img/new-brand-burger-mobile.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    overflow: hidden;
+    margin-left: 0;
+
+    background-size: auto 400px;
+    background-repeat: no-repeat;
+    background-position: 90% 70%;
+  }
+
+  /* .banner-content h1 {
+    font-size: var(--font-size-title);
+  } */
+
+  .diagonal {
+    background: transparent;
+  }
+
+  nav path {
+    fill: #ffffff;
+  }
+
+  nav ul {
+    align-items: baseline;
+    background-color: #fff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  nav ul li {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .bg-header-img {
+    height: 176px;
+  }
+}
+
+@media (min-width: 1024px) {}
