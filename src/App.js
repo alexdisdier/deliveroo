@@ -1,25 +1,65 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
+
+import "./assets/css/reset.css";
+import "./App.css";
+
+import Header from "./components/Header/Header";
+import Banner from "./components/Banner/Banner";
+import Section from "./components/Section/Section";
+import Basket from "./components/Basket/Basket";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
+  state = {
+    restaurant: {},
+    menu: {},
+    erro: null
+  };
+
+  async componentDidMount() {
+    try {
+      const response = await axios.get("https://deliveroo-api.now.sh/menu");
+      // console.log(response.data.restaurant);
+      const restaurant = response.data.restaurant;
+      // console.log(restaurant);
+      const menu = response.data.menu;
+      this.setState({
+        restaurant: restaurant,
+        menu: menu
+      });
+    } catch (error) {
+      this.setState({
+        error: "An error occurred"
+      });
+    }
+  }
+
+  renderSection() {
+    const menu = this.state.menu;
+    const render = [];
+    const keys = Object.keys(menu);
+
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const menus = menu[key];
+
+      render.push(<Section key={i} sectionTitle={key} menus={menus} />);
+    }
+    return render;
+  }
+
   render() {
+    const { restaurant, menu } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
+        <Banner restaurant={restaurant} />
+
+        {this.renderSection()}
+
+        <Basket />
+        <Footer />
       </div>
     );
   }
