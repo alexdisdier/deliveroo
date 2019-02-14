@@ -4,7 +4,7 @@ import "./Banner.css";
 
 const banner = props => {
   return (
-    <div>
+    <div className="banner">
       <span>Banner: </span>
     </div>
   );

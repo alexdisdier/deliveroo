@@ -11,7 +11,7 @@ class Section extends Component {
 
   render() {
     return (
-      <section>
+      <section className="">
         <h3>{this.props.sectionTitle}</h3>
         <div className="cards-container">
           {this.props.menus.map((e, index) => {

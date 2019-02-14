@@ -6,6 +6,7 @@ import "./App.css";
 
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
+import Menu from "./components/Menu/Menu";
 import Section from "./components/Section/Section";
 import Basket from "./components/Basket/Basket";
 import Footer from "./components/Footer/Footer";
@@ -55,13 +56,8 @@ class App extends Component {
         <Header />
         <Banner restaurant={this.state.restaurant} />
 
-        <div className="container">
-          <main>
-            <div className="sections">{this.renderSection()}</div>
-
-            <Basket />
-          </main>
-        </div>
+        <Menu />
+        <main className="container">{this.renderSection()}</main>
 
         <Footer />
       </div>
