@@ -55,6 +55,7 @@ class App extends Component {
 
   incQuantity = id => {
     const newBasket = [...this.state.basket];
+
     for (let i = 0; i < newBasket.length; i++) {
       if (newBasket[i].id === id && id !== undefined) {
         newBasket[i].quantity += 1;
@@ -93,6 +94,10 @@ class App extends Component {
       const category = categories[i];
       const menus = menu[category];
 
+      for (let i = 0; i < menus.length; i++) {
+        menus[i]["selected"] = false;
+      }
+
       if (menus.length > 1) {
         sections.push(
           <Section
@@ -101,6 +106,7 @@ class App extends Component {
             sectionTitle={category}
             menus={menus}
             addMeal={this.addMeal}
+            basket={this.state.basket}
           />
         );
       }
