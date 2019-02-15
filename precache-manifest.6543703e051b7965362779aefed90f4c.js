@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
   },
   {
-    "revision": "8ce7531a1120921902fd",
-    "url": "/deliveroo/static/css/main.a8cf0a64.chunk.css"
+    "revision": "c4cc47057c2965149d92",
+    "url": "/deliveroo/static/css/main.8db94a48.chunk.css"
   },
   {
     "revision": "ce683961fc8261d3d7da",
@@ -24,12 +24,12 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.fb0df953.woff"
   },
   {
-    "revision": "10773c9896e605e94b9267fb8574d8f6",
-    "url": "/deliveroo/static/media/IBMPlexSans.10773c98.woff2"
-  },
-  {
     "revision": "a2fc32a72e967556aa6f1d9d70051f3c",
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.a2fc32a7.woff2"
+  },
+  {
+    "revision": "10773c9896e605e94b9267fb8574d8f6",
+    "url": "/deliveroo/static/media/IBMPlexSans.10773c98.woff2"
   },
   {
     "revision": "beea3497b98d3d253bf4439792cfd522",
@@ -40,20 +40,20 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.4acf898d.woff"
   },
   {
-    "revision": "8ce7531a1120921902fd",
-    "url": "/deliveroo/static/js/main.8ce7531a.chunk.js"
+    "revision": "c4cc47057c2965149d92",
+    "url": "/deliveroo/static/js/main.c4cc4705.chunk.js"
   },
   {
     "revision": "419d20693ef4d91921ecb295cfd66b94",
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
   },
   {
-    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
-    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
-  },
-  {
     "revision": "f0ce4da31eef04404b6ab3feef4304d1",
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.f0ce4da3.eot"
+  },
+  {
+    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
+    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
   },
   {
     "revision": "f9c292e76a02eac49f225fbe4ac44e27",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans.17c4333d.svg"
   },
   {
-    "revision": "16422f3127bdeb7374e0f634d8ffc7fe",
+    "revision": "6fd63abafbf758ece2d84bc5916be20d",
     "url": "/deliveroo/index.html"
   }
 ];
