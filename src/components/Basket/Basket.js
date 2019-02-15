@@ -71,6 +71,8 @@ const basket = props => {
     </svg>
   );
 
+  let total = 0;
+
   return (
     <div className="basket-wrapper">
       <div className="basket">
@@ -80,15 +82,31 @@ const basket = props => {
         <div className="basket-content">
           <ul className="basket-content-list">
             {props.basket.map((e, index) => {
+              let price = Number(e.price) * e.quantity;
+              total += price;
               return (
                 <li key={index} className="basket-item">
                   <div className="quantity-control">
-                    <div className="quantity-decrease">{increase}</div>
+                    <div
+                      className="quantity-decrease"
+                      onClick={() => {
+                        props.incQuantity(e.id);
+                      }}
+                    >
+                      {increase}
+                    </div>
                     <span>{e.quantity}</span>
-                    <div className="quantity-increase">{decrease}</div>
+                    <div
+                      className="quantity-increase"
+                      onClick={() => {
+                        props.decQuantity(e.id);
+                      }}
+                    >
+                      {decrease}
+                    </div>
                   </div>
                   <span className="basket-item-name">{e.name}</span>
-                  <span className="basket-item-price">{e.price}&nbsp;€</span>
+                  <span className="basket-item-price">{price}&nbsp;€</span>
                 </li>
               );
             })}
@@ -98,7 +116,7 @@ const basket = props => {
           <ul>
             <li className="basket-item total">
               <span>Total</span>
-              <span className="basket-total-price">30,38</span>
+              <span className="basket-total-price">{total}&nbsp;€</span>
             </li>
           </ul>
         </div>

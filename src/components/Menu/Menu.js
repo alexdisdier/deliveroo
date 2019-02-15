@@ -42,7 +42,11 @@ const menu = props => {
             <a href="#4">Plus</a>
           </div>
         </nav>
-        <Basket basket={props.basket} />
+        <Basket
+          basket={props.basket}
+          incQuantity={props.incQuantity}
+          decQuantity={props.decQuantity}
+        />
       </div>
     </div>
   );
