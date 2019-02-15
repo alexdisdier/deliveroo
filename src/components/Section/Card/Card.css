@@ -42,9 +42,16 @@
 }
 
 .card h6 {
+  display: inline;
   font-size: 16px;
   line-height: 22px;
   color: #2e3333;
+}
+
+.card-quantity {
+  display: inline-block;
+  font-size: 14px;
+  padding-right: 5px;
 }
 
 .card-description {

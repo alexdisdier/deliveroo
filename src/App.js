@@ -85,6 +85,10 @@ class App extends Component {
     });
   };
 
+  updateQuantity = id => {
+    console.log("updating", id);
+  };
+
   renderSection() {
     const menu = this.state.menu;
     const sections = [];
@@ -96,6 +100,7 @@ class App extends Component {
 
       for (let i = 0; i < menus.length; i++) {
         menus[i]["selected"] = false;
+        menus[i]["quantity"] = 0;
       }
 
       if (menus.length > 1) {

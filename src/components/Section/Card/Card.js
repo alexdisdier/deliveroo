@@ -12,7 +12,8 @@ const card = props => {
     popular,
     addMeal,
     id,
-    selected
+    selected,
+    quantity
   } = props;
 
   let star = (
@@ -24,7 +25,7 @@ const card = props => {
       />
     </svg>
   );
-  let quantity;
+  let quantityDiv;
   let popularDiv;
   let active;
 
@@ -33,7 +34,7 @@ const card = props => {
   }
   if (selected) {
     active = "card-active";
-    // quantity = <div className="card-quantity">x 1</div>;
+    quantityDiv = <div className="card-quantity">{quantity}x</div>;
   }
 
   return (
@@ -49,7 +50,7 @@ const card = props => {
       }
     >
       <div className="card-content">
-        {quantity}
+        {quantityDiv}
         <h6>{title}</h6>
         <LinesEllipsis
           className="card-description"

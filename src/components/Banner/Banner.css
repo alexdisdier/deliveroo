@@ -22,7 +22,8 @@
 }
 
 .banner-img {
-  width: 686px;
+  max-width: 360px;
+  width: 600px;
   height: 160px;
   background-position: 50%;
   background-color: #e8ebeb;
