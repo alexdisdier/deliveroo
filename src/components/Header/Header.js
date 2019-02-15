@@ -7,7 +7,7 @@ const header = props => {
     <div className="page-header">
       <header>
         <div className="container brand-flex">
-          <a className="brand-name" href="#">
+          <a className="brand-name" href="https://alexdisdier.fr">
             <svg
               width="300"
               height="80"

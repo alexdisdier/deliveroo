@@ -39,6 +39,11 @@
   font-size: inherit;
   font-weight: inherit;
   line-height: 14px;
+  transition: 0.3s;
+}
+
+.link-bar a:hover {
+  opacity: 0.8;
 }
 
 .link-bar-grouped {

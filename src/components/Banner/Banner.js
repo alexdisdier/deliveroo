@@ -14,12 +14,11 @@ const banner = props => {
           <LinesEllipsis
             className="banner-description"
             text={restaurant.description}
-            maxLine="2"
+            maxLine="3"
             ellipsis="..."
             trimRight
             basedOn="letters"
           />
-          <span className="banner-price">{restaurant.price}</span>
         </div>
         <div
           className="banner-img"

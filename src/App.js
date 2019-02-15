@@ -14,7 +14,21 @@ class App extends Component {
   state = {
     restaurant: {},
     menu: {},
-    erro: null
+    basket: [
+      {
+        id: "1519055545-89",
+        name: "Brunch vegan",
+        price: 24.5,
+        quantity: 1
+      },
+      {
+        id: "1519055545-91",
+        name: "Fromage blanc bio au miel",
+        price: 3.5,
+        quantity: 1
+      }
+    ],
+    error: null
   };
 
   async componentDidMount() {
@@ -33,27 +47,53 @@ class App extends Component {
     }
   }
 
+  addMeal = meal => {
+    const newBasket = [...this.state.basket];
+    for (let i = 0; i < newBasket.length; i++) {
+      if (String(newBasket[i].id) !== meal.id) {
+        // console.log(newBasket[i].id);
+        // console.log(meal.id);
+        newBasket.push(meal);
+      }
+    }
+
+    this.setState({
+      basket: newBasket
+    });
+  };
+
   renderSection() {
     const menu = this.state.menu;
-    const render = [];
-    const keys = Object.keys(menu);
+    const sections = [];
+    const categories = Object.keys(menu);
 
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const menus = menu[key];
+    for (let i = 0; i < categories.length; i++) {
+      const category = categories[i];
+      const menus = menu[category];
 
-      render.push(<Section id={i} key={i} sectionTitle={key} menus={menus} />);
+      if (menus.length > 1) {
+        sections.push(
+          <Section
+            anchor={i}
+            key={i}
+            sectionTitle={category}
+            menus={menus}
+            addMeal={this.addMeal}
+          />
+        );
+      }
     }
-    return render;
+    return sections;
   }
 
   render() {
+    console.log(this.state.newBasket);
     return (
       <div className="App">
         <Header />
         <Banner restaurant={this.state.restaurant} />
 
-        <Menu />
+        <Menu basket={this.state.basket} />
         <main className="container">{this.renderSection()}</main>
 
         <Footer />

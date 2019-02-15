@@ -11,17 +11,19 @@ class Section extends Component {
 
   render() {
     return (
-      <section id={this.props.id}>
+      <section id={this.props.anchor}>
         <h3>{this.props.sectionTitle}</h3>
         <div className="cards-container">
           {this.props.menus.map((e, index) => {
             return (
               <Card
                 key={index}
+                id={e.id}
                 title={e.title}
                 description={e.description}
                 price={e.price}
                 picture={e.picture}
+                addMeal={this.props.addMeal}
               />
             );
           })}

@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  flex: 0 1 44%;
+  flex: 0 1 100%;
   display: flex;
   justify-content: space-between;
   align-self: stretch;
@@ -57,4 +57,10 @@
 
 .card-price {
   margin: 8px 8px 0 0;
+}
+
+@media only screen and (min-width: 980px) {
+  .card {
+    flex: 0 1 44%;
+  }
 }

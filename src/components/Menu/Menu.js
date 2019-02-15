@@ -39,10 +39,10 @@ const menu = props => {
             </a>
           </div>
           <div className="link-bar-grouped">
-            <a href="#">Plus</a>
+            <a href="#4">Plus</a>
           </div>
         </nav>
-        <Basket />
+        <Basket basket={props.basket} />
       </div>
     </div>
   );
