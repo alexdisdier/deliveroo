@@ -3,11 +3,13 @@ import React from "react";
 import "./Basket.css";
 
 const basket = props => {
+  // btn-disabled
+  // btn-enabled
   return (
     <div className="basket-wrapper">
       <div className="basket">
         <div className="basket-panel">
-          <div class="btn-basket btn-disabled">Valider mon panier</div>
+          <div className="btn-basket btn-disabled">Valider mon panier</div>
         </div>
         <div className="basket-content">
           <div className="basket-empty">Votre panier est vide</div>
@@ -18,3 +20,11 @@ const basket = props => {
 };
 
 export default basket;
+
+{
+  /* <div className="quantity">
+  <div className="btn-quantity-minus"></div>
+  <span>1</span>
+  <div className="btn-quantity-plus"></div>
+</div> */
+}

@@ -8,7 +8,6 @@ import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
 import Menu from "./components/Menu/Menu";
 import Section from "./components/Section/Section";
-import Basket from "./components/Basket/Basket";
 import Footer from "./components/Footer/Footer";
 
 class App extends Component {
@@ -21,9 +20,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const response = await axios.get("https://deliveroo-api.now.sh/menu");
-      // console.log(response.data.restaurant);
       const restaurant = response.data.restaurant;
-      // console.log(restaurant);
       const menu = response.data.menu;
       this.setState({
         restaurant: restaurant,
@@ -45,7 +42,7 @@ class App extends Component {
       const key = keys[i];
       const menus = menu[key];
 
-      render.push(<Section key={i} sectionTitle={key} menus={menus} />);
+      render.push(<Section id={i} key={i} sectionTitle={key} menus={menus} />);
     }
     return render;
   }

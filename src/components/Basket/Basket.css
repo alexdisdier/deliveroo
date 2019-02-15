@@ -38,6 +38,14 @@
   border-width: 0;
 }
 
+.btn-enabled {
+  color: #fff;
+  background: #00ccbc;
+  padding: 16px;
+  border-width: 0;
+  cursor: pointer;
+}
+
 .basket-content {
   position: relative;
   padding-top: 16px;

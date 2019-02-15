@@ -12,9 +12,6 @@
   box-shadow: none;
   outline: none;
   transition: box-shadow 0.2s ease-in-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   flex-direction: row;
   color: #828585;

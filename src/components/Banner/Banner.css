@@ -1,9 +1,45 @@
-.banner {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.banner-container {
   background-color: #fff;
   border-top: 1px solid #f0f0f0;
+}
+
+.banner {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  user-select: none;
+  flex-direction: row;
+  color: #828585;
+  font-weight: 300;
+}
+
+.banner-img {
+  width: 686px;
+  height: 160px;
+  background-position: 50%;
+  background-color: #e8ebeb;
+  background-size: cover;
+}
+
+.banner-content {
+  position: relative;
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+.banner h3 {
+  padding: 0 0 16px 0;
+  font-size: 28px;
+  font-family: "Stratos Deliveroo Web";
+  font-weight: 400;
+  line-height: 19px;
+  color: #2e3333;
 }
