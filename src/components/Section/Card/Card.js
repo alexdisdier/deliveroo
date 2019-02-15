@@ -5,6 +5,10 @@ import "./Card.css";
 
 const card = props => {
   const { title, description, price, picture, addMeal, id } = props;
+
+  let quantity;
+  // if ()
+
   return (
     <div
       className="card"
@@ -18,6 +22,7 @@ const card = props => {
       }
     >
       <div className="card-content">
+        {quantity}
         <h6>{title}</h6>
         <LinesEllipsis
           className="card-description"

@@ -5,7 +5,7 @@ import "./Basket.css";
 const basket = props => {
   // btn-disabled
   // btn-enabled
-  const emptyBasket = <div className="basket-empty">Votre panier est vide</div>;
+
   const increase = (
     <svg
       width="16"
@@ -71,19 +71,39 @@ const basket = props => {
     </svg>
   );
 
-  let total = 0;
+  let afterFee = 0;
+  let beforeFee = 0;
+  const deliveryFee = 2.5;
+
+  let valid;
+  let validTotal;
+  let totalDiv;
+  let basketEmpty;
+
+  if (props.basket.length === 0) {
+    valid = "btn-disabled";
+    validTotal = "hide";
+    totalDiv = <span>Votre panier est vide</span>;
+    basketEmpty = "basket-empty";
+  } else {
+    valid = "btn-enabled";
+    validTotal = "";
+    totalDiv = "";
+    basketEmpty = "";
+  }
 
   return (
     <div className="basket-wrapper">
       <div className="basket">
         <div className="basket-panel">
-          <div className="btn-basket btn-enabled">Valider mon panier</div>
+          <div className={`btn-basket ${valid}`}>Valider mon panier</div>
         </div>
         <div className="basket-content">
           <ul className="basket-content-list">
             {props.basket.map((e, index) => {
-              let price = Number(e.price) * e.quantity;
-              total += price;
+              let price = (Number(e.price) * e.quantity).toFixed(2);
+              beforeFee = beforeFee + Number(price);
+              afterFee = beforeFee + deliveryFee;
               return (
                 <li key={index} className="basket-item">
                   <div className="quantity-control">
@@ -112,11 +132,26 @@ const basket = props => {
             })}
           </ul>
         </div>
-        <div className="basket-footer">
+        <div className={`basket-fees-container ${validTotal}`}>
+          <ul className="basket-fees-content">
+            <li className="basket-net-fees-item">
+              <span>Sous-total</span>
+              <span>{beforeFee.toFixed(2)}&nbsp;€</span>
+            </li>
+            <li className="basket-delivery-fees-item">
+              <span>Frais de livraison</span>
+              <span>{deliveryFee.toFixed(2)}&nbsp;€</span>
+            </li>
+          </ul>
+        </div>
+        <div className={basketEmpty}>{totalDiv}</div>
+        <div className={`basket-footer ${validTotal}`}>
           <ul>
             <li className="basket-item total">
               <span>Total</span>
-              <span className="basket-total-price">{total}&nbsp;€</span>
+              <span className="basket-total-price">
+                {afterFee.toFixed(2)}&nbsp;€
+              </span>
             </li>
           </ul>
         </div>

@@ -70,10 +70,6 @@
   text-align: center;
 }
 
-.basket-content-list {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
-}
-
 .basket-content-list,
 .basket-footer {
   margin: 0 16px;
@@ -114,14 +110,77 @@
   margin-right: 16px;
 }
 
+.quantity-decrease,
+.quantity-increase {
+  cursor: pointer;
+}
+
+.basket-fees-container {
+  padding: 0 24px 24px 24px;
+}
+
+.basket-fees-content {
+  padding-top: 24px;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.basket-net-fees-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex: 1 1 100%;
+  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
+    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 14px;
+  color: #2e3333;
+  line-height: 1;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  padding-bottom: 4px;
+}
+
+.basket-delivery-fees-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
 .basket-footer {
   padding: 12px 0;
   margin-bottom: 8px;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.basket-empty {
+  position: relative;
+  display: block;
+  padding: 32px 0 64px;
+  color: #828585;
+  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
+    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 14px;
+  text-align: center;
 }
 
 .total {
   font-size: 16px;
   font-weight: 600;
+}
+
+.hide {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
