@@ -4,9 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-self: stretch;
-  margin-bottom: 16px;
   padding: 16px;
-  border: 1px solid transparent;
+  border-top: 1px solid #e8ebeb;
   border-radius: 2px;
   background-color: #fff;
   box-shadow: none;
@@ -93,6 +92,13 @@
 
 .card-active {
   border-left: "1px solid red";
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+  }
 }
 
 @media only screen and (min-width: 980px) {

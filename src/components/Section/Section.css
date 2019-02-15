@@ -1,5 +1,5 @@
 section {
-  flex: 0 1 65%;
+  flex: 0 1 100%;
 }
 
 section h3 {
@@ -16,4 +16,10 @@ section h3 {
   align-items: flex-start;
   flex-wrap: wrap;
   list-style-type: none;
+}
+
+@media only screen and (min-width: 768px) {
+  section {
+    flex: 0 1 65%;
+  }
 }

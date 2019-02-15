@@ -79,81 +79,89 @@ const basket = props => {
   let validTotal;
   let totalDiv;
   let basketEmpty;
+  let basketEmptyMobile;
+  let hideMobile = "hide-mobile";
 
   if (props.basket.length === 0) {
     valid = "btn-disabled";
     validTotal = "hide";
     totalDiv = <span>Votre panier est vide</span>;
     basketEmpty = "basket-empty";
+    basketEmptyMobile = "hide-mobile";
   } else {
     valid = "btn-enabled";
     validTotal = "";
     totalDiv = "";
     basketEmpty = "";
+    basketEmptyMobile = "";
   }
 
   return (
-    <div className="basket-wrapper">
+    <div className={`basket-wrapper ${basketEmptyMobile}`}>
       <div className="basket">
         <div className="basket-panel">
           <div className={`btn-basket ${valid}`}>Valider mon panier</div>
         </div>
-        <div className="basket-content">
-          <ul className="basket-content-list">
-            {props.basket.map((e, index) => {
-              let price = (Number(e.price) * e.quantity).toFixed(2);
-              beforeFee = beforeFee + Number(price);
-              afterFee = beforeFee + deliveryFee;
-              return (
-                <li key={index} className="basket-item">
-                  <div className="quantity-control">
-                    <div
-                      className="quantity-decrease"
-                      onClick={() => {
-                        props.incQuantity(e.id);
-                      }}
-                    >
-                      {increase}
+        <div className={`basket-extend ${hideMobile}`}>
+          <div className="basket-content">
+            <ul className="basket-content-list">
+              {props.basket.map((e, index) => {
+                let price = (Number(e.price) * e.quantity).toFixed(2);
+                beforeFee = beforeFee + Number(price);
+                afterFee = beforeFee + deliveryFee;
+                return (
+                  <li key={index} className="basket-item">
+                    <div className="quantity-control">
+                      <div
+                        className="quantity-decrease"
+                        onClick={() => {
+                          props.incQuantity(e.id);
+                        }}
+                      >
+                        {increase}
+                      </div>
+                      <span>{e.quantity}</span>
+                      <div
+                        className="quantity-increase"
+                        onClick={() => {
+                          props.decQuantity(e.id);
+                        }}
+                      >
+                        {decrease}
+                      </div>
                     </div>
-                    <span>{e.quantity}</span>
-                    <div
-                      className="quantity-increase"
-                      onClick={() => {
-                        props.decQuantity(e.id);
-                      }}
-                    >
-                      {decrease}
-                    </div>
-                  </div>
-                  <span className="basket-item-name">{e.name}</span>
-                  <span className="basket-item-price">{price}&nbsp;€</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className={`basket-fees-container ${validTotal}`}>
-          <ul className="basket-fees-content">
-            <li className="basket-net-fees-item">
-              <span>Sous-total</span>
-              <span>{beforeFee.toFixed(2)}&nbsp;€</span>
-            </li>
-            <li className="basket-delivery-fees-item">
-              <span>Frais de livraison</span>
-              <span>{deliveryFee.toFixed(2)}&nbsp;€</span>
-            </li>
-          </ul>
-        </div>
-        <div className={basketEmpty}>{totalDiv}</div>
-        <div className={`basket-footer ${validTotal}`}>
-          <ul>
-            <li className="basket-item total">
-              <span>Total</span>
-              <span className="basket-total-price">
-                {afterFee.toFixed(2)}&nbsp;€
-              </span>
-            </li>
-          </ul>
+                    <span className="basket-item-name">{e.name}</span>
+                    <span className="basket-item-price">{price}&nbsp;€</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className={`basket-fees-container ${validTotal}`}>
+            <ul className="basket-fees-content">
+              <li className="basket-net-fees-item">
+                <span>Sous-total</span>
+                <span>{beforeFee.toFixed(2)}&nbsp;€</span>
+              </li>
+              <li className="basket-delivery-fees-item">
+                <span>Frais de livraison</span>
+                <span>{deliveryFee.toFixed(2)}&nbsp;€</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className={basketEmpty}>{totalDiv}</div>
+          <div className={`basket-footer ${validTotal}`}>
+            <ul>
+              <li className="basket-item total">
+                <span>Total</span>
+                <span className="basket-total-price">
+                  {afterFee.toFixed(2)}&nbsp;€
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
