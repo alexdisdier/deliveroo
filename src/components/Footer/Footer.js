@@ -5,7 +5,7 @@ const footer = props => {
   return (
     <footer>
       <a href="#0" onClick={props.scrollToTop}>
-        To the top!
+        Haut de la page
       </a>
     </footer>
   );

@@ -81,6 +81,7 @@ const basket = props => {
   let basketEmpty;
   let basketEmptyMobile;
   let hideMobile = "hide-mobile";
+  let hideDesktop = "hide-desktop";
 
   if (props.basket.length === 0) {
     valid = "btn-disabled";
@@ -100,6 +101,21 @@ const basket = props => {
     <div className={`basket-wrapper ${basketEmptyMobile}`}>
       <div className="basket">
         <div className="basket-panel">
+          <div
+            className={`summary-container ${hideDesktop}`}
+            onClick={() => {
+              console.log(hideMobile);
+              if (hideMobile) {
+                console.log("show");
+              } else {
+                console.log("hide");
+              }
+            }}
+          >
+            <div className="summary">
+              <span>voir le panier et les frais</span>
+            </div>
+          </div>
           <div className={`btn-basket ${valid}`}>Valider mon panier</div>
         </div>
         <div className={`basket-extend ${hideMobile}`}>

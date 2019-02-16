@@ -66,9 +66,6 @@ class App extends Component {
   scrollMore() {
     scroll.scrollMore(100);
   }
-  // handleSetActive(to) {
-  //   console.log(to);
-  // }
 
   addMeal = meal => {
     const newBasket = [...this.state.basket];
@@ -89,7 +86,7 @@ class App extends Component {
     }
   };
 
-  incQuantity = id => {
+  incQuantity = async id => {
     const newBasket = [...this.state.basket];
     const newMenu = { ...this.state.menu };
     // console.log(newMenu);
@@ -99,12 +96,12 @@ class App extends Component {
       const category = categories[i];
       const menus = newMenu[category];
 
-      for (let i = 0; i < menus.length; i++) {
-        // console.log("in loop", menus[i]);
-        if (menus[i].id === id) {
-          menus[i].quantity += 1;
-          // console.log(menus[i].quantity);
-          this.setState({
+      for (let j = 0; j < menus.length; j++) {
+        if (menus[j].id === id) {
+          console.log(menus[j]);
+          console.log(menus[j].quantity);
+          menus[j].quantity += 1;
+          await this.setState({
             menu: newMenu
           });
         }

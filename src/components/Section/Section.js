@@ -11,8 +11,8 @@ const section = props => {
     <section id={props.anchor}>
       <h3>{props.sectionTitle}</h3>
       <div className="cards-container">
-        {props.menus.map((e, index) => {
-          if (props.basket.filter(check => check.id === e.id).length > 0) {
+        {props.menus.map((meal, index) => {
+          if (props.basket.filter(check => check.id === meal.id).length > 0) {
             selected = true;
           } else {
             selected = false;
@@ -21,14 +21,8 @@ const section = props => {
           return (
             <Card
               key={index}
-              id={e.id}
-              title={e.title}
-              description={e.description}
-              price={e.price}
-              picture={e.picture}
-              popular={e.popular}
+              {...meal}
               selected={selected}
-              quantity={e.quantity}
               addMeal={props.addMeal}
               basket={props.basket}
             />
