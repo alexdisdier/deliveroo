@@ -1,4 +1,4 @@
-section {
+.element {
   flex: 0 1 100%;
 }
 
@@ -19,7 +19,7 @@ section h3 {
 }
 
 @media only screen and (min-width: 768px) {
-  section {
+  .element {
     flex: 0 1 65%;
   }
 }

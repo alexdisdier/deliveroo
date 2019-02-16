@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy
+} from "react-scroll";
 
 import "./assets/css/reset.css";
 import "./App.css";
@@ -15,7 +21,8 @@ class App extends Component {
     restaurant: {},
     menu: {},
     basket: [],
-    error: null
+    error: null,
+    temp: {}
   };
 
   async componentDidMount() {
@@ -27,12 +34,41 @@ class App extends Component {
         restaurant: restaurant,
         menu: menu
       });
+      Events.scrollEvent.register("begin", function(to, element) {
+        // console.log("begin", arguments);
+      });
+
+      Events.scrollEvent.register("end", function(to, element) {
+        // console.log("end", arguments);
+      });
+
+      scrollSpy.update();
     } catch (error) {
       this.setState({
         error: "An error occurred"
       });
     }
   }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove("begin");
+    Events.scrollEvent.remove("end");
+  }
+  scrollToTop() {
+    scroll.scrollToTop();
+  }
+  scrollToBottom() {
+    scroll.scrollToBottom();
+  }
+  scrollTo() {
+    scroll.scrollTo(100);
+  }
+  scrollMore() {
+    scroll.scrollMore(100);
+  }
+  // handleSetActive(to) {
+  //   console.log(to);
+  // }
 
   addMeal = meal => {
     const newBasket = [...this.state.basket];
@@ -55,6 +91,25 @@ class App extends Component {
 
   incQuantity = id => {
     const newBasket = [...this.state.basket];
+    const newMenu = { ...this.state.menu };
+    // console.log(newMenu);
+    const categories = Object.keys(newMenu);
+
+    for (let i = 0; i < categories.length; i++) {
+      const category = categories[i];
+      const menus = newMenu[category];
+
+      for (let i = 0; i < menus.length; i++) {
+        // console.log("in loop", menus[i]);
+        if (menus[i].id === id) {
+          menus[i].quantity += 1;
+          // console.log(menus[i].quantity);
+          this.setState({
+            menu: newMenu
+          });
+        }
+      }
+    }
 
     for (let i = 0; i < newBasket.length; i++) {
       if (newBasket[i].id === id && id !== undefined) {
@@ -68,6 +123,7 @@ class App extends Component {
 
   decQuantity = id => {
     const newBasket = [...this.state.basket];
+
     for (let i = 0; i < newBasket.length; i++) {
       if (
         newBasket[i].id === id &&
@@ -83,10 +139,6 @@ class App extends Component {
     this.setState({
       basket: newBasket
     });
-  };
-
-  updateQuantity = id => {
-    console.log("updating", id);
   };
 
   renderSection() {
@@ -105,14 +157,14 @@ class App extends Component {
 
       if (menus.length > 1) {
         sections.push(
-          <Section
-            anchor={i}
-            key={i}
-            sectionTitle={category}
-            menus={menus}
-            addMeal={this.addMeal}
-            basket={this.state.basket}
-          />
+          <Element key={i} name={`test${i}`} className="element">
+            <Section
+              sectionTitle={category}
+              menus={menus}
+              addMeal={this.addMeal}
+              basket={this.state.basket}
+            />
+          </Element>
         );
       }
     }
@@ -129,10 +181,11 @@ class App extends Component {
           basket={this.state.basket}
           incQuantity={this.incQuantity}
           decQuantity={this.decQuantity}
+          handleSetActive={this.handleSetActive}
         />
         <main className="container">{this.renderSection()}</main>
 
-        <Footer />
+        <Footer scrollToTop={this.scrollToTop} />
       </div>
     );
   }

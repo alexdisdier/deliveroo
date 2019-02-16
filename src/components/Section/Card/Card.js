@@ -10,10 +10,10 @@ const card = props => {
     price,
     picture,
     popular,
-    addMeal,
     id,
     selected,
-    quantity
+    quantity,
+    addMeal
   } = props;
 
   let star = (
@@ -40,14 +40,14 @@ const card = props => {
   return (
     <div
       className={`card ${active}`}
-      onClick={() =>
+      onClick={() => {
         addMeal({
           id: id,
           name: title,
           price: price,
           quantity: 1
-        })
-      }
+        });
+      }}
     >
       <div className="card-content">
         {quantityDiv}

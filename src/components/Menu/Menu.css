@@ -40,6 +40,7 @@
   font-weight: inherit;
   line-height: 14px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .link-bar a:hover {

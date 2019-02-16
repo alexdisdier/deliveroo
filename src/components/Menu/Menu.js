@@ -1,42 +1,65 @@
 import React from "react";
+import { Link } from "react-scroll";
+// source for smooth scroll: https://www.npmjs.com/package/react-scroll
 
 import "./Menu.css";
 
 import Basket from "../Basket/Basket";
 
 const menu = props => {
-  // const moveTo = section => {
-  //   document.querySelector(section).scrollIntoView({
-  //     block: "start",
-  //     behavior: "smooth"
-  //   });
-  // };
-
-  // [].forEach.call(document.querySelectorAll("link"), element => {
-  //   element.addEventListener("click", e => {
-  //     // e.preventDefault();
-  //     const section = element.querySelector("a").getAttribute("href");
-  //     moveTo(section);
-  //   });
-  // });
-
   return (
     <div className="menu-nav">
       <div className="menu-nav-container container">
         <nav>
           <div className="link-bar">
-            <a className="link" href="#0">
+            <Link
+              className="link"
+              activeClass="active"
+              to="test0"
+              spy={true}
+              smooth={true}
+              offset={-40}
+              duration={500}
+              onSetActive={props.handleSetActive}
+            >
               Brunchs
-            </a>
-            <a className="link" href="#1">
+            </Link>
+            <Link
+              className="link"
+              activeClass="active"
+              to="test1"
+              spy={true}
+              smooth={true}
+              offset={-40}
+              duration={500}
+              onSetActive={props.handleSetActive}
+            >
               Petit Dejeuner
-            </a>
-            <a className="link" href="#2">
+            </Link>
+            <Link
+              className="link"
+              activeClass="active"
+              to="test2"
+              spy={true}
+              smooth={true}
+              offset={-40}
+              duration={500}
+              onSetActive={props.handleSetActive}
+            >
               Viennoiseries et Pains
-            </a>
-            <a className="link" href="#3">
+            </Link>
+            <Link
+              className="link"
+              activeClass="active"
+              to="test3"
+              spy={true}
+              smooth={true}
+              offset={-40}
+              duration={500}
+              onSetActive={props.handleSetActive}
+            >
               Salades
-            </a>
+            </Link>
           </div>
           <div className="link-bar-grouped">
             <a href="#4">Plus</a>

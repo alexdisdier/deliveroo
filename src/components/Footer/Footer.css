@@ -4,3 +4,9 @@ footer {
   font-size: 14px;
   height: 60px;
 }
+
+footer a {
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
