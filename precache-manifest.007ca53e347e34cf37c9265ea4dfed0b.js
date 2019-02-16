@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
   },
   {
-    "revision": "764572da0f06cccc8c6a",
-    "url": "/deliveroo/static/css/main.ae7fd113.chunk.css"
+    "revision": "c84c64969f0203c409a0",
+    "url": "/deliveroo/static/css/main.7e54d0a2.chunk.css"
   },
   {
     "revision": "ce683961fc8261d3d7da",
     "url": "/deliveroo/static/js/runtime~main.ce683961.js"
   },
   {
-    "revision": "0675dbaec6d2cfc8fe8d",
-    "url": "/deliveroo/static/js/2.0675dbae.chunk.js"
+    "revision": "5683066ef4f716523b2d",
+    "url": "/deliveroo/static/js/2.5683066e.chunk.js"
   },
   {
     "revision": "5483a65377bfe153af823df819de070f",
@@ -40,28 +40,28 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.4acf898d.woff"
   },
   {
-    "revision": "764572da0f06cccc8c6a",
-    "url": "/deliveroo/static/js/main.764572da.chunk.js"
+    "revision": "c84c64969f0203c409a0",
+    "url": "/deliveroo/static/js/main.c84c6496.chunk.js"
   },
   {
     "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
   },
   {
-    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
-    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
-  },
-  {
     "revision": "f0ce4da31eef04404b6ab3feef4304d1",
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.f0ce4da3.eot"
   },
   {
-    "revision": "2cfc42be663be4189986053eede8b8ee",
-    "url": "/deliveroo/static/media/IBMPlexSans.2cfc42be.eot"
+    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
+    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
   },
   {
     "revision": "f9c292e76a02eac49f225fbe4ac44e27",
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.f9c292e7.ttf"
+  },
+  {
+    "revision": "2cfc42be663be4189986053eede8b8ee",
+    "url": "/deliveroo/static/media/IBMPlexSans.2cfc42be.eot"
   },
   {
     "revision": "6002eed02f1a014b233a6bba26e19c7c",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans.17c4333d.svg"
   },
   {
-    "revision": "4cedd5df947d0c02e722d1a81f104802",
+    "revision": "0e623f49c80b34f351fde09bc9c02976",
     "url": "/deliveroo/index.html"
   }
 ];
