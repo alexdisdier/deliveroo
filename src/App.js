@@ -88,32 +88,13 @@ class App extends Component {
 
   incQuantity = async id => {
     const newBasket = [...this.state.basket];
-    const newMenu = { ...this.state.menu };
-    // console.log(newMenu);
-    const categories = Object.keys(newMenu);
-
-    for (let i = 0; i < categories.length; i++) {
-      const category = categories[i];
-      const menus = newMenu[category];
-
-      for (let j = 0; j < menus.length; j++) {
-        if (menus[j].id === id) {
-          console.log(menus[j]);
-          console.log(menus[j].quantity);
-          menus[j].quantity += 1;
-          await this.setState({
-            menu: newMenu
-          });
-        }
-      }
-    }
 
     for (let i = 0; i < newBasket.length; i++) {
       if (newBasket[i].id === id && id !== undefined) {
         newBasket[i].quantity += 1;
       }
     }
-    this.setState({
+    await this.setState({
       basket: newBasket
     });
   };
