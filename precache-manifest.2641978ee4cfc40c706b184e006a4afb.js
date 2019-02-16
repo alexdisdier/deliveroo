@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
   },
   {
-    "revision": "d4726177edd5b2955531",
-    "url": "/deliveroo/static/css/main.007b654e.chunk.css"
+    "revision": "764572da0f06cccc8c6a",
+    "url": "/deliveroo/static/css/main.ae7fd113.chunk.css"
   },
   {
     "revision": "ce683961fc8261d3d7da",
     "url": "/deliveroo/static/js/runtime~main.ce683961.js"
   },
   {
-    "revision": "4a2de259f9a0563dde8e",
-    "url": "/deliveroo/static/js/2.4a2de259.chunk.js"
+    "revision": "0675dbaec6d2cfc8fe8d",
+    "url": "/deliveroo/static/js/2.0675dbae.chunk.js"
   },
   {
     "revision": "5483a65377bfe153af823df819de070f",
@@ -32,16 +32,16 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.a2fc32a7.woff2"
   },
   {
-    "revision": "4acf898d1bc079e2604b2484d02add3d",
-    "url": "/deliveroo/static/media/IBMPlexSans-Bold.4acf898d.woff"
-  },
-  {
     "revision": "beea3497b98d3d253bf4439792cfd522",
     "url": "/deliveroo/static/media/IBMPlexSans.beea3497.woff"
   },
   {
-    "revision": "d4726177edd5b2955531",
-    "url": "/deliveroo/static/js/main.d4726177.chunk.js"
+    "revision": "4acf898d1bc079e2604b2484d02add3d",
+    "url": "/deliveroo/static/media/IBMPlexSans-Bold.4acf898d.woff"
+  },
+  {
+    "revision": "764572da0f06cccc8c6a",
+    "url": "/deliveroo/static/js/main.764572da.chunk.js"
   },
   {
     "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans.17c4333d.svg"
   },
   {
-    "revision": "c0bb536f1f2c23566b8bba7a4c1881f2",
+    "revision": "4cedd5df947d0c02e722d1a81f104802",
     "url": "/deliveroo/index.html"
   }
 ];
