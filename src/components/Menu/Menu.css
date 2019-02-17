@@ -1,6 +1,7 @@
 .menu-nav {
   background-color: #fff;
   border-top: 1px solid #f0f0f0;
+
   position: sticky;
   top: 0;
   z-index: 1;
@@ -14,13 +15,13 @@
 
 .menu-nav nav {
   display: flex;
+  flex: 2 1 auto;
   position: relative;
-  background: #fff;
+  padding-right: 20px;
   font-size: 14px;
   font-weight: 400;
   color: #00aaa7;
-  flex: 2 1 auto;
-  padding-right: 20px;
+  background: #fff;
 }
 
 .link-bar {
@@ -33,13 +34,13 @@
   display: inline-block;
   margin: 0 16px 0 0;
   padding: 25px 0;
-  text-decoration: none;
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
   line-height: 14px;
-  transition: 0.3s;
+  text-decoration: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .link-bar a:hover {
@@ -53,23 +54,23 @@
 
 .link-bar-grouped a {
   display: inline-block;
+  position: relative;
   margin-left: 0;
   padding: 25px 4px 25px;
   text-decoration: none;
   color: inherit;
-  position: relative;
   line-height: 14px;
 }
 
 .link-bar-grouped a::after {
   content: "";
-  border-right: 2px solid #00aaa5;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  margin-left: 5px;
   height: 6px;
   width: 6px;
-  transform: rotate(45deg) translateY(-50%);
-  position: relative;
-  display: inline-block;
-  top: 50%;
+  border-right: 2px solid #00aaa5;
   border-bottom: 2px solid #00aaa5;
-  margin-left: 5px;
+  transform: rotate(45deg) translateY(-50%);
 }

@@ -1,24 +1,21 @@
 .banner-container {
-  background-color: #fff;
   border-top: 1px solid #f0f0f0;
+  background-color: #fff;
 }
 
 .banner {
   display: flex;
   flex-direction: column-reverse;
-  flex: 1 1 auto;
   justify-content: space-between;
   align-self: stretch;
+  flex: 1 1 auto;
   position: relative;
   padding: 0;
   border: 1px solid transparent;
   border-radius: 2px;
-  background-color: #fff;
-  box-shadow: none;
-  outline: none;
-  user-select: none;
-  color: #828585;
   font-weight: 300;
+  color: #828585;
+  background-color: #fff;
 }
 
 .banner-img {
@@ -32,9 +29,9 @@
 }
 
 .banner-content {
+  flex-grow: 1;
   position: relative;
   margin-bottom: auto;
-  flex-grow: 1;
   padding-right: 16px;
   padding-left: 16px;
 }

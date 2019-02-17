@@ -1,15 +1,11 @@
-.page-header {
-  height: 60px;
-}
-
 header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 16px;
   height: 60px;
-  background: #fff;
   font-size: 16px;
+  background: #fff;
 }
 
 .brand-name svg {

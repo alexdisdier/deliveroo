@@ -1,20 +1,17 @@
 .card {
-  position: relative;
-  flex: 0 1 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-self: stretch;
+  flex: 0 1 100%;
+  position: relative;
   padding: 16px;
+  font-weight: 300;
   border-top: 1px solid #e8ebeb;
   border-radius: 2px;
   background-color: #fff;
-  box-shadow: none;
-  outline: none;
-  transition: box-shadow 0.2s ease-in-out;
-  user-select: none;
-  flex-direction: row;
   color: #828585;
-  font-weight: 300;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
@@ -35,9 +32,9 @@
 }
 
 .card-content {
+  flex-grow: 1;
   position: relative;
   margin-bottom: auto;
-  flex-grow: 1;
 }
 
 .card h6 {
@@ -57,8 +54,8 @@
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: 14px;
-  line-height: 19px;
   font-weight: 400;
+  line-height: 19px;
 }
 
 .card-price {

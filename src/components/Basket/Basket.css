@@ -1,7 +1,7 @@
 .basket-wrapper {
-  position: fixed;
   display: flex;
   flex: 0 0 100%;
+  position: fixed;
   bottom: 0;
 }
 
@@ -10,10 +10,10 @@
   position: fixed;
   width: 100%;
   right: 0;
-  background-color: #fff;
-  border-radius: 0 0 2px 2px;
-  box-shadow: 0px 22px 24px 0px rgba(46, 51, 51, 0.07);
   bottom: 0;
+  border-radius: 0 0 2px 2px;
+  background-color: #fff;
+  box-shadow: 0px 22px 24px 0px rgba(46, 51, 51, 0.07);
 }
 
 .basket-panel {
@@ -27,24 +27,21 @@
 .btn-basket {
   flex: 1 1 auto;
   align-self: flex-end;
-  display: block;
   width: 100%;
   text-align: center;
 }
 
 .btn-disabled {
-  pointer-events: none;
+  padding: 16px;
   color: #8c9b9b;
   background: #bac3c3;
-  padding: 16px;
-  border-width: 0;
+  pointer-events: none;
 }
 
 .btn-enabled {
+  padding: 16px;
   color: #fff;
   background: #00ccbc;
-  padding: 16px;
-  border-width: 0;
   cursor: pointer;
 }
 
@@ -60,12 +57,11 @@
 }
 
 .basket-empty {
-  position: relative;
   display: block;
+  position: relative;
   padding: 32px 0 64px;
   color: #828585;
-  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
-    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  font-family: "plex-sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1.4;
   font-size: 14px;
@@ -80,35 +76,30 @@
 
 .basket-item {
   display: flex;
+  flex-direction: row;
+  flex: 1 1 100%;
   justify-content: space-between;
   align-items: flex-start;
-  flex-direction: row;
   margin-top: 24px;
-  flex: 1 1 100%;
-  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
-    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  font-family: "plex-sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  font-size: 14px;
   color: #2e3333;
-  line-height: 1;
-  animation-name: fadeIn;
-  animation-duration: 0.3s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
 }
 
 .basket-item-name {
   flex-grow: 1;
+  line-height: 1.3;
 }
 
 .quantity-control {
-  position: relative;
-  flex: 0 0 56px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  flex: 0 0 56px;
+  position: relative;
   margin-right: 16px;
 }
 
@@ -132,18 +123,12 @@
   align-items: flex-start;
   flex-direction: row;
   flex: 1 1 100%;
-  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
-    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  padding-bottom: 4px;
+  font-family: "plex-sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  font-size: 14px;
   color: #2e3333;
-  line-height: 1;
-  animation-name: fadeIn;
-  animation-duration: 0.3s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  padding-bottom: 4px;
 }
 
 .basket-delivery-fees-item {
@@ -152,14 +137,14 @@
   justify-content: space-between;
   padding-top: 4px;
   padding-bottom: 4px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  font-size: 16px;
 }
 
 .basket-footer {
-  padding: 12px 0;
   margin-bottom: 8px;
+  padding: 12px 0;
   border-top: 2px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -167,12 +152,10 @@
   position: relative;
   display: block;
   padding: 32px 0 64px;
-  color: #828585;
-  font-family: "plex-sans", "Helvetica Neue", Helvetica, Arial,
-    "Microsoft YaHei", "微软雅黑体", "Hiragino Sans GB", "冬青黑体", sans-serif;
+  font-family: "plex-sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
-  line-height: 1.4;
   font-size: 14px;
+  color: #828585;
   text-align: center;
 }
 
