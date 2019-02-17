@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "419d20693ef4d91921ecb295cfd66b94",
-    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
+    "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
+    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
   },
   {
-    "revision": "aa4bc1704239eff00aa9",
-    "url": "/deliveroo/static/css/main.fb55f77c.chunk.css"
+    "revision": "5516ea4285d9f935a8d6",
+    "url": "/deliveroo/static/css/main.2c86fc44.chunk.css"
   },
   {
     "revision": "ce683961fc8261d3d7da",
     "url": "/deliveroo/static/js/runtime~main.ce683961.js"
   },
   {
-    "revision": "8979b3bc7313a6725077",
-    "url": "/deliveroo/static/js/2.8979b3bc.chunk.js"
+    "revision": "b10e7fabe2f94125a846",
+    "url": "/deliveroo/static/js/2.b10e7fab.chunk.js"
   },
   {
     "revision": "5483a65377bfe153af823df819de070f",
@@ -40,20 +40,20 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.4acf898d.woff"
   },
   {
-    "revision": "aa4bc1704239eff00aa9",
-    "url": "/deliveroo/static/js/main.aa4bc170.chunk.js"
+    "revision": "5516ea4285d9f935a8d6",
+    "url": "/deliveroo/static/js/main.5516ea42.chunk.js"
   },
   {
-    "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
-    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
-  },
-  {
-    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
-    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
+    "revision": "419d20693ef4d91921ecb295cfd66b94",
+    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
   },
   {
     "revision": "f0ce4da31eef04404b6ab3feef4304d1",
     "url": "/deliveroo/static/media/IBMPlexSans-Bold.f0ce4da3.eot"
+  },
+  {
+    "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
+    "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
   },
   {
     "revision": "f9c292e76a02eac49f225fbe4ac44e27",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans.17c4333d.svg"
   },
   {
-    "revision": "e188ceeca063c38dad8e0851763bd47f",
+    "revision": "3f9bd7cb0ecc35824d5c3881b47b3180",
     "url": "/deliveroo/index.html"
   }
 ];
