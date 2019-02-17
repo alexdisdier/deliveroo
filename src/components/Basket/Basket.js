@@ -3,8 +3,7 @@ import React from "react";
 import "./Basket.css";
 
 const basket = props => {
-  // btn-disabled
-  // btn-enabled
+  const { basket } = props;
 
   const increase = (
     <svg
@@ -71,44 +70,34 @@ const basket = props => {
     </svg>
   );
 
+  // Calculation Variables.
+  const deliveryFee = 2.5;
   let afterFee = 0;
   let beforeFee = 0;
-  const deliveryFee = 2.5;
 
-  let valid;
-  let validTotal;
+  // Animation Variables
+  let hide = true;
   let totalDiv;
-  let basketEmpty;
-  let basketEmptyMobile;
-  let hideMobile = "hide-mobile";
-  let hideDesktop = "hide-desktop";
 
-  if (props.basket.length === 0) {
-    valid = "btn-disabled";
-    validTotal = "hide";
+  if (basket.length === 0) {
     totalDiv = <span>Votre panier est vide</span>;
-    basketEmpty = "basket-empty";
-    basketEmptyMobile = "hide-mobile";
   } else {
-    valid = "btn-enabled";
-    validTotal = "";
     totalDiv = "";
-    basketEmpty = "";
-    basketEmptyMobile = "";
   }
 
   return (
-    <div className={`basket-wrapper ${basketEmptyMobile}`}>
+    <div
+      className={`basket-wrapper ${basket.length === 0 ? "hide-mobile" : ""}`}
+    >
       <div className="basket">
         <div className="basket-panel">
           <div
-            className={`summary-container ${hideDesktop}`}
+            className="summary-container hide-desktop"
             onClick={() => {
-              console.log(hideMobile);
-              if (hideMobile) {
-                console.log("show");
+              if (hide) {
+                hide = false;
               } else {
-                console.log("hide");
+                hide = true;
               }
             }}
           >
@@ -116,9 +105,15 @@ const basket = props => {
               <span>voir le panier et les frais</span>
             </div>
           </div>
-          <div className={`btn-basket ${valid}`}>Valider mon panier</div>
+          <div
+            className={`btn-basket ${
+              basket.length === 0 ? "btn-disabled" : "btn-enabled"
+            }`}
+          >
+            Valider mon panier
+          </div>
         </div>
-        <div className={`basket-extend ${hideMobile}`}>
+        <div className={`basket-extend ${hide ? "hide-mobile" : ""}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
               {props.basket.map((e, index) => {
@@ -154,7 +149,11 @@ const basket = props => {
             </ul>
           </div>
 
-          <div className={`basket-fees-container ${validTotal}`}>
+          <div
+            className={`basket-fees-container  ${
+              basket.length === 0 ? "hide" : ""
+            }`}
+          >
             <ul className="basket-fees-content">
               <li className="basket-net-fees-item">
                 <span>Sous-total</span>
@@ -167,8 +166,12 @@ const basket = props => {
             </ul>
           </div>
 
-          <div className={basketEmpty}>{totalDiv}</div>
-          <div className={`basket-footer ${validTotal}`}>
+          <div className={basket.length === 0 ? "basket-empty" : ""}>
+            {totalDiv}
+          </div>
+          <div
+            className={`basket-footer  ${basket.length === 0 ? "hide" : ""}`}
+          >
             <ul>
               <li className="basket-item total">
                 <span>Total</span>

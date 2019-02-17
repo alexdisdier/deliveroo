@@ -35,6 +35,8 @@ const card = props => {
   if (selected) {
     active = "card-active";
     quantityDiv = <div className="card-quantity">{quantity}x</div>;
+  } else {
+    active = "card-inactive";
   }
 
   return (
