@@ -4,13 +4,9 @@ This is a clone of the Deliveroo website built with React. All rights reserved t
 
 ## Usage example
 
-See a live version running this template - https://alexdisdier.github.io/deliveroo/
+See demo - https://alexdisdier.github.io/deliveroo/
 
 ![screenshot of the deliveroo clone](/screenshot.jpg?raw=true "screenshot of the the deliveroo clone")
-
-## Usage example
-
-See a live version running this template - https://alexdisdier.github.io/deliveroo/
 
 ## ✅ Functionalities
 
