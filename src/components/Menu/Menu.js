@@ -67,8 +67,10 @@ const menu = props => {
         </nav>
         <Basket
           basket={props.basket}
+          isHidden={props.isHidden}
           incQuantity={props.incQuantity}
           decQuantity={props.decQuantity}
+          toggleHidden={props.toggleHidden}
         />
       </div>
     </div>

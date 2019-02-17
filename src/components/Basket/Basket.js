@@ -3,7 +3,7 @@ import React from "react";
 import "./Basket.css";
 
 const basket = props => {
-  const { basket } = props;
+  const { basket, toggleHidden, isHidden } = props;
 
   const increase = (
     <svg
@@ -76,7 +76,6 @@ const basket = props => {
   let beforeFee = 0;
 
   // Animation Variables
-  let hide = true;
   let totalDiv;
 
   if (basket.length === 0) {
@@ -93,16 +92,11 @@ const basket = props => {
         <div className="basket-panel">
           <div
             className="summary-container hide-desktop"
-            onClick={() => {
-              if (hide) {
-                hide = false;
-              } else {
-                hide = true;
-              }
-            }}
+            onClick={() => toggleHidden()}
           >
             <div className="summary">
               <span>voir le panier et les frais</span>
+              {/* <span>⤫</span> */}
             </div>
           </div>
           <div
@@ -113,7 +107,7 @@ const basket = props => {
             Valider mon panier
           </div>
         </div>
-        <div className={`basket-extend ${hide ? "hide-mobile" : ""}`}>
+        <div className={`basket-extend ${!isHidden ? "hide-mobile" : ""}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
               {props.basket.map((e, index) => {
