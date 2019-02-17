@@ -11,7 +11,6 @@ const card = props => {
     picture,
     popular,
     id,
-    selected,
     quantity,
     addMeal
   } = props;
@@ -32,7 +31,7 @@ const card = props => {
   if (popular) {
     popularDiv = <span className="card-popular">{star} populaire</span>;
   }
-  if (selected) {
+  if (quantity > 0) {
     active = "card-active";
     quantityDiv = <div className="card-quantity">{quantity}x</div>;
   } else {
