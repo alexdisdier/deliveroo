@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
-    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
+    "revision": "419d20693ef4d91921ecb295cfd66b94",
+    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
   },
   {
     "revision": "5516ea4285d9f935a8d6",
@@ -44,16 +44,16 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/js/main.5516ea42.chunk.js"
   },
   {
-    "revision": "419d20693ef4d91921ecb295cfd66b94",
-    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.419d2069.eot"
-  },
-  {
-    "revision": "f0ce4da31eef04404b6ab3feef4304d1",
-    "url": "/deliveroo/static/media/IBMPlexSans-Bold.f0ce4da3.eot"
+    "revision": "b10b6a2dba60c5c07a4170fe3b6b129a",
+    "url": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.b10b6a2d.ttf"
   },
   {
     "revision": "cd8407ec5b173ed5ac9aa73641d8daa2",
     "url": "/deliveroo/static/media/IBMPlexSans.cd8407ec.ttf"
+  },
+  {
+    "revision": "f0ce4da31eef04404b6ab3feef4304d1",
+    "url": "/deliveroo/static/media/IBMPlexSans-Bold.f0ce4da3.eot"
   },
   {
     "revision": "f9c292e76a02eac49f225fbe4ac44e27",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/deliveroo/static/media/IBMPlexSans.17c4333d.svg"
   },
   {
-    "revision": "3f9bd7cb0ecc35824d5c3881b47b3180",
+    "revision": "97c8832b287cc2d2cc4b6b6d65d50e77",
     "url": "/deliveroo/index.html"
   }
 ];
