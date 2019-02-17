@@ -16,12 +16,14 @@ import Menu from "./components/Menu/Menu";
 import Section from "./components/Section/Section";
 import Footer from "./components/Footer/Footer";
 
+import data from "./assets/deliveroo-api.json";
+
 class App extends Component {
   state = {
     restaurant: {},
     menu: {},
     basket: [],
-    error: null,
+    error: "",
     temp: {},
     isHidden: false
   };
@@ -45,8 +47,12 @@ class App extends Component {
 
       scrollSpy.update();
     } catch (error) {
+      const restaurant = data.restaurant;
+      const menu = data.menu;
       this.setState({
-        error: "An error occurred"
+        restaurant: restaurant,
+        menu: menu,
+        error: "An error occurred, this is static api"
       });
     }
   }
