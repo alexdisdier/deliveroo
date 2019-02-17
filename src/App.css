@@ -39,18 +39,6 @@
 
 /* overflow hidden must be applied to parents so their children take it into account */
 
-html {
-  --color-green-deliveroo: #00aaa7;
-  --color-white: #fff;
-  --color-black: #222;
-  --color-text-main: #222;
-  --font-family-titles: "Stratos Deliveroo Web";
-  --font-family-main: "IBM Plex Sans";
-  --font-weight-title: 600;
-  --font-style-normal: normal;
-  --font-size-title: 40px;
-}
-
 body {
   font-size: 16px;
   font-family: var(--font-family-main);

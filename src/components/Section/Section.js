@@ -13,12 +13,10 @@ const section = props => {
       <h3>{props.sectionTitle}</h3>
       <div className="cards-container">
         {props.menus.map((meal, index) => {
-          if (
-            props.basket.filter(check => check.id === meal.id).length > 0 &&
-            props.basket[index]
-          ) {
+          if (props.basket.filter(check => check.id === meal.id).length > 0) {
             selected = true;
-            quantity = props.basket[index].quantity;
+            quantity = props.basket.find(entry => entry.id === meal.id)
+              .quantity;
           } else {
             selected = false;
           }

@@ -1,3 +1,15 @@
+:root {
+  --color-green-deliveroo: #00aaa7;
+  --color-white: #fff;
+  --color-black: #222;
+  --color-text-main: #222;
+  --font-family-titles: "Stratos Deliveroo Web";
+  --font-family-main: "IBM Plex Sans";
+  --font-weight-title: 600;
+  --font-style-normal: normal;
+  --font-size-title: 40px;
+}
+
 body {
   margin: 0;
   padding: 0;
