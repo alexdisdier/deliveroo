@@ -12,11 +12,8 @@ See demo - https://alexdisdier.github.io/deliveroo/
 
 - Add a meal to basket.
 - Change quantity of a meal in basket.
+- Add a tip
 - Mobile responsive
-
-## 🚧 Functionalities
-
-- Possibility to add tip.
 
 ## Directory Structure
 
