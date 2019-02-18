@@ -23,8 +23,8 @@ class App extends Component {
     restaurant: {},
     menu: {},
     basket: [],
+    tip: 0,
     error: "",
-    temp: {},
     isHidden: false
   };
 
@@ -131,6 +131,26 @@ class App extends Component {
     });
   };
 
+  incTip = () => {
+    let tip = this.state.tip;
+
+    this.setState({
+      tip: tip + 1
+    });
+  };
+
+  decTip = () => {
+    let tip = this.state.tip;
+
+    if (tip > 0) {
+      tip = tip - 1;
+    }
+
+    this.setState({
+      tip: tip
+    });
+  };
+
   renderSection() {
     const menu = this.state.menu;
     const sections = [];
@@ -172,6 +192,9 @@ class App extends Component {
           isHidden={this.state.isHidden}
           incQuantity={this.incQuantity}
           decQuantity={this.decQuantity}
+          incTip={this.incTip}
+          decTip={this.decTip}
+          tip={this.state.tip}
           handleSetActive={this.handleSetActive}
           toggleHidden={this.toggleHidden}
         />

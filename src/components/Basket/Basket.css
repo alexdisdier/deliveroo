@@ -5,6 +5,11 @@
   bottom: 0;
 }
 
+.basket-extend {
+  margin: 0 16px;
+  padding-top: 16px;
+}
+
 .basket {
   display: block;
   position: fixed;
@@ -70,7 +75,6 @@
 
 .basket-content-list,
 .basket-footer {
-  margin: 0 16px;
   padding-bottom: 24px;
 }
 
@@ -80,7 +84,7 @@
   flex: 1 1 100%;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 24px;
+  margin-top: 4px;
   font-family: "plex-sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -108,11 +112,16 @@
   cursor: pointer;
 }
 
-.basket-fees-container {
-  padding: 0 24px 24px 24px;
+.tip {
+  justify-content: space-around;
+}
+
+.tip-text {
+  flex-grow: 1;
 }
 
 .basket-fees-content {
+  padding-bottom: 24px;
   padding-top: 24px;
   border-top: 2px solid rgba(0, 0, 0, 0.08);
 }
@@ -143,8 +152,8 @@
 }
 
 .basket-footer {
-  margin-bottom: 8px;
-  padding: 12px 0;
+  margin-bottom: 16px;
+  padding-top: 16px;
   border-top: 2px solid rgba(0, 0, 0, 0.08);
 }
 

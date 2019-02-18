@@ -3,7 +3,7 @@ import React from "react";
 import "./Basket.css";
 
 const basket = props => {
-  const { basket, toggleHidden, isHidden } = props;
+  const { basket, toggleHidden, isHidden, incTip, decTip, tip } = props;
 
   const increase = (
     <svg
@@ -113,7 +113,7 @@ const basket = props => {
               {props.basket.map((e, index) => {
                 let price = (Number(e.price) * e.quantity).toFixed(2);
                 beforeFee = beforeFee + Number(price);
-                afterFee = beforeFee + deliveryFee;
+                afterFee = beforeFee + deliveryFee + tip;
                 return (
                   <li key={index} className="basket-item">
                     <div className="quantity-control">
@@ -167,6 +167,18 @@ const basket = props => {
             className={`basket-footer  ${basket.length === 0 ? "hide" : ""}`}
           >
             <ul>
+              <li className="basket-net-fees-item">
+                <span className="tip-text">Pourboire livreur</span>
+                <div className="quantity-control tip">
+                  <div className="quantity-increase" onClick={() => incTip()}>
+                    {increase}
+                  </div>
+                  <div className="quantity-decrease" onClick={() => decTip()}>
+                    {decrease}
+                  </div>
+                </div>
+                <span>{tip.toFixed(2)}&nbsp;€</span>
+              </li>
               <li className="basket-item total">
                 <span>Total</span>
                 <span className="basket-total-price">
