@@ -1,14 +1,14 @@
 {
-  "main.css": "/deliveroo/static/css/main.2c86fc44.chunk.css",
-  "main.js": "/deliveroo/static/js/main.5516ea42.chunk.js",
-  "main.js.map": "/deliveroo/static/js/main.5516ea42.chunk.js.map",
+  "main.css": "/deliveroo/static/css/main.db466fbe.chunk.css",
+  "main.js": "/deliveroo/static/js/main.b293ddc4.chunk.js",
+  "main.js.map": "/deliveroo/static/js/main.b293ddc4.chunk.js.map",
   "runtime~main.js": "/deliveroo/static/js/runtime~main.ce683961.js",
   "runtime~main.js.map": "/deliveroo/static/js/runtime~main.ce683961.js.map",
   "static/js/2.b10e7fab.chunk.js": "/deliveroo/static/js/2.b10e7fab.chunk.js",
   "static/js/2.b10e7fab.chunk.js.map": "/deliveroo/static/js/2.b10e7fab.chunk.js.map",
   "index.html": "/deliveroo/index.html",
-  "precache-manifest.ea438832262f3092ee26da004069c17a.js": "/deliveroo/precache-manifest.ea438832262f3092ee26da004069c17a.js",
+  "precache-manifest.531e264b71f29224aee39230bd02b7c8.js": "/deliveroo/precache-manifest.531e264b71f29224aee39230bd02b7c8.js",
   "service-worker.js": "/deliveroo/service-worker.js",
-  "static/css/main.2c86fc44.chunk.css.map": "/deliveroo/static/css/main.2c86fc44.chunk.css.map",
+  "static/css/main.db466fbe.chunk.css.map": "/deliveroo/static/css/main.db466fbe.chunk.css.map",
   "static/media/App.css": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.fb0df953.woff"
 }
