@@ -84,7 +84,7 @@ npm run build
 ## Built With
 
 - html
-- scss
+- css
 - [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
 - [React.js](https://reactjs.org/docs/hello-world.html)
 - [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
