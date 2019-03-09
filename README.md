@@ -1,5 +1,5 @@
 <p align="center" >
-   <a href="https://alexdisdier.github.io/deliveroo/" target="blank">
+   <a href="https://alexdisdier.github.io/deliveroo/">
     <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552165845/github-screenshot-gif/deliveroo.gif" width="735" height="473" />
  </a>
 
@@ -13,8 +13,8 @@ See demo - https://alexdisdier.github.io/deliveroo/
 
 ## ✅ Functionalities
 
-- Add a meal to basket.
-- Change quantity of a meal in basket.
+- Add and remove a meal to the basket.
+- Change the quantity of a meal either by clicking on a card or within the basket
 - Add a tip
 - Mobile responsive
 
