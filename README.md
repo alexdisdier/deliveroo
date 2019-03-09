@@ -1,3 +1,8 @@
+<p align="center" >
+   <a href="https://alexdisdier.github.io/deliveroo/" target="blank">
+    <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552165845/github-screenshot-gif/deliveroo.gif" width="735" height="473" />
+ </a>
+
 # Synopsis
 
 This is a clone of the Deliveroo website built with React. All rights reserved to Deliveroo & Roofoods Limited.
@@ -5,8 +10,6 @@ This is a clone of the Deliveroo website built with React. All rights reserved t
 ## Usage example
 
 See demo - https://alexdisdier.github.io/deliveroo/
-
-![screenshot of the deliveroo clone](/screenshot.jpg?raw=true "screenshot of the the deliveroo clone")
 
 ## ✅ Functionalities
 
@@ -54,7 +57,7 @@ Clone this repository :
 ```bash
 git clone https://github.com/alexdisdier/deliveroo.git
 
-cd to-do-list
+cd deliveroo
 ```
 
 Start the server:
