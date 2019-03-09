@@ -1,6 +1,15 @@
+# Desktop
+
 <p align="center" >
    <a href="https://alexdisdier.github.io/deliveroo/">
     <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552167018/github-screenshot-gif/deliveroo-desktop.gif" width="778" height="473" />
+ </a>
+
+# Mobile Responsive
+
+ <p align="center" >
+   <a href="https://alexdisdier.github.io/deliveroo/">
+    <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552167249/github-screenshot-gif/deliveroo-mobile.gif" width="252" height="427" />
  </a>
 
 # Synopsis
