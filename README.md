@@ -1,6 +1,6 @@
 <p align="center" >
    <a href="https://alexdisdier.github.io/deliveroo/">
-    <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552165845/github-screenshot-gif/deliveroo.gif" width="735" height="473" />
+    <img alt="deliveroo copycat alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552167018/github-screenshot-gif/deliveroo-desktop.gif" width="778" height="473" />
  </a>
 
 # Synopsis
