@@ -14,7 +14,7 @@
 
 # Synopsis
 
-This is a clone of the Deliveroo website built with React. All rights reserved to Deliveroo & Roofoods Limited.
+This is a clone of the Deliveroo website (for the restaurant Pain Quotidien) built with React. All rights reserved to Deliveroo & Roofoods Limited.
 
 ## Usage example
 
