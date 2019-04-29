@@ -24,8 +24,7 @@ class App extends Component {
     menu: {},
     basket: [],
     tip: 0,
-    error: "",
-    isHidden: false
+    error: ""
   };
 
   async componentDidMount() {
@@ -73,11 +72,6 @@ class App extends Component {
   scrollMore() {
     scroll.scrollMore(100);
   }
-
-  toggleHidden = () => {
-    const isHidden = this.state.isHidden;
-    this.setState({ isHidden: !isHidden });
-  };
 
   addMeal = meal => {
     const newBasket = [...this.state.basket];
@@ -189,14 +183,12 @@ class App extends Component {
 
         <Menu
           basket={this.state.basket}
-          isHidden={this.state.isHidden}
           incQuantity={this.incQuantity}
           decQuantity={this.decQuantity}
           incTip={this.incTip}
           decTip={this.decTip}
           tip={this.state.tip}
           handleSetActive={this.handleSetActive}
-          toggleHidden={this.toggleHidden}
         />
         <main className="container">{this.renderSection()}</main>
 

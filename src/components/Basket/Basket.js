@@ -1,74 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { ReactComponent as Increase } from "../../assets/img/increase.svg";
+import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
 
 import "./Basket.css";
 
 const basket = props => {
-  const { basket, toggleHidden, isHidden, incTip, decTip, tip } = props;
+  const [showBasket, showBasketHandler] = useState(false);
 
-  const increase = (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.0.0"
-    >
-      <g
-        className="icon"
-        fill="#00CCBC"
-        data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.0.0.0"
-      >
-        <rect
-          width="1.091"
-          height="8.727"
-          x="7.455"
-          y="3.636"
-          rx=".545"
-          data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.0.0.0.0"
-        />
-        <rect
-          width="1.091"
-          height="8.727"
-          x="7.455"
-          y="3.636"
-          transform="rotate(90 8 8)"
-          rx=".545"
-          data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.0.0.0.1"
-        />
-        <path
-          d="M1.35,8 C1.35,11.6725489 4.32745108,14.65 8,14.65 C11.6725489,14.65 14.65,11.6725489 14.65,8 C14.65,4.32745108 11.6725489,1.35 8,1.35 C4.32745108,1.35 1.35,4.32745108 1.35,8 Z M0,8 C0,3.58186667 3.58186667,0 8,0 C12.4181333,0 16,3.58186667 16,8 C16,12.4181333 12.4181333,16 8,16 C3.58186667,16 0,12.4181333 0,8 Z"
-          data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.0.0.0.2"
-        />
-      </g>
-    </svg>
-  );
-  const decrease = (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.2.0"
-    >
-      <g
-        className="icon"
-        fill="#00CCBC"
-        data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.2.0.0"
-      >
-        <rect
-          width="1.091"
-          height="8.727"
-          x="7.455"
-          y="3.636"
-          transform="rotate(90 8 8)"
-          rx=".545"
-          data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.2.0.0.0"
-        />
-        <path
-          d="M1.35,8 C1.35,11.6725489 4.32745108,14.65 8,14.65 C11.6725489,14.65 14.65,11.6725489 14.65,8 C14.65,4.32745108 11.6725489,1.35 8,1.35 C4.32745108,1.35 1.35,4.32745108 1.35,8 Z M0,8 C0,3.58186667 3.58186667,0 8,0 C12.4181333,0 16,3.58186667 16,8 C16,12.4181333 12.4181333,16 8,16 C3.58186667,16 0,12.4181333 0,8 Z"
-          data-reactid=".muh1srf4lc.3.6.0.0.0.1.0.1.0.0.1.0.0.$1583350-84bb119ce3456ef1c10049d923b27f7c.0.2.0.0.1"
-        />
-      </g>
-    </svg>
-  );
+  const toggleBasket = () => {
+    return showBasketHandler(!showBasket);
+  };
+
+  const { basket, incTip, decTip, tip } = props;
 
   // Calculation Variables.
   const deliveryFee = 2.5;
@@ -92,7 +35,7 @@ const basket = props => {
         <div className="basket-panel">
           <div
             className="summary-container hide-desktop"
-            onClick={() => toggleHidden()}
+            onClick={toggleBasket}
           >
             <div className="summary">
               <span>voir le panier et les frais</span>
@@ -107,7 +50,7 @@ const basket = props => {
             Valider mon panier
           </div>
         </div>
-        <div className={`basket-extend ${!isHidden ? "hide-mobile" : ""}`}>
+        <div className={`basket-extend ${!showBasket ? "hide-mobile" : ""}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
               {props.basket.map((e, index) => {
@@ -123,7 +66,7 @@ const basket = props => {
                           props.incQuantity(e.id);
                         }}
                       >
-                        {increase}
+                        {<Increase />}
                       </div>
                       <span>{e.quantity}</span>
                       <div
@@ -132,7 +75,7 @@ const basket = props => {
                           props.decQuantity(e.id);
                         }}
                       >
-                        {decrease}
+                        {<Decrease />}
                       </div>
                     </div>
                     <span className="basket-item-name">{e.name}</span>
@@ -171,10 +114,10 @@ const basket = props => {
                 <span className="tip-text">Pourboire livreur</span>
                 <div className="quantity-control tip">
                   <div className="quantity-increase" onClick={() => incTip()}>
-                    {increase}
+                    {<Increase />}
                   </div>
                   <div className="quantity-decrease" onClick={() => decTip()}>
-                    {decrease}
+                    {<Decrease />}
                   </div>
                 </div>
                 <span>{tip.toFixed(2)}&nbsp;€</span>

@@ -67,13 +67,11 @@ const menu = props => {
         </nav>
         <Basket
           basket={props.basket}
-          isHidden={props.isHidden}
           incQuantity={props.incQuantity}
           decQuantity={props.decQuantity}
           incTip={props.incTip}
           decTip={props.decTip}
           tip={props.tip}
-          toggleHidden={props.toggleHidden}
         />
       </div>
     </div>
