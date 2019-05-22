@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LinesEllipsis from "react-lines-ellipsis";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+import { fetchRestaurants } from "../../actions/restaurantActions";
 
 import "./Banner.css";
 
 const banner = props => {
-  // console.log(props);
-  const { restaurant } = props;
+  useEffect(() => {
+    props.fetchRestaurants();
+  }, []);
+
+  const { name, description, picture } = props.restaurants;
+
   return (
     <div className="banner-container">
       <div className="container banner">
         <div className="banner-content">
-          <h3>{restaurant.name}</h3>
+          <h3>{name}</h3>
           <LinesEllipsis
             className="banner-description"
-            text={restaurant.description}
+            text={description}
             maxLine="3"
             ellipsis="..."
             trimRight
@@ -22,11 +30,22 @@ const banner = props => {
         </div>
         <div
           className="banner-img"
-          style={{ backgroundImage: `url(${restaurant.picture})` }}
+          style={{ backgroundImage: `url(${picture})` }}
         />
       </div>
     </div>
   );
 };
 
-export default banner;
+banner.propTypes = {
+  fetchRestaurants: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  restaurants: state.restaurants.items
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchRestaurants }
+)(banner);

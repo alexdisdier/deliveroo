@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
-import {
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy
-} from "react-scroll";
+import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 import "./assets/css/reset.css";
 import "./App.css";
+
+import { Provider } from "react-redux";
 
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
@@ -18,10 +14,10 @@ import Footer from "./components/Footer/Footer";
 
 import data from "./assets/deliveroo-api.json";
 
+import store from "./store";
+
 class App extends Component {
   state = {
-    restaurant: {},
-    menu: {},
     basket: [],
     tip: 0,
     error: ""
@@ -29,13 +25,6 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      const response = await axios.get("https://deliveroo-api.now.sh/menu");
-      const restaurant = response.data.restaurant;
-      const menu = response.data.menu;
-      this.setState({
-        restaurant: restaurant,
-        menu: menu
-      });
       Events.scrollEvent.register("begin", function(to, element) {
         // console.log("begin", arguments);
       });
@@ -46,11 +35,7 @@ class App extends Component {
 
       scrollSpy.update();
     } catch (error) {
-      const restaurant = data.restaurant;
-      const menu = data.menu;
       this.setState({
-        restaurant: restaurant,
-        menu: menu,
         error: "An error occurred, this is static api"
       });
     }
@@ -145,55 +130,29 @@ class App extends Component {
     });
   };
 
-  renderSection() {
-    const menu = this.state.menu;
-    const sections = [];
-    const categories = Object.keys(menu);
-
-    for (let i = 0; i < categories.length; i++) {
-      const category = categories[i];
-      const menus = menu[category];
-
-      for (let i = 0; i < menus.length; i++) {
-        menus[i]["selected"] = false;
-        menus[i]["quantity"] = 0;
-      }
-
-      if (menus.length > 1) {
-        sections.push(
-          <Element key={i} name={`test${i}`} className="element">
-            <Section
-              sectionTitle={category}
-              menus={menus}
-              addMeal={this.addMeal}
-              basket={this.state.basket}
-            />
-          </Element>
-        );
-      }
-    }
-    return sections;
-  }
-
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Banner restaurant={this.state.restaurant} />
+      <Provider store={store}>
+        <div className="App">
+          <Header />
+          <Banner />
 
-        <Menu
-          basket={this.state.basket}
-          incQuantity={this.incQuantity}
-          decQuantity={this.decQuantity}
-          incTip={this.incTip}
-          decTip={this.decTip}
-          tip={this.state.tip}
-          handleSetActive={this.handleSetActive}
-        />
-        <main className="container">{this.renderSection()}</main>
+          <Menu
+            basket={this.state.basket}
+            incQuantity={this.incQuantity}
+            decQuantity={this.decQuantity}
+            incTip={this.incTip}
+            decTip={this.decTip}
+            tip={this.state.tip}
+            handleSetActive={this.handleSetActive}
+          />
+          <main className="container">
+            <Section addMeal={this.addMeal} basket={this.state.basket} />
+          </main>
 
-        <Footer scrollToTop={this.scrollToTop} />
-      </div>
+          <Footer scrollToTop={this.scrollToTop} />
+        </div>
+      </Provider>
     );
   }
 }
