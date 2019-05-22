@@ -16,6 +16,11 @@
 
 This is a clone of the Deliveroo website (for the restaurant Pain Quotidien) built with React. All rights reserved to Deliveroo & Roofoods Limited.
 
+You will find two branches:
+
+- **master** original version
+- **redux** using redux and hooks
+
 ## Usage example
 
 See demo - https://alexdisdier.github.io/deliveroo/
