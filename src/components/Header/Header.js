@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Header.css";
 
-const header = props => {
+const header = () => {
   return (
     <div className="page-header">
       <header>

@@ -1,4 +1,6 @@
 import React from "react";
+import PropType from "prop-types";
+
 import LinesEllipsis from "react-lines-ellipsis";
 
 import "./Card.css";
@@ -14,7 +16,6 @@ const card = props => {
     quantity,
     addMeal
   } = props;
-
   let star = (
     <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -28,9 +29,9 @@ const card = props => {
   let popularDiv;
   let active;
 
-  if (popular) {
+  if (popular)
     popularDiv = <span className="card-popular">{star} populaire</span>;
-  }
+
   if (quantity > 0) {
     active = "card-active";
     quantityDiv = <div className="card-quantity">{quantity}x</div>;
@@ -70,6 +71,17 @@ const card = props => {
       />
     </div>
   );
+};
+
+card.propTypes = {
+  title: PropType.string.isRequired,
+  description: PropType.string.isRequired,
+  price: PropType.string.isRequired,
+  id: PropType.string.isRequired,
+  addMeal: PropType.func.isRequired,
+  picture: PropType.string,
+  popular: PropType.bool,
+  quantity: PropType.number
 };
 
 export default card;

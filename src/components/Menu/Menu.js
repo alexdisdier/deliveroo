@@ -1,4 +1,6 @@
 import React from "react";
+import PropType from "prop-types";
+
 import { Link } from "react-scroll";
 // source for smooth scroll: https://www.npmjs.com/package/react-scroll
 
@@ -7,6 +9,16 @@ import "./Menu.css";
 import Basket from "../Basket/Basket";
 
 const menu = props => {
+  const {
+    basket,
+    incQuantity,
+    decQuantity,
+    incTip,
+    decTip,
+    tip,
+    handleSetActive
+  } = props;
+
   return (
     <div className="menu-nav">
       <div className="menu-nav-container container">
@@ -20,7 +32,7 @@ const menu = props => {
               smooth={true}
               offset={-40}
               duration={500}
-              onSetActive={props.handleSetActive}
+              onSetActive={handleSetActive}
             >
               Brunchs
             </Link>
@@ -32,7 +44,7 @@ const menu = props => {
               smooth={true}
               offset={-40}
               duration={500}
-              onSetActive={props.handleSetActive}
+              onSetActive={handleSetActive}
             >
               Petit Dejeuner
             </Link>
@@ -44,7 +56,7 @@ const menu = props => {
               smooth={true}
               offset={-40}
               duration={500}
-              onSetActive={props.handleSetActive}
+              onSetActive={handleSetActive}
             >
               Viennoiseries et Pains
             </Link>
@@ -56,7 +68,7 @@ const menu = props => {
               smooth={true}
               offset={-40}
               duration={500}
-              onSetActive={props.handleSetActive}
+              onSetActive={handleSetActive}
             >
               Salades
             </Link>
@@ -66,16 +78,26 @@ const menu = props => {
           </div>
         </nav>
         <Basket
-          basket={props.basket}
-          incQuantity={props.incQuantity}
-          decQuantity={props.decQuantity}
-          incTip={props.incTip}
-          decTip={props.decTip}
-          tip={props.tip}
+          basket={basket}
+          incQuantity={incQuantity}
+          decQuantity={decQuantity}
+          incTip={incTip}
+          decTip={decTip}
+          tip={tip}
         />
       </div>
     </div>
   );
+};
+
+menu.propTypes = {
+  basket: PropType.array.isRequired,
+  incQuantity: PropType.func.isRequired,
+  decQuantity: PropType.func.isRequired,
+  incTip: PropType.func.isRequired,
+  decTip: PropType.func.isRequired,
+  handleSetActive: PropType.func,
+  tip: PropType.number.isRequired
 };
 
 export default menu;

@@ -1,16 +1,17 @@
 {
   "name": "deliveroo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://alexdisdier.github.io/deliveroo/",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "gh-pages": "^2.0.1",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-lines-ellipsis": "^0.14.0",
-    "react-scripts": "2.1.5",
-    "react-scroll": "^1.7.11"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-lines-ellipsis": "^0.14.1",
+    "react-scripts": "3.0.1",
+    "react-scroll": "^1.7.12"
   },
   "scripts": {
     "start": "react-scripts start",
