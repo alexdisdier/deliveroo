@@ -5,7 +5,7 @@ import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
 
 import "./Basket.css";
 
-const basket = props => {
+const Basket = props => {
   const [showBasket, showBasketHandler] = useState(false);
 
   const toggleBasket = () => showBasketHandler(!showBasket);
@@ -130,7 +130,7 @@ const basket = props => {
   );
 };
 
-basket.propTypes = {
+Basket.propTypes = {
   basket: PropType.array.isRequired,
   incTip: PropType.func.isRequired,
   decTip: PropType.func.isRequired,
@@ -139,4 +139,4 @@ basket.propTypes = {
   tip: PropType.number.isRequired
 };
 
-export default basket;
+export default Basket;
