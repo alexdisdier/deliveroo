@@ -7,9 +7,6 @@ import {
   scrollSpy
 } from "react-scroll";
 
-import "./assets/css/reset.css";
-import "./App.css";
-
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
 import Menu from "./components/Menu/Menu";
@@ -18,31 +15,34 @@ import Footer from "./components/Footer/Footer";
 
 import data from "./assets/deliveroo-api.json";
 
+import { API_MENU } from "./constant/api";
+
+import "./assets/css/reset.css";
+import "./App.css";
+
+const INITIAL_STATE = {
+  restaurant: {},
+  menu: {},
+  basket: [],
+  tip: 0,
+  error: ""
+};
+
 class App extends Component {
-  state = {
-    restaurant: {},
-    menu: {},
-    basket: [],
-    tip: 0,
-    error: ""
-  };
+  state = INITIAL_STATE;
 
   async componentDidMount() {
     try {
-      const response = await axios.get("https://deliveroo-api.now.sh/menu");
+      const response = await axios.get(API_MENU);
       const restaurant = response.data.restaurant;
       const menu = response.data.menu;
       this.setState({
         restaurant: restaurant,
         menu: menu
       });
-      Events.scrollEvent.register("begin", function(to, element) {
-        // console.log("begin", arguments);
-      });
+      Events.scrollEvent.register("begin", function(to, element) {});
 
-      Events.scrollEvent.register("end", function(to, element) {
-        // console.log("end", arguments);
-      });
+      Events.scrollEvent.register("end", function(to, element) {});
 
       scrollSpy.update();
     } catch (error) {
@@ -176,18 +176,20 @@ class App extends Component {
   }
 
   render() {
+    const { restaurant, basket, tip } = this.state;
+
     return (
       <div className="App">
         <Header />
-        <Banner restaurant={this.state.restaurant} />
+        <Banner restaurant={restaurant} />
 
         <Menu
-          basket={this.state.basket}
+          basket={basket}
           incQuantity={this.incQuantity}
           decQuantity={this.decQuantity}
           incTip={this.incTip}
           decTip={this.decTip}
-          tip={this.state.tip}
+          tip={tip}
           handleSetActive={this.handleSetActive}
         />
         <main className="container">{this.renderSection()}</main>

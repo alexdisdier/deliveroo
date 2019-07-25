@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropType from "prop-types";
 import { ReactComponent as Increase } from "../../assets/img/increase.svg";
 import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
 
@@ -7,11 +8,9 @@ import "./Basket.css";
 const basket = props => {
   const [showBasket, showBasketHandler] = useState(false);
 
-  const toggleBasket = () => {
-    return showBasketHandler(!showBasket);
-  };
+  const toggleBasket = () => showBasketHandler(!showBasket);
 
-  const { basket, incTip, decTip, tip } = props;
+  const { basket, incTip, decTip, tip, incQuantity, decQuantity } = props;
 
   // Calculation Variables.
   const deliveryFee = 2.5;
@@ -21,11 +20,7 @@ const basket = props => {
   // Animation Variables
   let totalDiv;
 
-  if (basket.length === 0) {
-    totalDiv = <span>Votre panier est vide</span>;
-  } else {
-    totalDiv = "";
-  }
+  if (basket.length === 0) totalDiv = <span>Votre panier est vide</span>;
 
   return (
     <div
@@ -39,7 +34,6 @@ const basket = props => {
           >
             <div className="summary">
               <span>voir le panier et les frais</span>
-              {/* <span>⤫</span> */}
             </div>
           </div>
           <div
@@ -50,7 +44,7 @@ const basket = props => {
             Valider mon panier
           </div>
         </div>
-        <div className={`basket-extend ${!showBasket ? "hide-mobile" : ""}`}>
+        <div className={`basket-extend ${!showBasket && "hide-mobile"}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
               {props.basket.map((e, index) => {
@@ -63,19 +57,19 @@ const basket = props => {
                       <div
                         className="quantity-decrease"
                         onClick={() => {
-                          props.incQuantity(e.id);
+                          incQuantity(e.id);
                         }}
                       >
-                        {<Increase />}
+                        <Increase />
                       </div>
                       <span>{e.quantity}</span>
                       <div
                         className="quantity-increase"
                         onClick={() => {
-                          props.decQuantity(e.id);
+                          decQuantity(e.id);
                         }}
                       >
-                        {<Decrease />}
+                        <Decrease />
                       </div>
                     </div>
                     <span className="basket-item-name">{e.name}</span>
@@ -134,6 +128,15 @@ const basket = props => {
       </div>
     </div>
   );
+};
+
+basket.propTypes = {
+  basket: PropType.array.isRequired,
+  incTip: PropType.func.isRequired,
+  decTip: PropType.func.isRequired,
+  incQuantity: PropType.func.isRequired,
+  decQuantity: PropType.func.isRequired,
+  tip: PropType.number.isRequired
 };
 
 export default basket;

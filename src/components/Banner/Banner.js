@@ -1,19 +1,23 @@
 import React from "react";
+import PropType from "prop-types";
+
 import LinesEllipsis from "react-lines-ellipsis";
 
 import "./Banner.css";
 
 const banner = props => {
-  // console.log(props);
-  const { restaurant } = props;
+  const {
+    restaurant: { name, description, picture }
+  } = props;
+
   return (
     <div className="banner-container">
       <div className="container banner">
         <div className="banner-content">
-          <h3>{restaurant.name}</h3>
+          <h3>{name}</h3>
           <LinesEllipsis
             className="banner-description"
-            text={restaurant.description}
+            text={description}
             maxLine="3"
             ellipsis="..."
             trimRight
@@ -22,11 +26,17 @@ const banner = props => {
         </div>
         <div
           className="banner-img"
-          style={{ backgroundImage: `url(${restaurant.picture})` }}
+          style={{ backgroundImage: `url(${picture})` }}
         />
       </div>
     </div>
   );
+};
+
+banner.propTypes = {
+  name: PropType.string,
+  description: PropType.string,
+  picture: PropType.string
 };
 
 export default banner;

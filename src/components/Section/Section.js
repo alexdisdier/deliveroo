@@ -1,20 +1,21 @@
 import React from "react";
+import PropType from "prop-types";
 
 import "./Section.css";
 
 import Card from "./Card/Card";
 
 const section = props => {
+  const { anchor, sectionTitle, menus, basket, addMeal } = props;
   let quantity = null;
 
   return (
-    <section id={props.anchor}>
-      <h3>{props.sectionTitle}</h3>
+    <section id={anchor}>
+      <h3>{sectionTitle}</h3>
       <div className="cards-container">
-        {props.menus.map((meal, index) => {
-          if (props.basket.filter(check => check.id === meal.id).length > 0) {
-            quantity = props.basket.find(entry => entry.id === meal.id)
-              .quantity;
+        {menus.map((meal, index) => {
+          if (basket.filter(check => check.id === meal.id).length > 0) {
+            quantity = basket.find(entry => entry.id === meal.id).quantity;
           } else {
             quantity = null;
           }
@@ -24,14 +25,22 @@ const section = props => {
               key={index}
               {...meal}
               quantity={quantity}
-              addMeal={props.addMeal}
-              basket={props.basket}
+              addMeal={addMeal}
+              basket={basket}
             />
           );
         })}
       </div>
     </section>
   );
+};
+
+section.propTypes = {
+  menus: PropType.array.isRequired,
+  basket: PropType.array.isRequired,
+  addMeal: PropType.func.isRequired,
+  anchor: PropType.string,
+  sectionTitle: PropType.string.isRequired
 };
 
 export default section;
