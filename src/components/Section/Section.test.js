@@ -21,47 +21,47 @@ describe("Section", () => {
   it("renders the Section correctly", () => {
     const wrapper = shallow(<Section {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
-      <section
-        id="anchor"
-      >
-        <h3>
-          sectionTitle
-        </h3>
-        <div
-          className="cards-container"
-        >
-          <Card
-            0="m"
-            1="e"
-            2="n"
-            3="u"
-            4="1"
-            addMeal={[MockFunction]}
-            basket={
-              Array [
-                "item1",
-                "item2",
-              ]
-            }
-            key="0"
-          />
-          <Card
-            0="m"
-            1="e"
-            2="n"
-            3="u"
-            4="2"
-            addMeal={[MockFunction]}
-            basket={
-              Array [
-                "item1",
-                "item2",
-              ]
-            }
-            key="1"
-          />
-        </div>
-      </section>
-    `);
+<section
+  id="anchor"
+>
+  <h3>
+    sectionTitle
+  </h3>
+  <div
+    className="cards-container"
+  >
+    <Card
+      0="m"
+      1="e"
+      2="n"
+      3="u"
+      4="1"
+      addMeal={[MockFunction]}
+      basket={
+        Array [
+          "item1",
+          "item2",
+        ]
+      }
+      key="0"
+    />
+    <Card
+      0="m"
+      1="e"
+      2="n"
+      3="u"
+      4="2"
+      addMeal={[MockFunction]}
+      basket={
+        Array [
+          "item1",
+          "item2",
+        ]
+      }
+      key="1"
+    />
+  </div>
+</section>
+`);
   });
 });

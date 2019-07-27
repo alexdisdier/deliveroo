@@ -2,8 +2,10 @@ import React from "react";
 import PropType from "prop-types";
 
 import "./Footer.css";
-const footer = props => {
+
+function Footer(props) {
   const { scrollToTop } = props;
+
   return (
     <footer>
       <a href="#0" onClick={scrollToTop}>
@@ -11,10 +13,10 @@ const footer = props => {
       </a>
     </footer>
   );
-};
+}
 
-footer.propTypes = {
+Footer.propTypes = {
   scrollToTop: PropType.func.isRequired
 };
 
-export default footer;
+export default React.memo(Footer);

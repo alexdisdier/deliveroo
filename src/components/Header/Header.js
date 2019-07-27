@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Header.css";
 
-const header = () => {
+function Header() {
   return (
     <div className="page-header">
       <header>
@@ -34,6 +34,6 @@ const header = () => {
       </header>
     </div>
   );
-};
+}
 
-export default header;
+export default React.memo(Header);
