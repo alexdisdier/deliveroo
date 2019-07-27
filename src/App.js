@@ -59,61 +59,70 @@ function App() {
     Events.scrollEvent.remove("end")
   );
 
-  function scrollToTop() {
+  const scrollToTop = useCallback(() => {
     scroll.scrollToTop();
-  }
+  }, []);
 
-  const addMeal = useCallback(meal => {
-    const newBasket = [...basket];
+  const addMeal = useCallback(
+    meal => {
+      const newBasket = [...basket];
 
-    if (newBasket.length === 0) {
-      newBasket.push(meal);
-      setBasket(newBasket);
-      // filter check if 1 or 0
-    } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
-      newBasket.push(meal);
-      setBasket(newBasket);
-    } else {
-      incQuantity(meal.id);
-    }
-  });
-
-  const incQuantity = useCallback(async id => {
-    const newBasket = [...basket];
-
-    for (let i = 0; i < newBasket.length; i++) {
-      if (newBasket[i].id === id && id !== undefined) {
-        newBasket[i].quantity += 1;
+      if (newBasket.length === 0) {
+        newBasket.push(meal);
+        setBasket(newBasket);
+        // filter check if 1 or 0
+      } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
+        newBasket.push(meal);
+        setBasket(newBasket);
+      } else {
+        incQuantity(meal.id);
       }
-    }
-    await setBasket(newBasket);
-  });
+    },
+    [basket]
+  );
 
-  const decQuantity = useCallback(id => {
-    const newBasket = [...basket];
+  const incQuantity = useCallback(
+    async id => {
+      const newBasket = [...basket];
 
-    for (let i = 0; i < newBasket.length; i++) {
-      if (
-        newBasket[i].id === id &&
-        newBasket[i].quantity > 1 &&
-        id !== undefined
-      ) {
-        newBasket[i].quantity -= 1;
-      } else if (newBasket[i].id === id && newBasket[i].quantity === 1) {
-        newBasket.splice(i, 1);
+      for (let i = 0; i < newBasket.length; i++) {
+        if (newBasket[i].id === id && id !== undefined) {
+          newBasket[i].quantity += 1;
+        }
       }
-    }
+      await setBasket(newBasket);
+    },
+    [basket]
+  );
 
-    setBasket(newBasket);
-  });
+  const decQuantity = useCallback(
+    id => {
+      const newBasket = [...basket];
+
+      for (let i = 0; i < newBasket.length; i++) {
+        if (
+          newBasket[i].id === id &&
+          newBasket[i].quantity > 1 &&
+          id !== undefined
+        ) {
+          newBasket[i].quantity -= 1;
+        } else if (newBasket[i].id === id && newBasket[i].quantity === 1) {
+          newBasket.splice(i, 1);
+        }
+      }
+
+      setBasket(newBasket);
+    },
+    [basket]
+  );
 
   const incTip = useCallback(() => {
     setTip(tip + 1);
-  });
+  }, [tip]);
 
   const decTip = useCallback(() => {
     if (tip > 0) setTip(tip - 1);
-  });
+  }, [tip]);
 
   const renderSection = () => {
     const sections = [];
