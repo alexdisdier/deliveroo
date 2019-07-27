@@ -74,10 +74,10 @@ const card = props => {
 };
 
 card.propTypes = {
-  title: PropType.string.isRequired,
-  description: PropType.string.isRequired,
-  price: PropType.string.isRequired,
-  id: PropType.string.isRequired,
+  title: PropType.string,
+  description: PropType.string,
+  price: PropType.string,
+  id: PropType.string,
   addMeal: PropType.func.isRequired,
   picture: PropType.string,
   popular: PropType.bool,
