@@ -3,7 +3,6 @@ import React from "react";
 import "./Header.css";
 
 function Header() {
-  console.log("render Header");
   return (
     <div className="page-header">
       <header>

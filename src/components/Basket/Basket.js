@@ -12,8 +12,6 @@ function Basket(props) {
 
   const { basket, incTip, decTip, tip, incQuantity, decQuantity } = props;
 
-  console.log("render Basket");
-
   // Calculation Variables.
   const deliveryFee = 2.5;
   let afterFee = 0;

@@ -10,8 +10,6 @@ function Banner(props) {
     restaurant: { name, description, picture }
   } = props;
 
-  console.log("render Banner");
-
   return (
     <div className="banner-container">
       <div className="container banner">

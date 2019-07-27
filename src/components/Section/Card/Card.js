@@ -39,8 +39,6 @@ function Card(props) {
     active = "card-inactive";
   }
 
-  console.log("render Card");
-
   return (
     <div
       className={`card ${active}`}

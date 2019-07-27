@@ -19,8 +19,6 @@ function Menu(props) {
     handleSetActive
   } = props;
 
-  console.log("render Menu");
-
   return (
     <div className="menu-nav">
       <div className="menu-nav-container container">

@@ -6,7 +6,6 @@ import "./Footer.css";
 function Footer(props) {
   const { scrollToTop } = props;
 
-  console.log("render Footer");
   return (
     <footer>
       <a href="#0" onClick={scrollToTop}>

@@ -9,8 +9,6 @@ function Section(props) {
   const { anchor, sectionTitle, menus, basket, addMeal } = props;
   let quantity = null;
 
-  console.log("render Section");
-
   return (
     <section id={anchor}>
       <h3>{sectionTitle}</h3>
