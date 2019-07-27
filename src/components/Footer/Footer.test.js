@@ -15,15 +15,15 @@ describe("Footer", () => {
   it("renders the footer correctly", () => {
     const wrapper = shallow(<Footer {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
-      <footer>
-        <a
-          href="#0"
-          onClick={[MockFunction]}
-        >
-          Haut de la page
-        </a>
-      </footer>
-    `);
+<footer>
+  <a
+    href="#0"
+    onClick={[MockFunction]}
+  >
+    Haut de la page
+  </a>
+</footer>
+`);
   });
 
   it("scrolls when clicked on haut de la page", () => {

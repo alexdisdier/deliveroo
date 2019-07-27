@@ -21,28 +21,28 @@ describe("App", () => {
   it("renders the App correctly", () => {
     const wrapper = shallow(<App {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
-      <div
-        className="App"
-      >
-        <Header />
-        <Banner
-          restaurant={Object {}}
-        />
-        <Menu
-          basket={Array []}
-          decQuantity={[Function]}
-          decTip={[Function]}
-          incQuantity={[Function]}
-          incTip={[Function]}
-          tip={0}
-        />
-        <main
-          className="container"
-        />
-        <Footer
-          scrollToTop={[Function]}
-        />
-      </div>
-    `);
+<div
+  className="App"
+>
+  <Header />
+  <Banner
+    restaurant={Object {}}
+  />
+  <Menu
+    basket={Array []}
+    decQuantity={[Function]}
+    decTip={[Function]}
+    incQuantity={[Function]}
+    incTip={[Function]}
+    tip={0}
+  />
+  <main
+    className="container"
+  />
+  <Footer
+    scrollToTop={[Function]}
+  />
+</div>
+`);
   });
 });

@@ -5,12 +5,14 @@ import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
 
 import "./Basket.css";
 
-const Basket = props => {
+function Basket(props) {
   const [showBasket, showBasketHandler] = useState(false);
 
   const toggleBasket = () => showBasketHandler(!showBasket);
 
   const { basket, incTip, decTip, tip, incQuantity, decQuantity } = props;
+
+  console.log("render Basket");
 
   // Calculation Variables.
   const deliveryFee = 2.5;
@@ -128,7 +130,7 @@ const Basket = props => {
       </div>
     </div>
   );
-};
+}
 
 Basket.propTypes = {
   basket: PropType.array.isRequired,
@@ -139,4 +141,4 @@ Basket.propTypes = {
   tip: PropType.number.isRequired
 };
 
-export default Basket;
+export default React.memo(Basket);

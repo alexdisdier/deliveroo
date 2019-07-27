@@ -8,7 +8,7 @@ import "./Menu.css";
 
 import Basket from "../Basket/Basket";
 
-const menu = props => {
+function Menu(props) {
   const {
     basket,
     incQuantity,
@@ -18,6 +18,8 @@ const menu = props => {
     tip,
     handleSetActive
   } = props;
+
+  console.log("render Menu");
 
   return (
     <div className="menu-nav">
@@ -88,9 +90,9 @@ const menu = props => {
       </div>
     </div>
   );
-};
+}
 
-menu.propTypes = {
+Menu.propTypes = {
   basket: PropType.array.isRequired,
   incQuantity: PropType.func.isRequired,
   decQuantity: PropType.func.isRequired,
@@ -100,4 +102,4 @@ menu.propTypes = {
   tip: PropType.number.isRequired
 };
 
-export default menu;
+export default React.memo(Menu);

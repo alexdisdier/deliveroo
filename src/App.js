@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import {
   Element,
@@ -13,100 +13,84 @@ import Menu from "./components/Menu/Menu";
 import Section from "./components/Section/Section";
 import Footer from "./components/Footer/Footer";
 
-import data from "./assets/deliveroo-api.json";
-
 import { API_MENU } from "./constant/api";
 
 import "./assets/css/reset.css";
 import "./App.css";
 
-const INITIAL_STATE = {
-  restaurant: {},
-  menu: {},
-  basket: [],
-  tip: 0,
-  error: ""
-};
+/*
+ great source on useEffect and fetching data: https://www.robinwieruch.de/react-hooks-fetch-data/
+*/
 
-class App extends Component {
-  state = INITIAL_STATE;
+function App() {
+  const [restaurant, setRestaurant] = useState({});
+  const [menu, setMenu] = useState({});
+  const [basket, setBasket] = useState([]);
+  const [tip, setTip] = useState(0);
+  const [isLoading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  async componentDidMount() {
-    try {
-      const response = await axios.get(API_MENU);
-      const restaurant = response.data.restaurant;
-      const menu = response.data.menu;
-      this.setState({
-        restaurant: restaurant,
-        menu: menu
-      });
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        setIsError(false);
+        setLoading(true);
+
+        try {
+          const response = await axios(API_MENU);
+
+          setRestaurant(response.data.restaurant);
+          setMenu(response.data.menu);
+        } catch (error) {
+          setIsError(true);
+        }
+
+        setLoading(false);
+      };
+
+      fetchData();
       Events.scrollEvent.register("begin", function(to, element) {});
-
       Events.scrollEvent.register("end", function(to, element) {});
 
       scrollSpy.update();
-    } catch (error) {
-      const restaurant = data.restaurant;
-      const menu = data.menu;
-      this.setState({
-        restaurant: restaurant,
-        menu: menu,
-        error: "An error occurred, this is static api"
-      });
-    }
-  }
+    },
+    [],
+    Events.scrollEvent.remove("begin"),
+    Events.scrollEvent.remove("end")
+  );
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove("begin");
-    Events.scrollEvent.remove("end");
-  }
-  scrollToTop() {
+  function scrollToTop() {
     scroll.scrollToTop();
   }
-  scrollToBottom() {
-    scroll.scrollToBottom();
-  }
-  scrollTo() {
-    scroll.scrollTo(100);
-  }
-  scrollMore() {
-    scroll.scrollMore(100);
-  }
 
-  addMeal = meal => {
-    const newBasket = [...this.state.basket];
+  const addMeal = useCallback(meal => {
+    const newBasket = [...basket];
 
     if (newBasket.length === 0) {
       newBasket.push(meal);
-      this.setState({
-        basket: newBasket
-      });
+      setBasket(newBasket);
       // filter check if 1 or 0
     } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
       newBasket.push(meal);
-      this.setState({
-        basket: newBasket
-      });
+      setBasket(newBasket);
     } else {
-      this.incQuantity(meal.id);
+      incQuantity(meal.id);
     }
-  };
+  });
 
-  incQuantity = async id => {
-    const newBasket = [...this.state.basket];
+  const incQuantity = useCallback(async id => {
+    const newBasket = [...basket];
 
     for (let i = 0; i < newBasket.length; i++) {
       if (newBasket[i].id === id && id !== undefined) {
         newBasket[i].quantity += 1;
       }
     }
-    await this.setState({
-      basket: newBasket
-    });
-  };
+    await setBasket(newBasket);
+  });
 
-  decQuantity = id => {
-    const newBasket = [...this.state.basket];
+  const decQuantity = useCallback(id => {
+    const newBasket = [...basket];
 
     for (let i = 0; i < newBasket.length; i++) {
       if (
@@ -120,33 +104,18 @@ class App extends Component {
       }
     }
 
-    this.setState({
-      basket: newBasket
-    });
-  };
+    setBasket(newBasket);
+  });
 
-  incTip = () => {
-    let tip = this.state.tip;
+  const incTip = useCallback(() => {
+    setTip(tip + 1);
+  });
 
-    this.setState({
-      tip: tip + 1
-    });
-  };
+  const decTip = useCallback(() => {
+    if (tip > 0) setTip(tip - 1);
+  });
 
-  decTip = () => {
-    let tip = this.state.tip;
-
-    if (tip > 0) {
-      tip = tip - 1;
-    }
-
-    this.setState({
-      tip: tip
-    });
-  };
-
-  renderSection() {
-    const menu = this.state.menu;
+  const renderSection = () => {
     const sections = [];
     const categories = Object.keys(menu);
 
@@ -165,39 +134,37 @@ class App extends Component {
             <Section
               sectionTitle={category}
               menus={menus}
-              addMeal={this.addMeal}
-              basket={this.state.basket}
+              addMeal={addMeal}
+              basket={basket}
             />
           </Element>
         );
       }
     }
     return sections;
-  }
+  };
 
-  render() {
-    const { restaurant, basket, tip } = this.state;
+  return !isLoading ? (
+    <div className="App">
+      {isError && <div>Something went wrong ...</div>}
+      <Header />
+      <Banner restaurant={restaurant} />
 
-    return (
-      <div className="App">
-        <Header />
-        <Banner restaurant={restaurant} />
+      <Menu
+        basket={basket}
+        incQuantity={incQuantity}
+        decQuantity={decQuantity}
+        incTip={incTip}
+        decTip={decTip}
+        tip={tip}
+      />
+      <main className="container">{renderSection()}</main>
 
-        <Menu
-          basket={basket}
-          incQuantity={this.incQuantity}
-          decQuantity={this.decQuantity}
-          incTip={this.incTip}
-          decTip={this.decTip}
-          tip={tip}
-          handleSetActive={this.handleSetActive}
-        />
-        <main className="container">{this.renderSection()}</main>
-
-        <Footer scrollToTop={this.scrollToTop} />
-      </div>
-    );
-  }
+      <Footer scrollToTop={scrollToTop} />
+    </div>
+  ) : (
+    "ADD LOADING COMPONENT ..."
+  );
 }
 
 export default App;

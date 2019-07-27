@@ -5,10 +5,12 @@ import LinesEllipsis from "react-lines-ellipsis";
 
 import "./Banner.css";
 
-const banner = props => {
+function Banner(props) {
   const {
     restaurant: { name, description, picture }
   } = props;
+
+  console.log("render Banner");
 
   return (
     <div className="banner-container">
@@ -31,12 +33,12 @@ const banner = props => {
       </div>
     </div>
   );
-};
+}
 
-banner.propTypes = {
+Banner.propTypes = {
   name: PropType.string,
   description: PropType.string,
   picture: PropType.string
 };
 
-export default banner;
+export default React.memo(Banner);

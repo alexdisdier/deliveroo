@@ -5,7 +5,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 
 import "./Card.css";
 
-const card = props => {
+function Card(props) {
   const {
     title,
     description,
@@ -39,6 +39,8 @@ const card = props => {
     active = "card-inactive";
   }
 
+  console.log("render Card");
+
   return (
     <div
       className={`card ${active}`}
@@ -71,9 +73,9 @@ const card = props => {
       />
     </div>
   );
-};
+}
 
-card.propTypes = {
+Card.propTypes = {
   title: PropType.string,
   description: PropType.string,
   price: PropType.string,
@@ -84,4 +86,4 @@ card.propTypes = {
   quantity: PropType.number
 };
 
-export default card;
+export default React.memo(Card);

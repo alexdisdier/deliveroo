@@ -5,9 +5,11 @@ import "./Section.css";
 
 import Card from "./Card/Card";
 
-const section = props => {
+function Section(props) {
   const { anchor, sectionTitle, menus, basket, addMeal } = props;
   let quantity = null;
+
+  console.log("render Section");
 
   return (
     <section id={anchor}>
@@ -33,9 +35,9 @@ const section = props => {
       </div>
     </section>
   );
-};
+}
 
-section.propTypes = {
+Section.propTypes = {
   menus: PropType.array.isRequired,
   basket: PropType.array.isRequired,
   addMeal: PropType.func.isRequired,
@@ -43,4 +45,4 @@ section.propTypes = {
   sectionTitle: PropType.string.isRequired
 };
 
-export default section;
+export default React.memo(Section);
