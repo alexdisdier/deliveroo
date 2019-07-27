@@ -1,11 +1,15 @@
 {
   "name": "deliveroo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "homepage": "https://alexdisdier.github.io/deliveroo/",
   "dependencies": {
     "axios": "^0.19.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "gh-pages": "^2.0.1",
+    "jest-enzyme": "^7.0.2",
+    "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -16,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=node",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
