@@ -1,5 +1,3 @@
-[![Build Status](https://semaphoreci.com/api/v1/alexdisdier/deliveroo/branches/master/shields_badge.svg)](https://semaphoreci.com/alexdisdier/deliveroo)
-
 # Desktop
 
 <p align="center" >
