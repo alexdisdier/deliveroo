@@ -15,12 +15,15 @@ describe("Card", () => {
       addMeal: jest.fn(),
       picture: "picture",
       popular: true,
-      quantity: 1
+      quantity: 0
     };
   });
 
   it("adds a meal to basket", () => {
     const wrapper = shallow(<Card {...props} />);
+
+    // Test className before card has been added
+    expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
 
     wrapper
       .find("div")
@@ -40,18 +43,12 @@ describe("Card", () => {
     const wrapper = shallow(<Card {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
 <div
-  className="card card-active"
+  className="card card-inactive"
   onClick={[Function]}
 >
   <div
     className="card-content"
   >
-    <div
-      className="card-quantity"
-    >
-      1
-      x
-    </div>
     <h6
       className="card-title"
     >
