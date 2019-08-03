@@ -55,7 +55,7 @@ function Basket(props) {
                   <li key={index} className="basket-item">
                     <div className="quantity-control">
                       <div
-                        className="quantity-decrease"
+                        className="quantity-increase"
                         onClick={() => {
                           incQuantity(e.id);
                         }}
@@ -64,7 +64,7 @@ function Basket(props) {
                       </div>
                       <span>{e.quantity}</span>
                       <div
-                        className="quantity-increase"
+                        className="quantity-decrease"
                         onClick={() => {
                           decQuantity(e.id);
                         }}

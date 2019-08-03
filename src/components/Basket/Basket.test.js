@@ -8,7 +8,20 @@ describe("Basket", () => {
 
   beforeEach(() => {
     props = {
-      basket: ["item1", "item2", "item3"],
+      basket: [
+        {
+          id: "id1",
+          quantity: 1,
+          price: 10,
+          name: "item1"
+        },
+        {
+          id: "id2",
+          quantity: 1,
+          price: 10,
+          name: "item2"
+        }
+      ],
       incTip: jest.fn(),
       decTip: jest.fn(),
       tip: 1,
@@ -17,9 +30,60 @@ describe("Basket", () => {
     };
   });
 
-  it("renders the Basket correctly", () => {
-    const wrapper = shallow(<Basket {...props} />);
-    expect(wrapper).toMatchInlineSnapshot(`
+  describe("functionalities", () => {
+    it("increments a meal by 1", () => {
+      const wrapper = shallow(<Basket {...props} />);
+
+      wrapper
+        .find(".quantity-increase")
+        .at(0)
+        .simulate("click");
+
+      expect(props.incQuantity).toHaveBeenCalledTimes(1);
+      expect(props.incQuantity).toHaveBeenCalledWith("id1");
+    });
+
+    it("decrements a meal by 1", () => {
+      const wrapper = shallow(<Basket {...props} />);
+
+      wrapper
+        .find(".quantity-decrease")
+        .at(0)
+        .simulate("click");
+
+      expect(props.decQuantity).toHaveBeenCalledTimes(1);
+      expect(props.decQuantity).toHaveBeenCalledWith("id1");
+    });
+
+    it("increments tipping by 1", () => {
+      const wrapper = shallow(<Basket {...props} />);
+
+      wrapper
+        .find(".tip")
+        .at(0)
+        .find(".quantity-increase")
+        .simulate("click");
+
+      expect(props.incTip).toHaveBeenCalledTimes(1);
+    });
+
+    it("decrements tipping by 1", () => {
+      const wrapper = shallow(<Basket {...props} />);
+
+      wrapper
+        .find(".tip")
+        .at(0)
+        .find(".quantity-decrease")
+        .simulate("click");
+
+      expect(props.decTip).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("renders", () => {
+    it("the Basket", () => {
+      const wrapper = shallow(<Basket {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`
 <div
   className="basket-wrapper "
 >
@@ -64,14 +128,16 @@ describe("Basket", () => {
               className="quantity-control"
             >
               <div
-                className="quantity-decrease"
+                className="quantity-increase"
                 onClick={[Function]}
               >
                 <ReactComponent />
               </div>
-              <span />
+              <span>
+                1
+              </span>
               <div
-                className="quantity-increase"
+                className="quantity-decrease"
                 onClick={[Function]}
               >
                 <ReactComponent />
@@ -79,11 +145,13 @@ describe("Basket", () => {
             </div>
             <span
               className="basket-item-name"
-            />
+            >
+              item1
+            </span>
             <span
               className="basket-item-price"
             >
-              NaN
+              10.00
                €
             </span>
           </li>
@@ -95,14 +163,16 @@ describe("Basket", () => {
               className="quantity-control"
             >
               <div
-                className="quantity-decrease"
+                className="quantity-increase"
                 onClick={[Function]}
               >
                 <ReactComponent />
               </div>
-              <span />
+              <span>
+                1
+              </span>
               <div
-                className="quantity-increase"
+                className="quantity-decrease"
                 onClick={[Function]}
               >
                 <ReactComponent />
@@ -110,42 +180,13 @@ describe("Basket", () => {
             </div>
             <span
               className="basket-item-name"
-            />
-            <span
-              className="basket-item-price"
             >
-              NaN
-               €
+              item2
             </span>
-          </li>
-          <li
-            className="basket-item"
-            key="2"
-          >
-            <div
-              className="quantity-control"
-            >
-              <div
-                className="quantity-decrease"
-                onClick={[Function]}
-              >
-                <ReactComponent />
-              </div>
-              <span />
-              <div
-                className="quantity-increase"
-                onClick={[Function]}
-              >
-                <ReactComponent />
-              </div>
-            </div>
-            <span
-              className="basket-item-name"
-            />
             <span
               className="basket-item-price"
             >
-              NaN
+              10.00
                €
             </span>
           </li>
@@ -164,7 +205,7 @@ describe("Basket", () => {
               Sous-total
             </span>
             <span>
-              NaN
+              20.00
                €
             </span>
           </li>
@@ -226,7 +267,7 @@ describe("Basket", () => {
             <span
               className="basket-total-price"
             >
-              NaN
+              23.50
                €
             </span>
           </li>
@@ -236,5 +277,6 @@ describe("Basket", () => {
   </div>
 </div>
 `);
+    });
   });
 });

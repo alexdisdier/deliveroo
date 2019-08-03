@@ -26,7 +26,7 @@ describe("Footer", () => {
 `);
   });
 
-  it("scrolls when clicked on haut de la page", () => {
+  it("scrolls top of page when clicked on haut de la page", () => {
     const wrapper = shallow(<Footer {...props} />);
 
     wrapper.find("a").simulate("click");

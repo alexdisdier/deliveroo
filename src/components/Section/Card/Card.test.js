@@ -11,31 +11,47 @@ describe("Card", () => {
       title: "title",
       description: "description",
       price: "10",
-      id: "1",
+      id: "id",
       addMeal: jest.fn(),
       picture: "picture",
       popular: true,
-      quantity: 2
+      quantity: 0
     };
+  });
+
+  it("adds a meal to basket", () => {
+    const wrapper = shallow(<Card {...props} />);
+
+    // Test className before card has been added
+    expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
+
+    wrapper
+      .find("div")
+      .at(0)
+      .simulate("click");
+
+    expect(props.addMeal).toHaveBeenCalledTimes(1);
+    expect(props.addMeal).toHaveBeenCalledWith({
+      id: "id",
+      name: "title",
+      price: "10",
+      quantity: 1
+    });
   });
 
   it("renders the Card correctly", () => {
     const wrapper = shallow(<Card {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
 <div
-  className="card card-active"
+  className="card card-inactive"
   onClick={[Function]}
 >
   <div
     className="card-content"
   >
-    <div
-      className="card-quantity"
+    <h6
+      className="card-title"
     >
-      2
-      x
-    </div>
-    <h6>
       title
     </h6>
     <LinesEllipsis
