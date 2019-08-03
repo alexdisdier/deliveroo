@@ -53,7 +53,7 @@ function Card(props) {
     >
       <div className="card-content">
         {quantityDiv}
-        <h6>{title}</h6>
+        <h6 className="card-title">{title}</h6>
         <LinesEllipsis
           className="card-description"
           text={description}

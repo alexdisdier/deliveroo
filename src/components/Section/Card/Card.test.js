@@ -11,12 +11,29 @@ describe("Card", () => {
       title: "title",
       description: "description",
       price: "10",
-      id: "1",
+      id: "id",
       addMeal: jest.fn(),
       picture: "picture",
       popular: true,
-      quantity: 2
+      quantity: 1
     };
+  });
+
+  it("adds a meal to basket", () => {
+    const wrapper = shallow(<Card {...props} />);
+
+    wrapper
+      .find("div")
+      .at(0)
+      .simulate("click");
+
+    expect(props.addMeal).toHaveBeenCalledTimes(1);
+    expect(props.addMeal).toHaveBeenCalledWith({
+      id: "id",
+      name: "title",
+      price: "10",
+      quantity: 1
+    });
   });
 
   it("renders the Card correctly", () => {
@@ -32,10 +49,12 @@ describe("Card", () => {
     <div
       className="card-quantity"
     >
-      2
+      1
       x
     </div>
-    <h6>
+    <h6
+      className="card-title"
+    >
       title
     </h6>
     <LinesEllipsis
