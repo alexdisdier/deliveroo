@@ -1,0 +1,38 @@
+codecov:
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "65...90"
+
+  status:
+    project:
+      default:
+        target: 70%
+        threshold: 2
+        base: auto
+        if_not_found: success
+    patch: no
+    changes: no
+
+ignore:
+  - "src/assets/domain.js"
+
+parsers:
+  javascript:
+    enable_partials: yes
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      method: no
+      macro: no
+
+comment:
+  layout: "header, diff"
+  behavior: default
+
+codecov:
+  token: 8d30c046-b0c1-4c4d-935c-7ed21666e902
