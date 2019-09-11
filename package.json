@@ -25,7 +25,8 @@
     "test": "react-scripts test --env=node",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cov": "npm t -- --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": "react-app"
