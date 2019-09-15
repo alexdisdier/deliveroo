@@ -13,16 +13,10 @@ coverage:
         target: 70%
         threshold: 2
         base: auto
-        if_not_found: success
     patch: no
     changes: no
 
-ignore:
-  - "src/assets/domain.js"
-
 parsers:
-  javascript:
-    enable_partials: yes
   gcov:
     branch_detection:
       conditional: yes
@@ -33,6 +27,9 @@ parsers:
 comment:
   layout: "header, diff"
   behavior: default
+
+ignore:
+  - "src/constant" 
 
 codecov:
   token: 8d30c046-b0c1-4c4d-935c-7ed21666e902

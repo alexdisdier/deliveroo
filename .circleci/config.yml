@@ -1,0 +1,191 @@
+# Javascript Node CircleCI 2.0 configuration file
+defaults: &defaults
+  docker:
+    - image: circleci/node:8.11
+  working_directory: ~/repo
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.4
+jobs:
+  checkout_code:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - source-{{ .Branch }}-{{ .Revision }}
+            - source-{{ .Branch }}-
+            - source-
+
+      - checkout
+
+      - save_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - "~/repo"
+
+  install_dependencies:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          keys:
+            - depens-{{ checksum "package.json" }}
+            - depens-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: depens-{{ checksum "package.json" }}
+  lint:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: depens-{{ checksum "package.json" }}
+      - run: npm run lint
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: depens-{{ checksum "package.json" }}
+      - run: npm test
+
+  build:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: depens-{{ checksum "package.json" }}
+
+      - run: npm run build
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - build
+            - package.json
+  # deploy:
+  #   <<: *defaults
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/repo
+  #     # modify below others like run aws deploy cmd or scp files to a ftp server
+  #     - store_artifacts:
+  #         path: ~/repo/build
+  #         destination: prod-dist
+  # analyze:
+  #   <<: *defaults
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/repo
+  #     - restore_cache:
+  #         key: depens-{{ checksum "package.json" }}
+  #     - run: npm --silent run analyze -- --html > bundle-analysis.html
+  #     - store_artifacts:
+  #         path: bundle-analysis.html
+  #         destination: bundle-analysize.html
+  coverage:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: depens-{{ checksum "package.json" }}
+      - run: npm test -- --coverage
+
+  codecov:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: depens-{{ checksum "package.json" }}
+      - run: npm test -- --coverage
+      - codecov/upload:
+          file: coverage/*.json
+          # file: coverage/*.xml
+          flags: frontend
+          token: 8d30c046-b0c1-4c4d-935c-7ed21666e902
+      # - run: bash <(curl -s https://codecov.io/bash)
+
+workflows:
+  version: 2
+  lint_and_build:
+    jobs:
+      - checkout_code
+      - install_dependencies:
+          requires:
+            - checkout_code
+      - lint:
+          requires:
+            - install_dependencies
+      - build:
+          requires:
+            - lint
+
+  test_and_coverage:
+    jobs:
+      - checkout_code
+      - install_dependencies:
+          requires:
+            - checkout_code
+      - test:
+          requires:
+            - install_dependencies
+      - coverage:
+          requires:
+            - test
+      - codecov:
+          requires:
+            - test
+  # build_and_deploy:
+  #   jobs:
+  #     - checkout_code:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - develop
+  #     - install_dependencies:
+  #         requires:
+  #           - checkout_code
+  #     - test:
+  #         requires:
+  #           - install_dependencies
+  #     - build:
+  #         requires:
+  #           - install_dependencies
+  #     - deploy:
+  #         type: approval
+  #         requires:
+  #           - build
+  #           - test
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #     - deploy_dev:
+  #         requires:
+  #           - build
+  #           - test
+  #         filters:
+  #           branches:
+  #             only:
+  #               - develop
+  # build_and_analyze:
+  #   jobs:
+  #     - checkout_code
+  #     - install_dependencies:
+  #         requires:
+  #           - checkout_code
+  #     - build:
+  #         requires:
+  #           - install_dependencies
+  #     - analyze:
+  #         requires:
+  #           - build
