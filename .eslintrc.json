@@ -1,0 +1,6 @@
+{
+  "extends": "react-app"
+  // "rules": {
+  //   "quotes": [2, "single", { "avoidEscape": true }]
+  // }
+}

@@ -22,11 +22,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=node",
+    "test": "react-scripts test",
+    "lint": "eslint src",
+    "cov": "npm test -- --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject",
-    "cov": "npm t -- --coverage --watchAll=false"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
