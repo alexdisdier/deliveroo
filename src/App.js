@@ -63,23 +63,20 @@ function App() {
     scroll.scrollToTop();
   }, []);
 
-  const addMeal = useCallback(
-    meal => {
-      const newBasket = [...basket];
+  const addMeal = meal => {
+    const newBasket = [...basket];
 
-      if (newBasket.length === 0) {
-        newBasket.push(meal);
-        setBasket(newBasket);
-        // filter check if 1 or 0
-      } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
-        newBasket.push(meal);
-        setBasket(newBasket);
-      } else {
-        incQuantity(meal.id);
-      }
-    },
-    [basket]
-  );
+    if (newBasket.length === 0) {
+      newBasket.push(meal);
+      setBasket(newBasket);
+      // filter check if 1 or 0
+    } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
+      newBasket.push(meal);
+      setBasket(newBasket);
+    } else {
+      incQuantity(meal.id);
+    }
+  };
 
   const incQuantity = useCallback(
     async id => {

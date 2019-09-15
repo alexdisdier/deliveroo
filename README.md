@@ -1,4 +1,4 @@
-[![Build Status](https://semaphoreci.com/api/v1/alexdisdier/deliveroo/branches/master/shields_badge.svg)](https://semaphoreci.com/alexdisdier/deliveroo)
+[![CircleCI](https://circleci.com/gh/alexdisdier/deliveroo.svg?style=svg)](https://circleci.com/gh/alexdisdier/deliveroo)
 [![codecov](https://codecov.io/gh/alexdisdier/deliveroo/branch/master/graph/badge.svg)](https://codecov.io/gh/alexdisdier/deliveroo)
 
 # Desktop
