@@ -1,22 +1,11 @@
 import React from "react";
-// import ReactDom from "react-dom";
-import { mount, shallow } from "enzyme";
-// import { act } from "react-dom/test-utils";
+import { shallow } from "enzyme";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
 import App from "./App";
 
-// jest.mock("setIsError", () => ({
-//   setIsError: jest.fn()
-// }));
-// jest.mock("setLoading", () => ({
-//   setLoading: jest.fn()
-// }));
-// jest.mock("setRestaurant", () => ({
-//   setRestaurant: jest.fn()
-// }));
-// jest.mock("setMenu", () => ({
-//   setMenu: jest.fn()
-// }));
+import { API_MENU } from "./constant/api";
 
 jest.mock("./components/Header/Header", () => "Header");
 jest.mock("./components/Banner/Banner", () => "Banner");
@@ -36,12 +25,70 @@ describe("App", () => {
     };
   });
 
-  it("should fetch data on mount", () => {
+  it("should fetch data in useEffect", done => {
+    const mock = new MockAdapter(axios);
+    const response = {
+      data: {
+        restaurant: {
+          path: "Le Pain Quotidien",
+          name: "Le Pain Quotidien - Montorgueil",
+          categories: ["Petit Déjeuner", "Salade", "Brunch", "Boulangerie"]
+        },
+        menu: {
+          Brunchs: [
+            {
+              id: "1519055545-88",
+              title: "Brunch authentique 1 personne",
+              description: "Assiette de jambon cuit",
+              price: "25.00",
+              picture: "https://item-image.jpg",
+              popular: true
+            },
+            {
+              id: "1519055545-89",
+              title: "Brunch vegan",
+              description: "Falafels bio, houmous bio",
+              price: "25.00",
+              picture: "https://photo.jpg"
+            }
+          ]
+        }
+      }
+    };
+
+    mock.onGet(API_MENU).reply(200, response.data);
+
     const wrapper = shallow(<App />);
-    // act(() => {
-    //   wrapper = ReactDom.render(<App {...props} />);
-    // });
-    // expect(wrapper.text()).toBe("");
+    setImmediate(() => {
+      wrapper.update();
+
+      done();
+    });
+
+    expect(response.data.restaurant).toEqual({
+      path: "Le Pain Quotidien",
+      name: "Le Pain Quotidien - Montorgueil",
+      categories: ["Petit Déjeuner", "Salade", "Brunch", "Boulangerie"]
+    });
+    expect(response.data.menu).toEqual({
+      Brunchs: [
+        {
+          id: "1519055545-88",
+          title: "Brunch authentique 1 personne",
+          description: "Assiette de jambon cuit",
+          price: "25.00",
+          picture: "https://item-image.jpg",
+          popular: true
+        },
+        {
+          id: "1519055545-89",
+          title: "Brunch vegan",
+          description: "Falafels bio, houmous bio",
+          price: "25.00",
+          picture: "https://photo.jpg"
+        }
+      ]
+    });
   });
 
   it("renders the App correctly", () => {
