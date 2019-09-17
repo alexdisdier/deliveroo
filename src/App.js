@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import axios from "axios";
 import {
   Element,
@@ -23,12 +23,12 @@ import "./App.css";
 */
 
 function App() {
-  const [restaurant, setRestaurant] = useState({});
-  const [menu, setMenu] = useState({});
-  const [basket, setBasket] = useState([]);
-  const [tip, setTip] = useState(0);
-  const [isLoading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [restaurant, setRestaurant] = React.useState({});
+  const [menu, setMenu] = React.useState({});
+  const [basket, setBasket] = React.useState([]);
+  const [tip, setTip] = React.useState(0);
+  const [isLoading, setLoading] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
 
   useEffect(
     () => {
@@ -49,6 +49,7 @@ function App() {
       };
 
       fetchData();
+
       Events.scrollEvent.register("begin", function(to, element) {});
       Events.scrollEvent.register("end", function(to, element) {});
 
@@ -63,21 +64,6 @@ function App() {
     scroll.scrollToTop();
   }, []);
 
-  const addMeal = meal => {
-    const newBasket = [...basket];
-
-    if (newBasket.length === 0) {
-      newBasket.push(meal);
-      setBasket(newBasket);
-      // filter check if 1 or 0
-    } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
-      newBasket.push(meal);
-      setBasket(newBasket);
-    } else {
-      incQuantity(meal.id);
-    }
-  };
-
   const incQuantity = useCallback(
     async id => {
       const newBasket = [...basket];
@@ -90,6 +76,24 @@ function App() {
       await setBasket(newBasket);
     },
     [basket]
+  );
+
+  const addMeal = useCallback(
+    meal => {
+      const newBasket = [...basket];
+
+      if (newBasket.length === 0) {
+        newBasket.push(meal);
+        setBasket(newBasket);
+        // filter check if 1 or 0
+      } else if (!newBasket.filter(check => check.id === meal.id).length > 0) {
+        newBasket.push(meal);
+        setBasket(newBasket);
+      } else {
+        incQuantity(meal.id);
+      }
+    },
+    [basket, incQuantity]
   );
 
   const decQuantity = useCallback(
