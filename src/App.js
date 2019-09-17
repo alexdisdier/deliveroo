@@ -49,6 +49,7 @@ function App() {
       };
 
       fetchData();
+
       Events.scrollEvent.register("begin", function(to, element) {});
       Events.scrollEvent.register("end", function(to, element) {});
 
