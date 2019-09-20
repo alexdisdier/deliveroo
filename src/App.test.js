@@ -1,11 +1,30 @@
 import React from "react";
 import { shallow } from "enzyme";
 import axios from "axios";
-import MockAdapter from "axios-mock-adapter";
 
 import App from "./App";
 
-import { API_MENU } from "./constant/api";
+/**
+ * Unit tests should be run in isolation;
+ * Thus we shouldn't make any external calls to the server.
+ * Mocking axios module
+ * makes unit tests independent of the network
+ */
+jest.mock("axios");
+
+jest.mock("react-scroll", () => ({
+  Element: "Element",
+  Events: {
+    scrollEvent: {
+      remove: () => {},
+      register: () => {}
+    }
+  },
+  animateScroll: "animateScroll",
+  scrollSpy: {
+    update: () => {}
+  }
+}));
 
 jest.mock("./components/Header/Header", () => "Header");
 jest.mock("./components/Banner/Banner", () => "Banner");
@@ -14,108 +33,157 @@ jest.mock("./components/Section/Section", () => "Section");
 jest.mock("./components/Footer/Footer", () => "Footer");
 
 describe("App", () => {
+  let useEffect;
   let props;
-  const setState = jest.fn();
-  const useStateSpy = jest.spyOn(React, "useState");
-  useStateSpy.mockImplementation(init => [init, setState]);
+  let wrapper;
+
+  const mockUseEffect = () => {
+    useEffect.mockImplementationOnce(f => f());
+  };
 
   beforeEach(() => {
+    useEffect = jest.spyOn(React, "useEffect");
+
     props = {
       scrollToTop: jest.fn()
     };
+
+    mockUseEffect();
+    wrapper = shallow(<App {...props} />);
   });
 
-  it("should fetch data in useEffect", done => {
-    const mock = new MockAdapter(axios);
-    const response = {
-      data: {
-        restaurant: {
-          path: "Le Pain Quotidien",
-          name: "Le Pain Quotidien - Montorgueil",
-          categories: ["Petit Déjeuner", "Salade", "Brunch", "Boulangerie"]
-        },
-        menu: {
-          Brunchs: [
-            {
-              id: "1519055545-88",
-              title: "Brunch authentique 1 personne",
-              description: "Assiette de jambon cuit",
-              price: "25.00",
-              picture: "https://item-image.jpg",
-              popular: true
-            },
-            {
-              id: "1519055545-89",
-              title: "Brunch vegan",
-              description: "Falafels bio, houmous bio",
-              price: "25.00",
-              picture: "https://photo.jpg"
-            }
-          ]
-        }
-      }
-    };
-
-    mock.onGet(API_MENU).reply(200, response.data);
-
-    const wrapper = shallow(<App />);
-    setImmediate(() => {
-      wrapper.update();
-
-      done();
-    });
-
-    expect(response.data.restaurant).toEqual({
-      path: "Le Pain Quotidien",
-      name: "Le Pain Quotidien - Montorgueil",
-      categories: ["Petit Déjeuner", "Salade", "Brunch", "Boulangerie"]
-    });
-    expect(response.data.menu).toEqual({
-      Brunchs: [
+  describe("api calls", () => {
+    it("fetches data on #useEffect", () => {
+      expect(axios.get).toHaveBeenCalled();
+      expect(axios.get).toHaveBeenCalledWith(
+        "https://deliveroo-api.now.sh/menu"
+      );
+      expect(wrapper.find("Banner").prop("restaurant")).toEqual({
+        path: "Le Pain Quotidien",
+        name: "Le Pain Quotidien - Montorgueil",
+        categories: ["Petit Déjeuner", "Salade", "Brunch", "Boulangerie"]
+      });
+      expect(wrapper.find("Section").prop("menus")).toEqual([
         {
-          id: "1519055545-88",
-          title: "Brunch authentique 1 personne",
           description: "Assiette de jambon cuit",
-          price: "25.00",
+          id: "1519055545-88",
           picture: "https://item-image.jpg",
-          popular: true
+          popular: true,
+          price: "25.00",
+          quantity: 0,
+          selected: false,
+          title: "Brunch authentique 1 personne"
         },
         {
-          id: "1519055545-89",
-          title: "Brunch vegan",
           description: "Falafels bio, houmous bio",
+          id: "1519055545-89",
+          picture: "https://photo.jpg",
           price: "25.00",
-          picture: "https://photo.jpg"
+          quantity: 0,
+          selected: false,
+          title: "Brunch vegan"
         }
-      ]
+      ]);
+      expect(wrapper).toMatchInlineSnapshot(`
+        <div
+          className="App"
+        >
+          <Header />
+          <Banner
+            restaurant={
+              Object {
+                "categories": Array [
+                  "Petit Déjeuner",
+                  "Salade",
+                  "Brunch",
+                  "Boulangerie",
+                ],
+                "name": "Le Pain Quotidien - Montorgueil",
+                "path": "Le Pain Quotidien",
+              }
+            }
+          />
+          <Menu
+            basket={Array []}
+            decQuantity={[Function]}
+            decTip={[Function]}
+            incQuantity={[Function]}
+            incTip={[Function]}
+            tip={0}
+          />
+          <main
+            className="container"
+          >
+            <Element
+              className="element"
+              key="0"
+              name="test0"
+            >
+              <Section
+                addMeal={[Function]}
+                basket={Array []}
+                menus={
+                  Array [
+                    Object {
+                      "description": "Assiette de jambon cuit",
+                      "id": "1519055545-88",
+                      "picture": "https://item-image.jpg",
+                      "popular": true,
+                      "price": "25.00",
+                      "quantity": 0,
+                      "selected": false,
+                      "title": "Brunch authentique 1 personne",
+                    },
+                    Object {
+                      "description": "Falafels bio, houmous bio",
+                      "id": "1519055545-89",
+                      "picture": "https://photo.jpg",
+                      "price": "25.00",
+                      "quantity": 0,
+                      "selected": false,
+                      "title": "Brunch vegan",
+                    },
+                  ]
+                }
+                sectionTitle="Brunchs"
+              />
+            </Element>
+          </main>
+          <Footer
+            scrollToTop={[Function]}
+          />
+        </div>
+      `);
     });
   });
 
-  it("renders the App correctly", () => {
-    const wrapper = shallow(<App {...props} />);
-    expect(wrapper).toMatchInlineSnapshot(`
-<div
-  className="App"
->
-  <Header />
-  <Banner
-    restaurant={Object {}}
-  />
-  <Menu
-    basket={Array []}
-    decQuantity={[Function]}
-    decTip={[Function]}
-    incQuantity={[Function]}
-    incTip={[Function]}
-    tip={0}
-  />
-  <main
-    className="container"
-  />
-  <Footer
-    scrollToTop={[Function]}
-  />
-</div>
-`);
+  describe("render()", () => {
+    it("renders the App correctly", () => {
+      const wrapper = shallow(<App {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`
+        <div
+          className="App"
+        >
+          <Header />
+          <Banner
+            restaurant={Object {}}
+          />
+          <Menu
+            basket={Array []}
+            decQuantity={[Function]}
+            decTip={[Function]}
+            incQuantity={[Function]}
+            incTip={[Function]}
+            tip={0}
+          />
+          <main
+            className="container"
+          />
+          <Footer
+            scrollToTop={[Function]}
+          />
+        </div>
+      `);
+    });
   });
 });

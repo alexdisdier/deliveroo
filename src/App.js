@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import {
   Element,
@@ -23,21 +23,21 @@ import "./App.css";
 */
 
 function App() {
-  const [restaurant, setRestaurant] = React.useState({});
-  const [menu, setMenu] = React.useState({});
-  const [basket, setBasket] = React.useState([]);
-  const [tip, setTip] = React.useState(0);
-  const [isLoading, setLoading] = React.useState(false);
-  const [isError, setIsError] = React.useState(false);
+  const [restaurant, setRestaurant] = useState({});
+  const [menu, setMenu] = useState({});
+  const [basket, setBasket] = useState([]);
+  const [tip, setTip] = useState(0);
+  const [isLoading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  useEffect(
+  React.useEffect(
     () => {
       const fetchData = async () => {
         setIsError(false);
         setLoading(true);
 
         try {
-          const response = await axios(API_MENU);
+          const response = await axios.get(API_MENU);
 
           setRestaurant(response.data.restaurant);
           setMenu(response.data.menu);
