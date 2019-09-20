@@ -19,7 +19,7 @@
 
 This is a clone of the Deliveroo website (for the restaurant Pain Quotidien) built with React. All rights reserved to Deliveroo & Roofoods Limited.
 
-You will find two branches:
+You will find three branches:
 
 - **master** optimized version using react hooks and testing
 - **initial** original version
@@ -35,38 +35,6 @@ See demo - https://alexdisdier.github.io/deliveroo/
 - Change the quantity of a meal either by clicking on a card or within the basket
 - Add a tip
 - Mobile responsive
-
-## Directory Structure
-
-```bash
-
-deliveroo
-├── public
-├── src
-│   ├── assets
-│   │   ├── css
-│   │   ├── fonts
-│   │   ├── img
-│   ├── components
-│   │   ├── Banner
-│   │   ├── Basket
-│   │   ├── Footer
-│   │   ├── Header
-│   │   ├── Menu
-│   │   └── Section
-│   │   │   └── Card
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   └── serviceWorker.js
-├── .gitignore
-├── package-lock.json
-├── package.json
-└── README.md
-
-```
 
 ## Running the project
 
