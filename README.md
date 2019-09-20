@@ -21,7 +21,8 @@ This is a clone of the Deliveroo website (for the restaurant Pain Quotidien) bui
 
 You will find two branches:
 
-- **master** original version
+- **master** optimized version using react hooks and testing
+- **initial** original version
 - **redux** using redux and hooks
 
 ## Usage example
