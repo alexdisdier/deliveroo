@@ -5,12 +5,10 @@ import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
 
 import "./Basket.css";
 
-function Basket(props) {
+function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
   const [showBasket, showBasketHandler] = useState(false);
 
   const toggleBasket = () => showBasketHandler(!showBasket);
-
-  const { basket, incTip, decTip, tip, incQuantity, decQuantity } = props;
 
   // Calculation Variables.
   const deliveryFee = 2.5;
@@ -47,7 +45,7 @@ function Basket(props) {
         <div className={`basket-extend ${!showBasket && "hide-mobile"}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
-              {props.basket.map((e, index) => {
+              {basket.map((e, index) => {
                 let price = (Number(e.price) * e.quantity).toFixed(2);
                 beforeFee = beforeFee + Number(price);
                 afterFee = beforeFee + deliveryFee + tip;
@@ -114,7 +112,7 @@ function Basket(props) {
                     {<Decrease />}
                   </div>
                 </div>
-                <span>{tip.toFixed(2)}&nbsp;€</span>
+                <span className="tip-total">{tip.toFixed(2)}&nbsp;€</span>
               </li>
               <li className="basket-item total">
                 <span>Total</span>
