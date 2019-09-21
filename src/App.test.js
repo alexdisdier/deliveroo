@@ -85,105 +85,111 @@ describe("App", () => {
         }
       ]);
       expect(wrapper).toMatchInlineSnapshot(`
-        <div
-          className="App"
-        >
-          <Header />
-          <Banner
-            restaurant={
-              Object {
-                "categories": Array [
-                  "Petit Déjeuner",
-                  "Salade",
-                  "Brunch",
-                  "Boulangerie",
-                ],
-                "name": "Le Pain Quotidien - Montorgueil",
-                "path": "Le Pain Quotidien",
-              }
-            }
-          />
-          <Menu
-            basket={Array []}
-            decQuantity={[Function]}
-            decTip={[Function]}
-            incQuantity={[Function]}
-            incTip={[Function]}
-            tip={0}
-          />
-          <main
-            className="container"
-          >
-            <Element
-              className="element"
-              key="0"
-              name="test0"
-            >
-              <Section
-                addMeal={[Function]}
-                basket={Array []}
-                menus={
-                  Array [
-                    Object {
-                      "description": "Assiette de jambon cuit",
-                      "id": "1519055545-88",
-                      "picture": "https://item-image.jpg",
-                      "popular": true,
-                      "price": "25.00",
-                      "quantity": 0,
-                      "selected": false,
-                      "title": "Brunch authentique 1 personne",
-                    },
-                    Object {
-                      "description": "Falafels bio, houmous bio",
-                      "id": "1519055545-89",
-                      "picture": "https://photo.jpg",
-                      "price": "25.00",
-                      "quantity": 0,
-                      "selected": false,
-                      "title": "Brunch vegan",
-                    },
-                  ]
-                }
-                sectionTitle="Brunchs"
-              />
-            </Element>
-          </main>
-          <Footer
-            scrollToTop={[Function]}
-          />
-        </div>
-      `);
+                        <div
+                          className="App"
+                        >
+                          <Header />
+                          <Banner
+                            restaurant={
+                              Object {
+                                "categories": Array [
+                                  "Petit Déjeuner",
+                                  "Salade",
+                                  "Brunch",
+                                  "Boulangerie",
+                                ],
+                                "name": "Le Pain Quotidien - Montorgueil",
+                                "path": "Le Pain Quotidien",
+                              }
+                            }
+                          />
+                          <Menu
+                            basket={Array []}
+                            decQuantity={[Function]}
+                            decTip={[Function]}
+                            incQuantity={[Function]}
+                            incTip={[Function]}
+                            tip={0}
+                          />
+                          <main
+                            className="container"
+                          >
+                            <Element
+                              className="element"
+                              key="0"
+                              name="test0"
+                            >
+                              <Section
+                                addMeal={[Function]}
+                                basket={Array []}
+                                menus={
+                                  Array [
+                                    Object {
+                                      "description": "Assiette de jambon cuit",
+                                      "id": "1519055545-88",
+                                      "picture": "https://item-image.jpg",
+                                      "popular": true,
+                                      "price": "25.00",
+                                      "quantity": 0,
+                                      "selected": false,
+                                      "title": "Brunch authentique 1 personne",
+                                    },
+                                    Object {
+                                      "description": "Falafels bio, houmous bio",
+                                      "id": "1519055545-89",
+                                      "picture": "https://photo.jpg",
+                                      "price": "25.00",
+                                      "quantity": 0,
+                                      "selected": false,
+                                      "title": "Brunch vegan",
+                                    },
+                                  ]
+                                }
+                                sectionTitle="Brunchs"
+                              />
+                            </Element>
+                          </main>
+                          <Footer
+                            scrollToTop={[Function]}
+                          />
+                        </div>
+                  `);
     });
   });
 
   describe("render()", () => {
+    it("renders a loading component before displaying data", () => {
+      mockUseEffect();
+      const wrapper = shallow(<App {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`"ADD LOADING COMPONENT ..."`);
+    });
+
     it("renders the App correctly", () => {
       const wrapper = shallow(<App {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
-        <div
-          className="App"
-        >
-          <Header />
-          <Banner
-            restaurant={Object {}}
-          />
-          <Menu
-            basket={Array []}
-            decQuantity={[Function]}
-            decTip={[Function]}
-            incQuantity={[Function]}
-            incTip={[Function]}
-            tip={0}
-          />
-          <main
-            className="container"
-          />
-          <Footer
-            scrollToTop={[Function]}
-          />
-        </div>
-      `);
+                        <div
+                          className="App"
+                        >
+                          <Header />
+                          <Banner
+                            restaurant={Object {}}
+                          />
+                          <Menu
+                            basket={Array []}
+                            decQuantity={[Function]}
+                            decTip={[Function]}
+                            incQuantity={[Function]}
+                            incTip={[Function]}
+                            tip={0}
+                          />
+                          <main
+                            className="container"
+                          />
+                          <Footer
+                            scrollToTop={[Function]}
+                          />
+                        </div>
+                  `);
     });
   });
 });
