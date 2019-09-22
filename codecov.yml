@@ -29,8 +29,6 @@ comment:
   behavior: default
 
 ignore: 
-  - "src/index.js"
-  - "src/serviceWorker.js"
   - "src/setupTests.js"
   - "src/constant" 
 
