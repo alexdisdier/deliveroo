@@ -78,7 +78,6 @@ function App() {
     [basket]
   );
 
-  /* istanbul ignore next */
   const addMeal = useCallback(
     meal => {
       const newBasket = [...basket];
@@ -97,7 +96,6 @@ function App() {
     [basket, incQuantity]
   );
 
-  /* istanbul ignore next */
   const decQuantity = useCallback(
     id => {
       const newBasket = [...basket];
@@ -119,12 +117,10 @@ function App() {
     [basket]
   );
 
-  /* istanbul ignore next */
   const incTip = useCallback(() => {
     setTip(tip + 1);
   }, [tip]);
 
-  /* istanbul ignore next */
   const decTip = useCallback(() => {
     if (tip > 0) setTip(tip - 1);
   }, [tip]);

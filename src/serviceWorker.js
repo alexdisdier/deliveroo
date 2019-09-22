@@ -130,6 +130,7 @@ function checkValidServiceWorker(swUrl, config) {
     });
 }
 
+/* istanbul ignore next */
 export function unregister() {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.ready.then(registration => {
