@@ -1,16 +1,18 @@
 {
-  "main.css": "/deliveroo/static/css/main.b9978d25.chunk.css",
-  "main.js": "/deliveroo/static/js/main.67451fe8.chunk.js",
-  "main.js.map": "/deliveroo/static/js/main.67451fe8.chunk.js.map",
-  "runtime~main.js": "/deliveroo/static/js/runtime~main.8ccf28ce.js",
-  "runtime~main.js.map": "/deliveroo/static/js/runtime~main.8ccf28ce.js.map",
-  "static/js/2.fb4fa783.chunk.js": "/deliveroo/static/js/2.fb4fa783.chunk.js",
-  "static/js/2.fb4fa783.chunk.js.map": "/deliveroo/static/js/2.fb4fa783.chunk.js.map",
-  "index.html": "/deliveroo/index.html",
-  "precache-manifest.71eff593d019c8b6e4e4abbd3d67f5d5.js": "/deliveroo/precache-manifest.71eff593d019c8b6e4e4abbd3d67f5d5.js",
-  "service-worker.js": "/deliveroo/service-worker.js",
-  "static/css/main.b9978d25.chunk.css.map": "/deliveroo/static/css/main.b9978d25.chunk.css.map",
-  "static/media/App.css": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.fb0df953.woff",
-  "static/media/decrease.0d9b8c82.svg": "/deliveroo/static/media/decrease.0d9b8c82.svg",
-  "static/media/increase.248ac097.svg": "/deliveroo/static/media/increase.248ac097.svg"
+  "files": {
+    "main.css": "/deliveroo/static/css/main.1eabb8d7.chunk.css",
+    "main.js": "/deliveroo/static/js/main.9935bc10.chunk.js",
+    "main.js.map": "/deliveroo/static/js/main.9935bc10.chunk.js.map",
+    "runtime~main.js": "/deliveroo/static/js/runtime~main.11c0789b.js",
+    "runtime~main.js.map": "/deliveroo/static/js/runtime~main.11c0789b.js.map",
+    "static/js/2.485dd752.chunk.js": "/deliveroo/static/js/2.485dd752.chunk.js",
+    "static/js/2.485dd752.chunk.js.map": "/deliveroo/static/js/2.485dd752.chunk.js.map",
+    "index.html": "/deliveroo/index.html",
+    "precache-manifest.eec2508c68ad9bef26b7e5b4a312effe.js": "/deliveroo/precache-manifest.eec2508c68ad9bef26b7e5b4a312effe.js",
+    "service-worker.js": "/deliveroo/service-worker.js",
+    "static/css/main.1eabb8d7.chunk.css.map": "/deliveroo/static/css/main.1eabb8d7.chunk.css.map",
+    "static/media/App.css": "/deliveroo/static/media/StratosDeliverooWeb-SemiBold.fb0df953.woff",
+    "static/media/decrease.0d9b8c82.svg": "/deliveroo/static/media/decrease.0d9b8c82.svg",
+    "static/media/increase.248ac097.svg": "/deliveroo/static/media/increase.248ac097.svg"
+  }
 }
