@@ -29,12 +29,10 @@ comment:
   behavior: default
 
 ignore: 
-  - "src/constant" 
-  - "src/assets/domain.js"
   - "src/index.js"
   - "src/serviceWorker.js"
   - "src/setupTests.js"
-  - "src/assets/fonts/Deliveroo_files" 
+  - "src/constant" 
 
 codecov:
   token: 8d30c046-b0c1-4c4d-935c-7ed21666e902

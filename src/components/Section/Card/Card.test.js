@@ -16,159 +16,192 @@ describe("Card", () => {
       id: "id",
       addMeal: jest.fn(),
       picture: "picture",
-      popular: true,
+      popular: false,
       quantity: 0
     };
   });
 
-  it("adds a meal to basket", () => {
-    const wrapper = shallow(<Card {...props} />);
+  describe("action", () => {
+    it("adds a meal to basket", () => {
+      const wrapper = shallow(<Card {...props} />);
 
-    // Test className before card has been added
-    expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
+      // Test className before card has been added
+      expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
 
-    wrapper
-      .find("div")
-      .at(0)
-      .simulate("click");
+      wrapper
+        .find("div")
+        .at(0)
+        .simulate("click");
 
-    expect(props.addMeal).toHaveBeenCalledTimes(1);
-    expect(props.addMeal).toHaveBeenCalledWith({
-      id: "id",
-      name: "title",
-      price: "10",
-      quantity: 1
+      expect(props.addMeal).toHaveBeenCalledTimes(1);
+      expect(props.addMeal).toHaveBeenCalledWith({
+        id: "id",
+        name: "title",
+        price: "10",
+        quantity: 1
+      });
     });
   });
 
-  it("renders card-active class", () => {
-    props.quantity = 1;
-    const wrapper = shallow(<Card {...props} />);
-    expect(wrapper).toMatchInlineSnapshot(`
-      <div
-        className="card card-active"
-        onClick={[Function]}
-      >
+  describe("render()", () => {
+    it("renders the Card correctly with card-inactive class and stars for popular items", () => {
+      props.popular = true;
+      const wrapper = shallow(<Card {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`
         <div
-          className="card-content"
+          className="card card-inactive"
+          onClick={[Function]}
         >
           <div
-            className="card-quantity"
+            className="card-content"
           >
-            1
-            x
+            <h6
+              className="card-title"
+            >
+              title
+            </h6>
+            <LinesEllipsis
+              basedOn="letters"
+              className="card-description"
+              component="div"
+              ellipsis="..."
+              maxLine="2"
+              onReflow={[Function]}
+              text="description"
+              trimRight={true}
+            />
+            <span
+              className="card-price"
+            >
+              10
+               €
+            </span>
+            <span>
+              <span
+                className="card-popular"
+              >
+                <svg
+                  height="12"
+                  width="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 10.08l-3.24 1.8c-.36.2-.6.03-.54-.38l.62-3.84-2.62-2.6c-.3-.3-.2-.54.22-.54h3.82L5.76.34c.13-.38.37-.38.5 0L7.9 4.52h3.66c.42 0 .52.23.22.53l-2.62 2.6.62 3.85c.07.4-.17.58-.54.37L6 10.07z"
+                    fill="#FF8100"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                 populaire
+              </span>
+            </span>
           </div>
-          <h6
-            className="card-title"
-          >
-            title
-          </h6>
-          <LinesEllipsis
-            basedOn="letters"
-            className="card-description"
-            component="div"
-            ellipsis="..."
-            maxLine="2"
-            onReflow={[Function]}
-            text="description"
-            trimRight={true}
-          />
-          <span
-            className="card-price"
-          >
-            10
-             €
-          </span>
-          <span>
-            <span
-              className="card-popular"
-            >
-              <svg
-                height="12"
-                width="12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 10.08l-3.24 1.8c-.36.2-.6.03-.54-.38l.62-3.84-2.62-2.6c-.3-.3-.2-.54.22-.54h3.82L5.76.34c.13-.38.37-.38.5 0L7.9 4.52h3.66c.42 0 .52.23.22.53l-2.62 2.6.62 3.85c.07.4-.17.58-.54.37L6 10.07z"
-                  fill="#FF8100"
-                  fillRule="evenodd"
-                />
-              </svg>
-               populaire
-            </span>
-          </span>
-        </div>
-        <div
-          className="card-img"
-          style={
-            Object {
-              "backgroundImage": "url(picture)",
+          <div
+            className="card-img"
+            style={
+              Object {
+                "backgroundImage": "url(picture)",
+              }
             }
-          }
-        />
-      </div>
-    `);
-  });
+          />
+        </div>
+      `);
+    });
 
-  it("renders the Card correctly with card-inactive class", () => {
-    const wrapper = shallow(<Card {...props} />);
-    expect(wrapper).toMatchInlineSnapshot(`
-      <div
-        className="card card-inactive"
-        onClick={[Function]}
-      >
-        <div
-          className="card-content"
-        >
-          <h6
-            className="card-title"
-          >
-            title
-          </h6>
-          <LinesEllipsis
-            basedOn="letters"
-            className="card-description"
-            component="div"
-            ellipsis="..."
-            maxLine="2"
-            onReflow={[Function]}
-            text="description"
-            trimRight={true}
-          />
-          <span
-            className="card-price"
-          >
-            10
-             €
-          </span>
-          <span>
-            <span
-              className="card-popular"
+    it("renders card-active class", () => {
+      props.quantity = 1;
+      const wrapper = shallow(<Card {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`
+            <div
+              className="card card-active"
+              onClick={[Function]}
             >
-              <svg
-                height="12"
-                width="12"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                className="card-content"
               >
-                <path
-                  d="M6 10.08l-3.24 1.8c-.36.2-.6.03-.54-.38l.62-3.84-2.62-2.6c-.3-.3-.2-.54.22-.54h3.82L5.76.34c.13-.38.37-.38.5 0L7.9 4.52h3.66c.42 0 .52.23.22.53l-2.62 2.6.62 3.85c.07.4-.17.58-.54.37L6 10.07z"
-                  fill="#FF8100"
-                  fillRule="evenodd"
+                <div
+                  className="card-quantity"
+                >
+                  1
+                  x
+                </div>
+                <h6
+                  className="card-title"
+                >
+                  title
+                </h6>
+                <LinesEllipsis
+                  basedOn="letters"
+                  className="card-description"
+                  component="div"
+                  ellipsis="..."
+                  maxLine="2"
+                  onReflow={[Function]}
+                  text="description"
+                  trimRight={true}
                 />
-              </svg>
-               populaire
-            </span>
-          </span>
-        </div>
-        <div
-          className="card-img"
-          style={
-            Object {
-              "backgroundImage": "url(picture)",
-            }
-          }
-        />
-      </div>
-    `);
+                <span
+                  className="card-price"
+                >
+                  10
+                   €
+                </span>
+                <span />
+              </div>
+              <div
+                className="card-img"
+                style={
+                  Object {
+                    "backgroundImage": "url(picture)",
+                  }
+                }
+              />
+            </div>
+        `);
+    });
+
+    it("renders the Card correctly with card-inactive class and no stars", () => {
+      const wrapper = shallow(<Card {...props} />);
+      expect(wrapper).toMatchInlineSnapshot(`
+            <div
+              className="card card-inactive"
+              onClick={[Function]}
+            >
+              <div
+                className="card-content"
+              >
+                <h6
+                  className="card-title"
+                >
+                  title
+                </h6>
+                <LinesEllipsis
+                  basedOn="letters"
+                  className="card-description"
+                  component="div"
+                  ellipsis="..."
+                  maxLine="2"
+                  onReflow={[Function]}
+                  text="description"
+                  trimRight={true}
+                />
+                <span
+                  className="card-price"
+                >
+                  10
+                   €
+                </span>
+                <span />
+              </div>
+              <div
+                className="card-img"
+                style={
+                  Object {
+                    "backgroundImage": "url(picture)",
+                  }
+                }
+              />
+            </div>
+        `);
+    });
   });
 });
