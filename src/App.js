@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useReducer, useCallback } from "react";
 import axios from "axios";
 import {
   Element,
@@ -18,23 +18,34 @@ import { API_MENU } from "./constant/api";
 import "./assets/css/reset.css";
 import "./App.css";
 
-/*
- great source on useEffect and fetching data: https://www.robinwieruch.de/react-hooks-fetch-data/
-*/
+const httpReducer = (currentHttpState, action) => {
+  switch (action.type) {
+    case "SEND":
+      return { loading: true, error: null };
+    case "RESPONSE":
+      return { ...currentHttpState, loading: false };
+    case "ERROR":
+      return { loading: false, error: action.errorMessage }
+    case "CLEAR":
+      return { ...currentHttpState, error: null}
+      default:
+        throw new Error('default should not be reached')
+  }
+}
 
 function App() {
+  const [httpState, dispatchHttp] = useReducer(httpReducer, { loading: false, error: null});
   const [restaurant, setRestaurant] = useState({});
   const [menu, setMenu] = useState({});
   const [basket, setBasket] = useState([]);
   const [tip, setTip] = useState(0);
-  const [isLoading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+
+  const { loading, errorMessage } = httpState;
 
   React.useEffect(
     () => {
       const fetchData = async () => {
-        setIsError(false);
-        setLoading(true);
+        dispatchHttp({type: 'SEND'})
 
         try {
           const response = await axios.get(API_MENU);
@@ -42,10 +53,9 @@ function App() {
           setRestaurant(response.data.restaurant);
           setMenu(response.data.menu);
         } catch (error) {
-          setIsError(true);
+          dispatchHttp({type: 'ERROR'})
         }
-
-        setLoading(false);
+        dispatchHttp({type: 'RESPONSE'})
       };
 
       fetchData();
@@ -154,9 +164,9 @@ function App() {
     return sections;
   };
 
-  return !isLoading ? (
+  return !loading ? (
     <div className="App">
-      {isError && <div>Something went wrong ...</div>}
+      {errorMessage && <div>Something went wrong ...</div>}
       <Header />
       <Banner restaurant={restaurant} />
 
