@@ -1,11 +1,12 @@
-import React, { useState, useReducer, useCallback } from "react";
-import axios from "axios";
+import React, { useState, useCallback } from "react";
 import {
   Element,
   Events,
   animateScroll as scroll,
   scrollSpy
 } from "react-scroll";
+
+import useHttp from './hooks/http';
 
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
@@ -18,61 +19,39 @@ import { API_MENU } from "./constant/api";
 import "./assets/css/reset.css";
 import "./App.css";
 
-const httpReducer = (currentHttpState, action) => {
-  switch (action.type) {
-    case "SEND":
-      return { loading: true, error: null };
-    case "RESPONSE":
-      return { ...currentHttpState, loading: false };
-    case "ERROR":
-      return { loading: false, error: action.errorMessage }
-    case "CLEAR":
-      return { ...currentHttpState, error: null}
-      default:
-        throw new Error('default should not be reached')
-  }
-}
-
 function App() {
-  const [httpState, dispatchHttp] = useReducer(httpReducer, { loading: false, error: null});
+  const { isLoading, error, data, sendRequest } = useHttp()
+
   const [restaurant, setRestaurant] = useState({});
   const [menu, setMenu] = useState({});
   const [basket, setBasket] = useState([]);
   const [tip, setTip] = useState(0);
 
-  const { loading, errorMessage } = httpState;
-
   React.useEffect(
     () => {
-      const fetchData = async () => {
-        dispatchHttp({type: 'SEND'})
-
-        try {
-          const response = await axios.get(API_MENU);
-
-          setRestaurant(response.data.restaurant);
-          setMenu(response.data.menu);
-        } catch (error) {
-          dispatchHttp({type: 'ERROR'})
-        }
-        dispatchHttp({type: 'RESPONSE'})
-      };
-
-      fetchData();
+      sendRequest(API_MENU);
 
       Events.scrollEvent.register("begin", function(to, element) {});
       Events.scrollEvent.register("end", function(to, element) {});
 
       scrollSpy.update();
     },
-    [],
+    [sendRequest],
     Events.scrollEvent.remove("begin"),
     Events.scrollEvent.remove("end")
   );
 
+  React.useEffect(()=> {
+    if (!isLoading && !error && data) {
+      setRestaurant(data.restaurant);
+      setMenu(data.menu);
+    }  
+  }, [data, error, isLoading]);
+
   const scrollToTop = useCallback(() => {
     scroll.scrollToTop();
   }, []);
+
 
   const incQuantity = useCallback(
     async id => {
@@ -164,9 +143,9 @@ function App() {
     return sections;
   };
 
-  return !loading ? (
+  return !isLoading ? (
     <div className="App">
-      {errorMessage && <div>Something went wrong ...</div>}
+      {error && <div>Something went wrong ...</div>}
       <Header />
       <Banner restaurant={restaurant} />
 
