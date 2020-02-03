@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "e2e": "cypress open",
     "lint": "eslint src",
     "cov": "npm t -- --coverage --watchAll=false",
     "predeploy": "npm run build",
@@ -39,6 +40,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "axios-mock-adapter": "^1.17.0"
+    "axios-mock-adapter": "^1.17.0",
+    "cypress": "^3.8.3",
+    "eslint-plugin-cypress": "^2.8.1"
   }
 }

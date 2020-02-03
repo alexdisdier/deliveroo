@@ -58,6 +58,16 @@ Build the project
 npm run build
 ```
 
+## Testing
+
+Unit test
+
+```bash
+npm run test
+```
+
+End-to-end using [cypress](https://www.cypress.io/)
+
 ## Built With
 
 - html
