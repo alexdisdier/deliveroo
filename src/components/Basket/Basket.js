@@ -53,6 +53,7 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
                   <li key={index} className="basket-item">
                     <div className="quantity-control">
                       <div
+                        data-testid="meal-quantity-increase"
                         className="quantity-increase"
                         onClick={() => {
                           incQuantity(e.id);
@@ -60,8 +61,9 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
                       >
                         <Increase />
                       </div>
-                      <span>{e.quantity}</span>
+                      <span data-testid="meal-quantity">{e.quantity}</span>
                       <div
+                        data-testid="meal-quantity-decrease"
                         className="quantity-decrease"
                         onClick={() => {
                           decQuantity(e.id);

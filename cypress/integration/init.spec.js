@@ -3,15 +3,13 @@ describe('Deliveroo', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('adds a popular brunch meal to basket', () => {
-    cy.get('section').first().get('.card').first().click()
-  })
+  it('adds 2 meals and a tip', () => {
+    // cy.getByTestId('meal-quantity').should('eq', 0);
+    cy.getByTestId('card-meal').first().click()
+    // cy.getByTestId('meal-quantity').should('eq', 1);
 
-  it('adds a petit dejeuner meal to basket', () => {
-    cy.get('.card').eq(2).click()
-  })
-
-  it('adds a tip', () => {
+    cy.getByTestId('card-meal').eq(2).click()
     cy.getByTestId('increase-tip').click()
   })
+
 })

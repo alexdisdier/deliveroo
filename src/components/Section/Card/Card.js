@@ -41,6 +41,7 @@ function Card(props) {
 
   return (
     <div
+      data-testid="card-meal"
       className={`card ${active}`}
       onClick={() => {
         addMeal({

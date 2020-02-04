@@ -50,6 +50,7 @@ describe("Card", () => {
       expect(wrapper).toMatchInlineSnapshot(`
         <div
           className="card card-inactive"
+          data-testid="card-meal"
           onClick={[Function]}
         >
           <div
@@ -111,97 +112,99 @@ describe("Card", () => {
       props.quantity = 1;
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
+        <div
+          className="card card-active"
+          data-testid="card-meal"
+          onClick={[Function]}
+        >
+          <div
+            className="card-content"
+          >
             <div
-              className="card card-active"
-              onClick={[Function]}
+              className="card-quantity"
             >
-              <div
-                className="card-content"
-              >
-                <div
-                  className="card-quantity"
-                >
-                  1
-                  x
-                </div>
-                <h6
-                  className="card-title"
-                >
-                  title
-                </h6>
-                <LinesEllipsis
-                  basedOn="letters"
-                  className="card-description"
-                  component="div"
-                  ellipsis="..."
-                  maxLine="2"
-                  onReflow={[Function]}
-                  text="description"
-                  trimRight={true}
-                />
-                <span
-                  className="card-price"
-                >
-                  10
-                   €
-                </span>
-                <span />
-              </div>
-              <div
-                className="card-img"
-                style={
-                  Object {
-                    "backgroundImage": "url(picture)",
-                  }
-                }
-              />
+              1
+              x
             </div>
-        `);
+            <h6
+              className="card-title"
+            >
+              title
+            </h6>
+            <LinesEllipsis
+              basedOn="letters"
+              className="card-description"
+              component="div"
+              ellipsis="..."
+              maxLine="2"
+              onReflow={[Function]}
+              text="description"
+              trimRight={true}
+            />
+            <span
+              className="card-price"
+            >
+              10
+               €
+            </span>
+            <span />
+          </div>
+          <div
+            className="card-img"
+            style={
+              Object {
+                "backgroundImage": "url(picture)",
+              }
+            }
+          />
+        </div>
+      `);
     });
 
     it("renders the Card correctly with card-inactive class and no stars", () => {
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
-            <div
-              className="card card-inactive"
-              onClick={[Function]}
+        <div
+          className="card card-inactive"
+          data-testid="card-meal"
+          onClick={[Function]}
+        >
+          <div
+            className="card-content"
+          >
+            <h6
+              className="card-title"
             >
-              <div
-                className="card-content"
-              >
-                <h6
-                  className="card-title"
-                >
-                  title
-                </h6>
-                <LinesEllipsis
-                  basedOn="letters"
-                  className="card-description"
-                  component="div"
-                  ellipsis="..."
-                  maxLine="2"
-                  onReflow={[Function]}
-                  text="description"
-                  trimRight={true}
-                />
-                <span
-                  className="card-price"
-                >
-                  10
-                   €
-                </span>
-                <span />
-              </div>
-              <div
-                className="card-img"
-                style={
-                  Object {
-                    "backgroundImage": "url(picture)",
-                  }
-                }
-              />
-            </div>
-        `);
+              title
+            </h6>
+            <LinesEllipsis
+              basedOn="letters"
+              className="card-description"
+              component="div"
+              ellipsis="..."
+              maxLine="2"
+              onReflow={[Function]}
+              text="description"
+              trimRight={true}
+            />
+            <span
+              className="card-price"
+            >
+              10
+               €
+            </span>
+            <span />
+          </div>
+          <div
+            className="card-img"
+            style={
+              Object {
+                "backgroundImage": "url(picture)",
+              }
+            }
+          />
+        </div>
+      `);
     });
   });
 });

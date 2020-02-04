@@ -207,12 +207,14 @@ describe("Basket", () => {
                     >
                       <div
                         className="quantity-increase"
+                        data-testid="increase-tip"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgIncrease) />
                       </div>
                       <div
                         className="quantity-decrease"
+                        data-testid="decrease-tip"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgDecrease) />
@@ -294,15 +296,19 @@ describe("Basket", () => {
                     >
                       <div
                         className="quantity-increase"
+                        data-testid="meal-quantity-increase"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgIncrease) />
                       </div>
-                      <span>
+                      <span
+                        data-testid="meal-quantity"
+                      >
                         1
                       </span>
                       <div
                         className="quantity-decrease"
+                        data-testid="meal-quantity-decrease"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgDecrease) />
@@ -329,15 +335,19 @@ describe("Basket", () => {
                     >
                       <div
                         className="quantity-increase"
+                        data-testid="meal-quantity-increase"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgIncrease) />
                       </div>
-                      <span>
+                      <span
+                        data-testid="meal-quantity"
+                      >
                         1
                       </span>
                       <div
                         className="quantity-decrease"
+                        data-testid="meal-quantity-decrease"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgDecrease) />
@@ -407,12 +417,14 @@ describe("Basket", () => {
                     >
                       <div
                         className="quantity-increase"
+                        data-testid="increase-tip"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgIncrease) />
                       </div>
                       <div
                         className="quantity-decrease"
+                        data-testid="decrease-tip"
                         onClick={[Function]}
                       >
                         <ForwardRef(SvgDecrease) />
