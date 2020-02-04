@@ -1,20 +1,20 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Menu from "./Menu";
+import Menu from './Menu';
 
-jest.mock("react-scroll", () => ({
-  Link: "Link"
+jest.mock('react-scroll', () => ({
+  Link: 'Link'
 }));
 
-jest.mock("../Basket/Basket", () => "Basket");
+jest.mock('../Basket/Basket', () => 'Basket');
 
-describe("Menu", () => {
+describe('Menu', () => {
   let props;
 
   beforeEach(() => {
     props = {
-      basket: ["item1", "item2", "item3"],
+      basket: ['item1', 'item2', 'item3'],
       incQuantity: jest.fn(),
       decQuantity: jest.fn(),
       incTip: jest.fn(),
@@ -24,7 +24,7 @@ describe("Menu", () => {
     };
   });
 
-  it("renders the Menu correctly", () => {
+  it('renders the Menu correctly', () => {
     const wrapper = shallow(<Menu {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
       <div

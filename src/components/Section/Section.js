@@ -1,9 +1,9 @@
-import React from "react";
-import PropType from "prop-types";
+import React from 'react';
+import PropType from 'prop-types';
 
-import "./Section.css";
+import './Section.css';
 
-import Card from "./Card/Card";
+import Card from './Card/Card';
 
 function Section(props) {
   const { anchor, sectionTitle, menus, basket, addMeal } = props;

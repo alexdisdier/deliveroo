@@ -1,7 +1,7 @@
-import React from "react";
-import PropType from "prop-types";
+import React from 'react';
+import PropType from 'prop-types';
 
-import "./Footer.css";
+import './Footer.css';
 
 function Footer(props) {
   const { scrollToTop } = props;

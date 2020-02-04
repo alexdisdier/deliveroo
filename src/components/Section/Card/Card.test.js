@@ -1,55 +1,56 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Card from "./Card";
+import Card from './Card';
 
-import "./Card.css";
+import './Card.css';
 
-describe("Card", () => {
+describe('Card', () => {
   let props;
 
   beforeEach(() => {
     props = {
-      title: "title",
-      description: "description",
-      price: "10",
-      id: "id",
+      title: 'title',
+      description: 'description',
+      price: '10',
+      id: 'id',
       addMeal: jest.fn(),
-      picture: "picture",
+      picture: 'picture',
       popular: false,
       quantity: 0
     };
   });
 
-  describe("action", () => {
-    it("adds a meal to basket", () => {
+  describe('action', () => {
+    it('adds a meal to basket', () => {
       const wrapper = shallow(<Card {...props} />);
 
       // Test className before card has been added
-      expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
+      expect(wrapper.find('.card').hasClass('card-inactive')).toEqual(true);
 
       wrapper
-        .find("div")
+        .find('div')
         .at(0)
-        .simulate("click");
+        .simulate('click');
 
       expect(props.addMeal).toHaveBeenCalledTimes(1);
       expect(props.addMeal).toHaveBeenCalledWith({
-        id: "id",
-        name: "title",
-        price: "10",
+        id: 'id',
+        name: 'title',
+        price: '10',
         quantity: 1
       });
     });
   });
 
-  describe("render()", () => {
-    it("renders the Card correctly with card-inactive class and stars for popular items", () => {
+  describe('render()', () => {
+    it('renders the Card correctly with card-inactive class and stars for popular items', () => {
       props.popular = true;
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
         <div
           className="card card-inactive"
+          data-testid="card-meal"
           onClick={[Function]}
         >
           <div
@@ -107,101 +108,103 @@ describe("Card", () => {
       `);
     });
 
-    it("renders card-active class", () => {
+    it('renders card-active class', () => {
       props.quantity = 1;
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
+        <div
+          className="card card-active"
+          data-testid="card-meal"
+          onClick={[Function]}
+        >
+          <div
+            className="card-content"
+          >
             <div
-              className="card card-active"
-              onClick={[Function]}
+              className="card-quantity"
             >
-              <div
-                className="card-content"
-              >
-                <div
-                  className="card-quantity"
-                >
-                  1
-                  x
-                </div>
-                <h6
-                  className="card-title"
-                >
-                  title
-                </h6>
-                <LinesEllipsis
-                  basedOn="letters"
-                  className="card-description"
-                  component="div"
-                  ellipsis="..."
-                  maxLine="2"
-                  onReflow={[Function]}
-                  text="description"
-                  trimRight={true}
-                />
-                <span
-                  className="card-price"
-                >
-                  10
-                   €
-                </span>
-                <span />
-              </div>
-              <div
-                className="card-img"
-                style={
-                  Object {
-                    "backgroundImage": "url(picture)",
-                  }
-                }
-              />
+              1
+              x
             </div>
-        `);
+            <h6
+              className="card-title"
+            >
+              title
+            </h6>
+            <LinesEllipsis
+              basedOn="letters"
+              className="card-description"
+              component="div"
+              ellipsis="..."
+              maxLine="2"
+              onReflow={[Function]}
+              text="description"
+              trimRight={true}
+            />
+            <span
+              className="card-price"
+            >
+              10
+               €
+            </span>
+            <span />
+          </div>
+          <div
+            className="card-img"
+            style={
+              Object {
+                "backgroundImage": "url(picture)",
+              }
+            }
+          />
+        </div>
+      `);
     });
 
-    it("renders the Card correctly with card-inactive class and no stars", () => {
+    it('renders the Card correctly with card-inactive class and no stars', () => {
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
-            <div
-              className="card card-inactive"
-              onClick={[Function]}
+        <div
+          className="card card-inactive"
+          data-testid="card-meal"
+          onClick={[Function]}
+        >
+          <div
+            className="card-content"
+          >
+            <h6
+              className="card-title"
             >
-              <div
-                className="card-content"
-              >
-                <h6
-                  className="card-title"
-                >
-                  title
-                </h6>
-                <LinesEllipsis
-                  basedOn="letters"
-                  className="card-description"
-                  component="div"
-                  ellipsis="..."
-                  maxLine="2"
-                  onReflow={[Function]}
-                  text="description"
-                  trimRight={true}
-                />
-                <span
-                  className="card-price"
-                >
-                  10
-                   €
-                </span>
-                <span />
-              </div>
-              <div
-                className="card-img"
-                style={
-                  Object {
-                    "backgroundImage": "url(picture)",
-                  }
-                }
-              />
-            </div>
-        `);
+              title
+            </h6>
+            <LinesEllipsis
+              basedOn="letters"
+              className="card-description"
+              component="div"
+              ellipsis="..."
+              maxLine="2"
+              onReflow={[Function]}
+              text="description"
+              trimRight={true}
+            />
+            <span
+              className="card-price"
+            >
+              10
+               €
+            </span>
+            <span />
+          </div>
+          <div
+            className="card-img"
+            style={
+              Object {
+                "backgroundImage": "url(picture)",
+              }
+            }
+          />
+        </div>
+      `);
     });
   });
 });

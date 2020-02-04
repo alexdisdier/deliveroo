@@ -1,9 +1,9 @@
-import React from "react";
-import PropType from "prop-types";
+import React from 'react';
+import PropType from 'prop-types';
 
-import LinesEllipsis from "react-lines-ellipsis";
+import LinesEllipsis from 'react-lines-ellipsis';
 
-import "./Card.css";
+import './Card.css';
 
 function Card(props) {
   const {
@@ -33,14 +33,15 @@ function Card(props) {
     popularDiv = <span className="card-popular">{star} populaire</span>;
 
   if (quantity > 0) {
-    active = "card-active";
+    active = 'card-active';
     quantityDiv = <div className="card-quantity">{quantity}x</div>;
   } else {
-    active = "card-inactive";
+    active = 'card-inactive';
   }
 
   return (
     <div
+      data-testid="card-meal"
       className={`card ${active}`}
       onClick={() => {
         addMeal({
