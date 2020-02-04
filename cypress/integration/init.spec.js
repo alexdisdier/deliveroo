@@ -4,11 +4,11 @@ describe('Deliveroo', () => {
   })
 
   it('adds 2 meals and a tip', () => {
-    // cy.getByTestId('meal-quantity').should('eq', 0);
-    cy.getByTestId('card-meal').first().click()
-    // cy.getByTestId('meal-quantity').should('eq', 1);
+    cy.getByTestId('card-meal').first().click();
+    cy.getByTestId('meal-quantity').should('have.text', '1');
 
-    cy.getByTestId('card-meal').eq(2).click()
+    cy.getByTestId('card-meal').eq(2).click();
+
     cy.getByTestId('increase-tip').click()
   })
 
