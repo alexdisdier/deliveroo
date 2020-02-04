@@ -1,25 +1,25 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Basket from "./Basket";
+import Basket from './Basket';
 
-describe("Basket", () => {
+describe('Basket', () => {
   let props;
 
   beforeEach(() => {
     props = {
       basket: [
         {
-          id: "id1",
+          id: 'id1',
           quantity: 1,
           price: 10,
-          name: "item1"
+          name: 'item1'
         },
         {
-          id: "id2",
+          id: 'id2',
           quantity: 1,
           price: 10,
-          name: "item2"
+          name: 'item2'
         }
       ],
       incTip: jest.fn(),
@@ -30,77 +30,81 @@ describe("Basket", () => {
     };
   });
 
-  describe("actions", () => {
-    it("increments a meal by 1", () => {
+  describe('actions', () => {
+    it('increments a meal by 1 and submit basket', () => {
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".quantity-increase")
+        .find('.quantity-increase')
         .at(0)
-        .simulate("click");
+        .simulate('click');
 
       expect(props.incQuantity).toHaveBeenCalledTimes(1);
-      expect(props.incQuantity).toHaveBeenCalledWith("id1");
+      expect(props.incQuantity).toHaveBeenCalledWith('id1');
+
+      wrapper.find('[data-testid="submit-basket"]').simulate('click');
+
+      expect(wrapper.find('.btn-basket').hasClass('btn-enabled')).toEqual(true);
     });
 
-    it("decrements a meal by 1 if number of meals > 0", () => {
+    it('decrements a meal by 1 if number of meals > 0', () => {
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".quantity-decrease")
+        .find('.quantity-decrease')
         .at(0)
-        .simulate("click");
+        .simulate('click');
 
       expect(props.decQuantity).toHaveBeenCalledTimes(1);
-      expect(props.decQuantity).toHaveBeenCalledWith("id1");
+      expect(props.decQuantity).toHaveBeenCalledWith('id1');
     });
 
-    it("removes a meal from basket if number of meals === 1", () => {
+    it('removes a meal from basket if number of meals === 1', () => {
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".quantity-decrease")
+        .find('.quantity-decrease')
         .at(0)
-        .simulate("click");
+        .simulate('click');
 
       expect(props.decQuantity).toHaveBeenCalledTimes(1);
-      expect(props.decQuantity).toHaveBeenCalledWith("id1");
+      expect(props.decQuantity).toHaveBeenCalledWith('id1');
     });
 
-    it("increments tipping by 1", () => {
+    it('increments tipping by 1', () => {
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".tip")
+        .find('.tip')
         .at(0)
-        .find(".quantity-increase")
-        .simulate("click");
+        .find('.quantity-increase')
+        .simulate('click');
 
       expect(props.incTip).toHaveBeenCalledTimes(1);
     });
 
-    it("decrements tipping by 1", () => {
+    it('decrements tipping by 1', () => {
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".tip")
+        .find('.tip')
         .at(0)
-        .find(".quantity-decrease")
-        .simulate("click");
+        .find('.quantity-decrease')
+        .simulate('click');
 
       expect(props.decTip).toHaveBeenCalledTimes(1);
     });
 
-    it("cannot decrement tipping by 1 if tipping is 0", () => {
+    it('cannot decrement tipping by 1 if tipping is 0', () => {
       props.tip = 0;
 
       const wrapper = shallow(<Basket {...props} />);
 
       wrapper
-        .find(".tip")
+        .find('.tip')
         .at(0)
-        .find(".quantity-decrease")
-        .simulate("click");
+        .find('.quantity-decrease')
+        .simulate('click');
 
       expect(props.decTip).toHaveBeenCalledTimes(1);
       expect(
@@ -111,8 +115,8 @@ describe("Basket", () => {
     });
   });
 
-  describe("renders", () => {
-    it("the validate my basket button is disabled", () => {
+  describe('renders', () => {
+    it('the validate my basket button is disabled', () => {
       props.basket = [];
       const wrapper = shallow(<Basket {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
@@ -139,6 +143,8 @@ describe("Basket", () => {
               </div>
               <div
                 className="btn-basket btn-disabled"
+                data-testid="submit-basket"
+                onClick={[Function]}
               >
                 Valider mon panier
               </div>
@@ -248,7 +254,7 @@ describe("Basket", () => {
       `);
     });
 
-    it("the Basket", () => {
+    it('the Basket', () => {
       const wrapper = shallow(<Basket {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
         <div
@@ -274,6 +280,8 @@ describe("Basket", () => {
               </div>
               <div
                 className="btn-basket btn-enabled"
+                data-testid="submit-basket"
+                onClick={[Function]}
               >
                 Valider mon panier
               </div>

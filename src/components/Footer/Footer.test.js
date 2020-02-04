@@ -1,9 +1,9 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Footer from "./Footer";
+import Footer from './Footer';
 
-describe("Footer", () => {
+describe('Footer', () => {
   let props;
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe("Footer", () => {
     };
   });
 
-  it("renders the footer correctly", () => {
+  it('renders the footer correctly', () => {
     const wrapper = shallow(<Footer {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
 <footer>
@@ -26,10 +26,10 @@ describe("Footer", () => {
 `);
   });
 
-  it("scrolls top of page when clicked on haut de la page", () => {
+  it('scrolls top of page when clicked on haut de la page', () => {
     const wrapper = shallow(<Footer {...props} />);
 
-    wrapper.find("a").simulate("click");
+    wrapper.find('a').simulate('click');
 
     expect(props.scrollToTop).toHaveBeenCalledTimes(1);
   });

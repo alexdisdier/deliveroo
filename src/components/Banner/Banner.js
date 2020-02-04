@@ -1,9 +1,9 @@
-import React from "react";
-import PropType from "prop-types";
+import React from 'react';
+import PropType from 'prop-types';
 
-import LinesEllipsis from "react-lines-ellipsis";
+import LinesEllipsis from 'react-lines-ellipsis';
 
-import "./Banner.css";
+import './Banner.css';
 
 function Banner(props) {
   const {

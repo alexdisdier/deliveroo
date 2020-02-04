@@ -1,22 +1,22 @@
-import React, { useState, useCallback } from "react";
-import axios from "axios";
+import React, { useState, useCallback } from 'react';
+import axios from 'axios';
 import {
   Element,
   Events,
   animateScroll as scroll,
   scrollSpy
-} from "react-scroll";
+} from 'react-scroll';
 
-import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
-import Menu from "./components/Menu/Menu";
-import Section from "./components/Section/Section";
-import Footer from "./components/Footer/Footer";
+import Header from './components/Header/Header';
+import Banner from './components/Banner/Banner';
+import Menu from './components/Menu/Menu';
+import Section from './components/Section/Section';
+import Footer from './components/Footer/Footer';
 
-import { API_MENU } from "./constant/api";
+import { API_MENU } from './constant/api';
 
-import "./assets/css/reset.css";
-import "./App.css";
+import './assets/css/reset.css';
+import './App.css';
 
 /*
  great source on useEffect and fetching data: https://www.robinwieruch.de/react-hooks-fetch-data/
@@ -50,14 +50,14 @@ function App() {
 
       fetchData();
 
-      Events.scrollEvent.register("begin", function(to, element) {});
-      Events.scrollEvent.register("end", function(to, element) {});
+      Events.scrollEvent.register('begin', function(to, element) {});
+      Events.scrollEvent.register('end', function(to, element) {});
 
       scrollSpy.update();
     },
     [],
-    Events.scrollEvent.remove("begin"),
-    Events.scrollEvent.remove("end")
+    Events.scrollEvent.remove('begin'),
+    Events.scrollEvent.remove('end')
   );
 
   const scrollToTop = useCallback(() => {
@@ -134,8 +134,8 @@ function App() {
       const menus = menu[category];
 
       for (let i = 0; i < menus.length; i++) {
-        menus[i]["selected"] = false;
-        menus[i]["quantity"] = 0;
+        menus[i]['selected'] = false;
+        menus[i]['quantity'] = 0;
       }
 
       if (menus.length > 1) {
@@ -173,7 +173,7 @@ function App() {
       <Footer scrollToTop={scrollToTop} />
     </div>
   ) : (
-    "ADD LOADING COMPONENT ..."
+    'ADD LOADING COMPONENT ...'
   );
 }
 

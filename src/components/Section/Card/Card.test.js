@@ -1,50 +1,50 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Card from "./Card";
+import Card from './Card';
 
-import "./Card.css";
+import './Card.css';
 
-describe("Card", () => {
+describe('Card', () => {
   let props;
 
   beforeEach(() => {
     props = {
-      title: "title",
-      description: "description",
-      price: "10",
-      id: "id",
+      title: 'title',
+      description: 'description',
+      price: '10',
+      id: 'id',
       addMeal: jest.fn(),
-      picture: "picture",
+      picture: 'picture',
       popular: false,
       quantity: 0
     };
   });
 
-  describe("action", () => {
-    it("adds a meal to basket", () => {
+  describe('action', () => {
+    it('adds a meal to basket', () => {
       const wrapper = shallow(<Card {...props} />);
 
       // Test className before card has been added
-      expect(wrapper.find(".card").hasClass("card-inactive")).toEqual(true);
+      expect(wrapper.find('.card').hasClass('card-inactive')).toEqual(true);
 
       wrapper
-        .find("div")
+        .find('div')
         .at(0)
-        .simulate("click");
+        .simulate('click');
 
       expect(props.addMeal).toHaveBeenCalledTimes(1);
       expect(props.addMeal).toHaveBeenCalledWith({
-        id: "id",
-        name: "title",
-        price: "10",
+        id: 'id',
+        name: 'title',
+        price: '10',
         quantity: 1
       });
     });
   });
 
-  describe("render()", () => {
-    it("renders the Card correctly with card-inactive class and stars for popular items", () => {
+  describe('render()', () => {
+    it('renders the Card correctly with card-inactive class and stars for popular items', () => {
       props.popular = true;
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
@@ -108,7 +108,7 @@ describe("Card", () => {
       `);
     });
 
-    it("renders card-active class", () => {
+    it('renders card-active class', () => {
       props.quantity = 1;
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
@@ -161,7 +161,7 @@ describe("Card", () => {
       `);
     });
 
-    it("renders the Card correctly with card-inactive class and no stars", () => {
+    it('renders the Card correctly with card-inactive class and no stars', () => {
       const wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchInlineSnapshot(`
         <div

@@ -1,14 +1,32 @@
-import React, { useState } from "react";
-import PropType from "prop-types";
-import { ReactComponent as Increase } from "../../assets/img/increase.svg";
-import { ReactComponent as Decrease } from "../../assets/img/decrease.svg";
+import React, { useState } from 'react';
+import PropType from 'prop-types';
+import { ReactComponent as Increase } from '../../assets/img/increase.svg';
+import { ReactComponent as Decrease } from '../../assets/img/decrease.svg';
 
-import "./Basket.css";
+import './Basket.css';
+
+const CLEAR_SUBMIT_TIMER = 3000;
 
 function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
   const [showBasket, showBasketHandler] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
-  const toggleBasket = () => showBasketHandler(!showBasket);
+  let timer;
+
+  const toggleBasket = () => {
+    window.clearTimeout(timer);
+    showBasketHandler(!showBasket);
+  }
+
+  const submitHandler = () => {
+    window.clearTimeout(timer);
+    setSubmit(true);
+
+    timer = window.setTimeout(() => {
+      setSubmit(false);
+      alert('Up to you to get your basket delivered, 😉')
+    }, CLEAR_SUBMIT_TIMER);
+  }
 
   // Calculation Variables.
   const deliveryFee = 2.5;
@@ -22,7 +40,7 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
 
   return (
     <div
-      className={`basket-wrapper ${basket.length === 0 ? "hide-mobile" : ""}`}
+      className={`basket-wrapper ${basket.length === 0 ? 'hide-mobile' : ''}`}
     >
       <div className="basket">
         <div className="basket-panel">
@@ -35,19 +53,21 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
             </div>
           </div>
           <div
+            data-testid="submit-basket"
+            onClick={submitHandler}
             className={`btn-basket ${
-              basket.length === 0 ? "btn-disabled" : "btn-enabled"
+              basket.length === 0 || submit ? 'btn-disabled' : 'btn-enabled'
             }`}
           >
             Valider mon panier
           </div>
         </div>
-        <div className={`basket-extend ${!showBasket && "hide-mobile"}`}>
+        <div className={`basket-extend ${!showBasket && 'hide-mobile'}`}>
           <div className="basket-content">
             <ul className="basket-content-list">
               {basket.map((e, index) => {
-                let price = (Number(e.price) * e.quantity).toFixed(2);
-                beforeFee = beforeFee + Number(price);
+                const price = (Number(e.price) * e.quantity).toFixed(2);
+                beforeFee += Number(price);
                 afterFee = beforeFee + deliveryFee + tip;
                 return (
                   <li key={index} className="basket-item">
@@ -82,7 +102,7 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
 
           <div
             className={`basket-fees-container  ${
-              basket.length === 0 ? "hide" : ""
+              basket.length === 0 ? 'hide' : ''
             }`}
           >
             <ul className="basket-fees-content">
@@ -97,20 +117,28 @@ function Basket({ basket, incTip, decTip, tip, incQuantity, decQuantity }) {
             </ul>
           </div>
 
-          <div className={basket.length === 0 ? "basket-empty" : ""}>
+          <div className={basket.length === 0 ? 'basket-empty' : ''}>
             {totalDiv}
           </div>
           <div
-            className={`basket-footer  ${basket.length === 0 ? "hide" : ""}`}
+            className={`basket-footer  ${basket.length === 0 ? 'hide' : ''}`}
           >
             <ul>
               <li className="basket-net-fees-item">
                 <span className="tip-text">Pourboire livreur</span>
                 <div className="quantity-control tip">
-                  <div data-testid="increase-tip" className="quantity-increase" onClick={() => incTip()}>
+                  <div
+                    data-testid="increase-tip"
+                    className="quantity-increase"
+                    onClick={() => incTip()}
+                  >
                     {<Increase />}
                   </div>
-                  <div data-testid="decrease-tip" className="quantity-decrease" onClick={() => decTip()}>
+                  <div
+                    data-testid="decrease-tip"
+                    className="quantity-decrease"
+                    onClick={() => decTip()}
+                  >
                     {<Decrease />}
                   </div>
                 </div>

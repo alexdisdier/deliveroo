@@ -23,15 +23,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "e2e": "cypress open",
+    "cy": "cypress open",
     "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
     "cov": "npm t -- --coverage --watchAll=false",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -42,6 +40,8 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.17.0",
     "cypress": "^3.8.3",
-    "eslint-plugin-cypress": "^2.8.1"
+    "eslint-plugin-cypress": "^2.8.1",
+    "i": "^0.3.6",
+    "npm": "^6.13.7"
   }
 }

@@ -1,24 +1,24 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Banner from "./Banner";
+import Banner from './Banner';
 
-jest.mock("react-lines-ellipsis", () => "LinesEllipsis");
+jest.mock('react-lines-ellipsis', () => 'LinesEllipsis');
 
-describe("Banner", () => {
+describe('Banner', () => {
   let props;
 
   beforeEach(() => {
     props = {
       restaurant: {
-        name: "name",
-        description: "description",
-        picture: "picture"
+        name: 'name',
+        description: 'description',
+        picture: 'picture'
       }
     };
   });
 
-  it("renders the Banner correctly", () => {
+  it('renders the Banner correctly', () => {
     const wrapper = shallow(<Banner {...props} />);
     expect(wrapper).toMatchInlineSnapshot(`
       <div

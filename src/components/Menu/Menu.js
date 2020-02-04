@@ -1,12 +1,12 @@
-import React from "react";
-import PropType from "prop-types";
+import React from 'react';
+import PropType from 'prop-types';
 
-import { Link } from "react-scroll";
+import { Link } from 'react-scroll';
 // source for smooth scroll: https://www.npmjs.com/package/react-scroll
 
-import "./Menu.css";
+import './Menu.css';
 
-import Basket from "../Basket/Basket";
+import Basket from '../Basket/Basket';
 
 function Menu(props) {
   const {

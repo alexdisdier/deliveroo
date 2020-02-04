@@ -21,8 +21,8 @@ This is a clone of the Deliveroo website (for the restaurant Pain Quotidien) bui
 
 You will find three branches:
 
-- **master** optimized version using react hooks and testing
-- **initial** original version
+- **master** optimized version using react hooks, unit and integration testing
+- **initial** original version using class components
 - **redux** using redux and hooks
 
 ## Usage example
@@ -66,7 +66,11 @@ Unit test
 npm run test
 ```
 
-End-to-end using [cypress](https://www.cypress.io/)
+End-to-end
+
+```bash
+npm run cy
+```
 
 ## Built With
 
@@ -75,6 +79,7 @@ End-to-end using [cypress](https://www.cypress.io/)
 - [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
 - [React.js](https://reactjs.org/docs/hello-world.html)
 - [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
+- [cypress](https://www.cypress.io/)
 
 ## Acknowledgments
 
