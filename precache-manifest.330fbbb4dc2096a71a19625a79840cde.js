@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b11566a27a100724dc627a8e0292f003",
+    "revision": "019b53dd78ae3158799a207fd1688df2",
     "url": "/deliveroo/index.html"
   },
   {
-    "revision": "28bcc555a77478175414",
-    "url": "/deliveroo/static/css/main.1eabb8d7.chunk.css"
+    "revision": "9c33e63ea88b456334ae",
+    "url": "/deliveroo/static/css/main.7a1b6c79.chunk.css"
   },
   {
-    "revision": "61d7601a2d37cba0d0f6",
-    "url": "/deliveroo/static/js/2.485dd752.chunk.js"
+    "revision": "172c3e64c7dcf1fc5cf0",
+    "url": "/deliveroo/static/js/2.faa30718.chunk.js"
   },
   {
-    "revision": "28bcc555a77478175414",
-    "url": "/deliveroo/static/js/main.9935bc10.chunk.js"
+    "revision": "9c33e63ea88b456334ae",
+    "url": "/deliveroo/static/js/main.cf182475.chunk.js"
   },
   {
     "revision": "8ccf28ce089c8d6c3c5f",
