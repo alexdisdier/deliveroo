@@ -46,6 +46,10 @@ git clone https://github.com/alexdisdier/deliveroo.git
 cd deliveroo
 ```
 
+```bash
+npm install
+```
+
 Start the server:
 
 ```bash

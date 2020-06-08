@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {
   Element,
   Events,
@@ -13,7 +13,7 @@ import Menu from './components/Menu/Menu';
 import Section from './components/Section/Section';
 import Footer from './components/Footer/Footer';
 
-import { API_MENU } from './constant/api';
+import STATIC_API from './assets/deliveroo-api.json'
 
 import './assets/css/reset.css';
 import './App.css';
@@ -37,10 +37,8 @@ function App() {
         setLoading(true);
 
         try {
-          const response = await axios.get(API_MENU);
-
-          setRestaurant(response.data.restaurant);
-          setMenu(response.data.menu);
+          setRestaurant(STATIC_API.restaurant);
+          setMenu(STATIC_API.menu);
         } catch (error) {
           setIsError(true);
         }
