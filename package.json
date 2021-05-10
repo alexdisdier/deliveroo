@@ -9,7 +9,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "gh-pages": "^2.0.1",
     "jest-enzyme": "^7.0.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
