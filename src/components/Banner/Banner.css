@@ -39,10 +39,11 @@
 .banner h3 {
   padding: 0 0 16px 0;
   font-size: 28px;
-  font-family: "Stratos Deliveroo Web";
-  font-weight: 400;
+  font-family: var(--font-family-main);
+  font-weight: 700;
   line-height: 28px;
   color: #2e3333;
+  letter-spacing: -0.5px;
 }
 
 .banner-description {

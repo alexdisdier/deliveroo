@@ -1,40 +1,41 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import axios from 'axios';
-
-import App from './App';
-
 /**
  * Unit tests should be run in isolation;
  * Thus we shouldn't make any external calls to the server.
  * Mocking axios module
  * makes unit tests independent of the network
  */
+ import React from 'react';
+import { shallow } from 'enzyme';
+
+import App from './App';
+ 
 jest.mock('axios');
 
-jest.mock('react-scroll', () => ({
-  Element: 'Element',
-  Events: {
-    scrollEvent: {
-      remove: () => {},
-      register: () => {}
-    }
-  },
-  animateScroll: 'animateScroll',
-  scrollSpy: {
-    update: () => {}
-  }
-}));
-
-jest.mock('./components/Header/Header', () => 'Header');
-jest.mock('./components/Banner/Banner', () => 'Banner');
-jest.mock('./components/Menu/Menu', () => 'Menu');
-jest.mock('./components/Section/Section', () => 'Section');
-jest.mock('./components/Footer/Footer', () => 'Footer');
+ jest.mock('react-scroll', () => ({
+   Element: 'Element',
+   Events: {
+     scrollEvent: {
+       remove: () => {},
+       register: () => {}
+     }
+   },
+   animateScroll: 'animateScroll',
+   scrollSpy: {
+     update: () => {}
+   }
+ }));
+ 
+ jest.mock('./components/Header/Header', () => 'Header');
+ jest.mock('./components/Banner/Banner', () => 'Banner');
+ jest.mock('./components/Menu/Menu', () => 'Menu');
+ jest.mock('./components/Section/Section', () => 'Section');
+ jest.mock('./components/Footer/Footer', () => 'Footer');
 
 describe('App', () => {
   let useEffect;
   let props;
+  // var is actually used
+  // eslint-disable-next-line no-unused-vars
   let wrapper;
 
   const mockUseEffect = () => {
