@@ -32,14 +32,18 @@
 }
 
 .card-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   position: relative;
   margin-bottom: auto;
+  height: 100%;
 }
 
 .card h6 {
   display: inline;
   font-size: 16px;
+  font-weight: 400;
   line-height: 22px;
   color: #2e3333;
 }
@@ -51,6 +55,7 @@
 }
 
 .card-description {
+  flex-grow: 1;
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: 14px;
@@ -60,6 +65,7 @@
 
 .card-price {
   margin: 8px 8px 0 0;
+  font-weight: 400;
 }
 
 .card-popular {

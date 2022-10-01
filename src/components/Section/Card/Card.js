@@ -53,8 +53,10 @@ function Card(props) {
       }}
     >
       <div className="card-content">
-        {quantityDiv}
-        <h6 className="card-title">{title}</h6>
+        <div>
+          {quantityDiv}
+          <h6 className="card-title">{title}</h6>
+        </div>
         <LinesEllipsis
           className="card-description"
           text={description}
@@ -63,8 +65,10 @@ function Card(props) {
           trimRight
           basedOn="letters"
         />
-        <span className="card-price">{price}&nbsp;€</span>
-        <span>{popularDiv}</span>
+        <div>
+          <span className="card-price">{price}&nbsp;€</span>
+          <span>{popularDiv}</span>
+        </div>
       </div>
       <div
         className="card-img"

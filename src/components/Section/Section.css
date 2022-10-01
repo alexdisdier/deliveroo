@@ -5,8 +5,8 @@
 section h3 {
   padding: 48px 0 16px 0;
   font-size: 28px;
-  font-family: "Stratos Deliveroo Web";
-  font-weight: 400;
+  font-family: var(--font-family-main);
+  font-weight: 700;
 }
 
 .cards-container {
