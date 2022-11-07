@@ -88,7 +88,7 @@
         "price": "6.90",
         "img": {
           "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/salade_de_fruits.webp",
-          "jpg": "https://f.roocdn.com/images/menu_items/2549378/item-image.jpg"
+          "jpg": ""
         }
       },
       {
@@ -150,7 +150,7 @@
         "price": "6.60",
         "img": {
           "webp": "",
-          "jpg": "https://f.roocdn.com/images/menu_items/3637782/item-image.jpg" 
+          "jpg": "" 
         }
       },
       {
@@ -179,7 +179,7 @@
         "price": "6.60",
         "img": {
           "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
-          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+          "jpg":""
         },
         "popular": true
       },
@@ -191,7 +191,7 @@
         "price": "6.60",
         "img": {
           "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
-          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+          "jpg":""
         }
       },
       {
@@ -202,7 +202,7 @@
         "price": "6.60",
         "img": {
           "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
-          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+          "jpg":""
         }
       },
       {
@@ -231,7 +231,7 @@
         "price": "6.60",
         "img": {
           "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/flute_raisins.webp",
-          "jpg": "https://f.roocdn.com/images/menu_items/2549462/item-image.jpg"
+          "jpg": ""
         }
       },
       {
