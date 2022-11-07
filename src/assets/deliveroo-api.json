@@ -10,7 +10,10 @@
     "address": "8 Rue de Bretagne, 75003 Paris",
     "delay": "10 - 20 Mins (Au plus tôt)",
     "description": "Profitez de chaque plaisir de la vie quotidienne. Le Pain Quotidien propose des ingrédients simples et sains, du bon pain, des fruits et des légumes frais et de saison issus de l’agriculture biologique.",
-    "picture": "https://f.roocdn.com/images/menus/17697/header-image.jpg",
+    "img": {
+      "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851153/clone-deliveroo/header-image.webp",
+      "jpg": ""
+    },
     "client_address": {
       "coordinates": [2.36051359999999, 48.8737157],
       "locality": "Paris",
@@ -29,7 +32,10 @@
         "title": "Brunch authentique 1 personne",
         "description": "Assiette de jambon cuit, jambon fumeì, terrine, comté bio & camembert bio, salade jeunes pousses, oeuf poché bio, pain bio & confiture, 1 viennoiserie bio au choix, granola parfait bio, jus de fruits 33cl au choix",
         "price": "25.00",
-        "picture": "https://f.roocdn.com/images/menu_items/1583350/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851152/clone-deliveroo/brunch_authentique.webp",
+          "jpg": ""
+        },
         "popular": true
       },
       {
@@ -37,7 +43,10 @@
         "title": "Brunch vegan",
         "description": "Falafels bio, houmous bio, avocat aux super graines bio, lentilles au paprika, herbes fraîches, houmous de carotte et légumes de saison, soupe du jour bio, pain bio & confiture, crunola parfait aux fruits de saison, flûte aux raisins et noisettes, jus de fruits 33cl au choix",
         "price": "25.00",
-        "picture": "https://f.roocdn.com/images/menu_items/3905693/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851150/clone-deliveroo/brunch_vegan.webp",
+          "jpg": ""
+        }
       }
     ],
     "Petit déjeuner": [
@@ -58,7 +67,10 @@
         "title": "Granola parfait bio",
         "description": "Yaourt, granola, et fruits frais de saison",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1323271/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/yaourt_granola.webp",
+          "jpg": ""
+        },
         "popular": true
       },
       {
@@ -74,7 +86,10 @@
         "title": "Salade de fruits bio de saison",
         "description": "Pomme, ananas, kiwi, orange, grenade, myrtilles",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/2549378/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/salade_de_fruits.webp",
+          "jpg": "https://f.roocdn.com/images/menu_items/2549378/item-image.jpg"
+        }
       },
       {
         "id": "1519055545-95",
@@ -97,7 +112,10 @@
         "title": "Bircher Muesli",
         "description": "Muesli maison bio, boisson à l’amande bio, fruits de\nsaison et super graines bio (VEGAN)",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/5250391/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/bircher_muesli.webp",
+          "jpg": ""
+        }
       }
     ],
     "Viennoiseries et pains": [
@@ -107,7 +125,10 @@
         "title": "Croissant bio",
         "description": "",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1323282/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/croissant.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-99",
@@ -115,7 +136,10 @@
         "title": "Pain au chocolat bio",
         "description": "",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1323287/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/pain_au_chocolat.webp",
+          "jpg": ""
+        },
         "popular": true
       },
       {
@@ -124,7 +148,10 @@
         "title": "Pain au raisins bio",
         "description": "",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/3637782/item-image.jpg"
+        "img": {
+          "webp": "",
+          "jpg": "https://f.roocdn.com/images/menu_items/3637782/item-image.jpg" 
+        }
       },
       {
         "id": "1519055545-101",
@@ -132,7 +159,10 @@
         "title": "Baguette à l'ancienne bio",
         "description": "300g",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1583350/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/baguette.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-102",
@@ -147,7 +177,10 @@
         "title": "Muffin bio myrtilles (100% végétalien)",
         "description": "Vegan",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/2020235/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
+          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+        },
         "popular": true
       },
       {
@@ -155,14 +188,22 @@
         "web-scraper-start-url": "https://deliveroo.fr/fr/menu/paris/3eme-temple/le-pain-quotidien-bretagne",
         "title": "Muffin bio pomme cannelle",
         "description": "",
-        "price": "6.60"
+        "price": "6.60",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
+          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+        }
       },
       {
         "id": "1519055545-105",
         "web-scraper-start-url": "https://deliveroo.fr/fr/menu/paris/3eme-temple/le-pain-quotidien-bretagne",
         "title": "Muffin banane chocolat bio",
         "description": "",
-        "price": "6.60"
+        "price": "6.60",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/muffin.webp",
+          "jpg":"https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667574400/clone-deliveroo/muffin.jpg"
+        }
       },
       {
         "id": "1519055545-106",
@@ -170,7 +211,10 @@
         "title": "Pain multi-céréales sans gluten",
         "description": "350g",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1323275/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851152/clone-deliveroo/pain_multi_cereales.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-107",
@@ -185,14 +229,21 @@
         "title": "Flûte raisins et noisettes bio",
         "description": "",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/2549462/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851155/clone-deliveroo/flute_raisins.webp",
+          "jpg": "https://f.roocdn.com/images/menu_items/2549462/item-image.jpg"
+        }
       },
       {
         "id": "1519055545-109",
         "web-scraper-start-url": "https://deliveroo.fr/fr/menu/paris/3eme-temple/le-pain-quotidien-bretagne",
         "title": "Baguette Graines de Potiron & Tournesol",
         "description": "300g",
-        "price": "6.60"
+        "price": "6.60",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/baguette.webp",
+          "jpg": ""
+        }
       }
     ],
     "Salades": [
@@ -202,7 +253,10 @@
         "title": "César BLT",
         "description": "Poulet, parmesan, avocat, croûtons, bacon, chips de légumes, jeunes pousses, kale et tomates cerises",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/2018213/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/cesar_blt.webp",
+          "jpg": ""
+        },
         "popular": true
       },
       {
@@ -211,7 +265,10 @@
         "title": "Buddha bowl",
         "description": "Saumon fumé, avocat, super graines bio, lentilles au parika, chou rouge, concombre, jeunes pousses",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/1323292/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851153/clone-deliveroo/buddha_bowl.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-112",
@@ -219,7 +276,10 @@
         "title": "Veggie Bowl",
         "description": "Sarrasin bio, quinoa bio, houmous de carottes, lentilles au paprika, courge butternut, grenade, avocat, caviar d'algues, chips de légumes bio",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/2549941/item-image.jpg"
+        "img":{
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851152/clone-deliveroo/veggie_bowl.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-113",
@@ -227,7 +287,10 @@
         "title": "Falafel Bowl",
         "description": "Quinoa bio, houmous bio, carottes, chou rouge, pousses d’épinard, sauce tahini et pain de saison (VEGAN)",
         "price": "6.60",
-        "picture": "https://f.roocdn.com/images/menu_items/5250423/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851153/clone-deliveroo/falafel_bowl.webp",
+          "jpg": ""
+        },
         "popular": true
       },
       {
@@ -259,7 +322,10 @@
         "title": "Toast avocat bio (100% végétalien)",
         "description": "Purée d'avocat bio et gomasio bio",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/1323299/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851151/clone-deliveroo/toast_avocado.webp",
+          "jpg": "" 
+        }
       },
       {
         "id": "1519055545-118",
@@ -282,7 +348,10 @@
         "title": "Tartine Jambon Blanc & Comté Bio",
         "description": "",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/4607227/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851150/clone-deliveroo/tartine_jambon_blanc.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-121",
@@ -290,7 +359,10 @@
         "title": "Tartine Houmous de Carotte & Féta",
         "description": "Super graines bio, grenade, concombre et roquette (Végétarien)",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/5250426/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851153/clone-deliveroo/tartine_houmus_carotte.webp",
+          "jpg": ""
+        }
       }
     ],
     "Soupe & plats chauds": [
@@ -314,7 +386,10 @@
         "title": "Pot-au-feu de légumes bio, curry bio  et poulet grillé",
         "description": "",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/1493250/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851154/clone-deliveroo/pot_au_feu.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-124",
@@ -330,7 +405,10 @@
         "title": "Chili sin carne (vegan)",
         "description": "3 haricots, purée avocat, spécialité au soja bio & cebettes",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/4607228/item-image.jpg"
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851152/clone-deliveroo/chili_sin_carne.webp",
+          "jpg": ""
+        }
       },
       {
         "id": "1519055545-128",
@@ -338,7 +416,10 @@
         "title": "Curry de Coco aux Légumes",
         "description": "Servi avec sarrasin bio et chutney de cassis au gingembre (VEGAN)",
         "price": "6.90",
-        "picture": "https://f.roocdn.com/images/menu_items/5250429/item-image.jpg",
+        "img": {
+          "webp": "https://res.cloudinary.com/dvrkxmxkw/image/upload/v1667851153/clone-deliveroo/curry_de_coco.webp",
+          "jpg": "" 
+        },
         "popular": true
       }
     ],
