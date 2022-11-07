@@ -15,7 +15,10 @@ describe('Card', () => {
       price: '10',
       id: 'id',
       addMeal: jest.fn(),
-      picture: 'picture',
+      img: {
+        webp: 'https://img.webp',
+        jpg: 'https://img.jpg'
+      },
       popular: false,
       quantity: 0
     };
@@ -104,7 +107,7 @@ describe('Card', () => {
             className="card-img"
             style={
               Object {
-                "backgroundImage": "url(picture)",
+                "backgroundImage": "url(\\"https://img.webp\\")",
               }
             }
           />
@@ -161,7 +164,7 @@ describe('Card', () => {
             className="card-img"
             style={
               Object {
-                "backgroundImage": "url(picture)",
+                "backgroundImage": "url(\\"https://img.webp\\")",
               }
             }
           />
@@ -211,7 +214,7 @@ describe('Card', () => {
             className="card-img"
             style={
               Object {
-                "backgroundImage": "url(picture)",
+                "backgroundImage": "url(\\"https://img.webp\\")",
               }
             }
           />

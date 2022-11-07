@@ -14,7 +14,10 @@ module.exports = {
               title: 'Brunch authentique 1 personne',
               description: 'Assiette de jambon cuit',
               price: '25.00',
-              picture: 'https://item-image.jpg',
+              img: {
+                webp: 'https://item-image.webp',
+                jpg: 'https://item-image.jpg'
+              },
               popular: true
             },
             {
@@ -22,7 +25,10 @@ module.exports = {
               title: 'Brunch vegan',
               description: 'Falafels bio, houmous bio',
               price: '25.00',
-              picture: 'https://photo.jpg'
+              img: {
+                webp: 'https://photo.webp',
+                jpg: 'https://photo.jpg'
+              }
             }
           ]
         }

@@ -13,7 +13,10 @@ describe('Banner', () => {
       restaurant: {
         name: 'name',
         description: 'description',
-        picture: 'picture'
+        img: {
+          webp: 'https://img.webp',
+          jpg: 'https://img.jpg'
+        }
       }
     };
   });
@@ -46,7 +49,7 @@ describe('Banner', () => {
             className="banner-img"
             style={
               Object {
-                "backgroundImage": "url(picture)",
+                "backgroundImage": "url(\\"https://img.webp\\")",
               }
             }
           />

@@ -10,12 +10,25 @@ function Card(props) {
     title,
     description,
     price,
-    picture,
+    img,
     popular,
     id,
     quantity,
     addMeal
   } = props;
+
+  // eslint-disable-next-line no-unused-vars
+  const { webp = '', jpg = ''} = img || {};  
+
+  const cardImgStyle = {
+    backgroundImage: `url("${webp}")`,
+    // Webp Fallback to jpg
+    // eslint-disable-next-line no-dupe-keys
+    // backgroundImage: `image-set(url("${webp}") 1x,
+    // url("${jpg}")
+    // 1x)`
+  }
+
   let star = (
     <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -72,7 +85,7 @@ function Card(props) {
       </div>
       <div
         className="card-img"
-        style={{ backgroundImage: `url(${picture})` }}
+        style={cardImgStyle}
       />
     </div>
   );
@@ -84,7 +97,10 @@ Card.propTypes = {
   price: PropType.string,
   id: PropType.string,
   addMeal: PropType.func.isRequired,
-  picture: PropType.string,
+  img: PropType.shape({
+    webp: PropType.string,
+    jpg: PropType.string,
+  }),
   popular: PropType.bool,
   quantity: PropType.number
 };
